@@ -13,9 +13,7 @@ public class TransformBinder : MonoBehaviour
         distance = transform.position - target.position;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void LateUpdate() {
         transform.position = target.position + distance;
     }
 }
