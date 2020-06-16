@@ -60,7 +60,7 @@ public class PlayerAnimation : MonoBehaviour
         {
             if (anim.name == animationName) {
                 anim.Play();
-                break;
+                return;
             }
         }
         Debug.LogWarning("Cant find animation named '" + animationName + "' !");
