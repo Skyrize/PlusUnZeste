@@ -3485,6 +3485,7 @@ GameObject:
   - component: {fileID: 418239814}
   - component: {fileID: 418239815}
   - component: {fileID: 8296172669332786250}
+  - component: {fileID: 8296172669332786251}
   m_Layer: 0
   m_Name: Lemon
   m_TagString: Untagged
@@ -3513,3 +3514,40 @@ MonoBehaviour:
     duration: 0.3
     scale: {x: 2.5, y: 1.8, z: 2.5}
     ease: 6
+--- !u!114 &8296172669332786251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172669332786249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 279170d7446b9ab41ade0bea8f9a06bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actualHealth: 100
+  maxHealth: 100
+  onHealEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8296172669332786250}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Squeeze
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onLifeUpdate:
+    m_PersistentCalls:
+      m_Calls: []
