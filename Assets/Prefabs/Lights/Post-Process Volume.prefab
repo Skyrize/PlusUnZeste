@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1676814058637001834}
   - component: {fileID: 1676814058637001835}
+  - component: {fileID: 7090564111938059557}
   m_Layer: 0
   m_Name: Post-Process Volume
   m_TagString: Untagged
@@ -48,3 +49,19 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: a16caa76c45682c43a4983e13dd64cd0, type: 2}
+--- !u!114 &7090564111938059557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676814058637001833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d38e8d48a8c9d24e90c25dda24a329c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAnimations:
+  - name: Win
+    targetValue: 100
+    animationDuration: 1
