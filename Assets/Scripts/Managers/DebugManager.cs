@@ -22,7 +22,7 @@ public class DebugManager : MonoBehaviour
     }
     private void Awake() {
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        // DontDestroyOnLoad(this.gameObject);
     }
     public void CreateDebugArrow(ContactPoint contactPoint, bool reverse = false)
     {

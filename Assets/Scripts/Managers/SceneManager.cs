@@ -18,8 +18,12 @@ public class SceneManager : MonoBehaviour
         }
 
     }
-
     public void LoadScene(string sceneName)
+    {
+        Manager.LoadScene(sceneName);
+    }
+
+    public void LoadSceneAsyncro(string sceneName)
     {
         StartCoroutine(LoadSceneAsync(sceneName));
     }

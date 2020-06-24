@@ -20,6 +20,18 @@ public class EjectOnTouch : MonoBehaviour
         }
     }
 
+    // private void OnTriggerEnter(Collider other) {
+    //     GameProperty properties = other.gameObject.GetComponent<GameProperty>();
+    //     Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+
+    //     if (properties && rb && properties.HasProperty(GameProperty.Property.EJECTABLE)) {
+    //         Vector3 direction = other.gameObject.transform.position - transform.position;
+    //         direction.Normalize();
+    //         rb.AddForce(direction * ejectionForce, ForceMode.Impulse);
+    //     }
+        
+    // }
+
     private void Awake() {
         if (!hitBox)
             hitBox = GetComponentInChildren<Collider>();

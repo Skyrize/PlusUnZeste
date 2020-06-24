@@ -23,7 +23,8 @@ public class JumpComponent : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-            CanJump = true;        
+        if (other.gameObject.tag != "Trigger")
+            CanJump = true;
     }
 
     // Update is called once per frame

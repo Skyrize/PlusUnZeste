@@ -10,12 +10,14 @@ public class Timer : MonoBehaviour
 
     private IEnumerator _Delay(float delayInSeconds)
     {
+        Debug.Log("Waiting " + delayInSeconds);
         yield return new WaitForSeconds(delayInSeconds);
+        Debug.Log("Waited " + delayInSeconds);
         onTimerReached.Invoke();
     }
     
     public void Delay(float delayInSeconds)
     {
-        StartCoroutine(_Delay(delayInSeconds));
+        this.StartCoroutine(_Delay(delayInSeconds));
     }
 }
