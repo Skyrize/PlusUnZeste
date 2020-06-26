@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4696673943445454351}
   m_Layer: 0
   m_Name: kitchenStove
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

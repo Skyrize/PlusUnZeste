@@ -7,7 +7,8 @@ public class GameProperty : MonoBehaviour
 {
     public enum Property
     {
-        EJECTABLE
+        EJECTABLE,
+        FLOAT
     }
 
     [SerializeField]

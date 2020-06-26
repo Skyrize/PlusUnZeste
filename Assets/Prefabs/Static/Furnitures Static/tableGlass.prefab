@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3157793513751831859}
   m_Layer: 0
   m_Name: tableGlass
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

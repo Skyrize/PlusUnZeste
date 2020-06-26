@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 4777151073350656567}
   m_Layer: 0
   m_Name: deskCorner
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

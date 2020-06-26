@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3270347695319317804}
   m_Layer: 0
   m_Name: lampSquareCeiling
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8003104967896712486}
   m_Layer: 0
   m_Name: kitchenCabinetUpperCorner
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

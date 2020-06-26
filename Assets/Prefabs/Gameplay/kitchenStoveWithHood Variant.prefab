@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 1060214796342824465, guid: 2bdef5db96e0e774db1935a407852f72,
         type: 3}
       propertyPath: m_Name
-      value: kitchenStoveWithHood
+      value: kitchenStoveWithHood Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bdef5db96e0e774db1935a407852f72, type: 3}
@@ -146,6 +146,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8715230278900288020, guid: c56516890f5b8034ea3384c128e7593f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c56516890f5b8034ea3384c128e7593f, type: 3}

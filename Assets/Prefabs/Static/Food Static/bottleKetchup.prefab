@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 237153596394830903}
   m_Layer: 0
   m_Name: bottleKetchup
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

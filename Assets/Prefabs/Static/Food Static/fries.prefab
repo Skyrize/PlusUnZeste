@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4459194223802358945}
   m_Layer: 0
   m_Name: fries
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

@@ -15,6 +15,7 @@ public class JumpComponent : MonoBehaviour
     [SerializeField] private bool CanJump = false;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class JumpComponent : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.tag != "Trigger")
+        if (other.gameObject.tag != "Trigger" && other.GetContact(0).point.y < transform.position.y && other.gameObject.tag == "Walkable")
             CanJump = true;
     }
 

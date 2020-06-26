@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 723621575576230624}
   m_Layer: 0
   m_Name: banana
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

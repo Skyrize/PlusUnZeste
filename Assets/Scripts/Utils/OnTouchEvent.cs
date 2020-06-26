@@ -10,6 +10,7 @@ public class CollisionEvent : UnityEvent<GameObject>
 
 public class OnTouchEvent : MonoBehaviour
 {
+    [Header("Events")]
     [SerializeField] private CollisionEvent onTouch = new CollisionEvent();
 
     private void OnCollisionEnter(Collision other) {

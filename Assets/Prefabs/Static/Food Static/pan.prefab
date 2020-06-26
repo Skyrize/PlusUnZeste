@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4766785701894883030}
   m_Layer: 0
   m_Name: pan
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

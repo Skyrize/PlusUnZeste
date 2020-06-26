@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1246664599242082114}
   m_Layer: 0
   m_Name: pizza
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

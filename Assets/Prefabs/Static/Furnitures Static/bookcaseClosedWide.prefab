@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7188350340302514945}
   m_Layer: 0
   m_Name: bookcaseClosedWide
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

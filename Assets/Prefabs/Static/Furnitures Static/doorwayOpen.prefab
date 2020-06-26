@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1769090260223065352}
   m_Layer: 0
   m_Name: doorwayOpen
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

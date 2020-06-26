@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 6435146711302512968}
   m_Layer: 0
   m_Name: kitchenCoffeeMachine
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

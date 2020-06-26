@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2929602192894972827}
   m_Layer: 0
   m_Name: plate
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

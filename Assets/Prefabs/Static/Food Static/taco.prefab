@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2854851856545280081}
   m_Layer: 0
   m_Name: taco
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

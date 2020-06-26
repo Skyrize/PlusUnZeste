@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5917338024515161423}
   m_Layer: 0
   m_Name: makiRoe
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
