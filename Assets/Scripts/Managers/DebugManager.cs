@@ -9,6 +9,8 @@ public class DebugManager : MonoBehaviour
     static private DebugManager _instance = null;
     static public DebugManager instance {
         get {
+            if (_instance == null)
+                Debug.LogException(new System.Exception("Asking for instance too early (awake)"));
             return DebugManager._instance;
         }
 
