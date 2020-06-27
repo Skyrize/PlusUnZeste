@@ -20,6 +20,12 @@ public class SphereMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    public void Stop()
+    {
+        rb.velocity = Vector3.zero;
+        // rb.rotation = Quaternion.identity;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

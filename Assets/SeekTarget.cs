@@ -78,13 +78,13 @@ public class SeekTarget : MonoBehaviour
         if (seeTarget || targetHidden) {
             // Debug.Log("Start Lost !");
             onLost.Invoke();
-            view.transform.rotation = camBaseRotation;
+            // view.transform.rotation = camBaseRotation;
             damageTimer = 1;
             seeTarget = false;
             targetHidden = false;
             // view.transform.parent.transform.rotation = rotation;
             displayView.color = Color.white;
-            GetComponent<Animator>().SetBool("IsMoving", false);
+            // GetComponent<Animator>().SetBool("IsMoving", false);
         }
         // Debug.Log("Lost !");
     }

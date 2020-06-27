@@ -9,6 +9,14 @@ public class CameraController : MonoBehaviour
     [Header("Runtime")]
     [SerializeField] private float xInput = 0;
 
+    private void Start() {
+        xInput = transform.rotation.eulerAngles.y;    
+    }
+    public void LookAt(Transform target)
+    {
+        LookAt(target.position);
+    }
+
     public void LookAt(Vector3 target)
     {
         transform.LookAt(target);

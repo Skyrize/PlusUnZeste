@@ -37,6 +37,14 @@ public class CookerController : MonoBehaviour
     [SerializeField] private bool moving = false;
     [SerializeField] private Transform target = null;
 
+    public void SetDestination(Transform targetDestination)
+    {
+        target = targetDestination;
+        agent.SetDestination(target.position);
+        animator.SetBool("IsMoving", true);
+        moving = true;
+    }
+
     public void MoveToWaypoint()
     {
         target = WaypointManager.instance.GetRandomWaypoint();
@@ -56,11 +64,27 @@ public class CookerController : MonoBehaviour
         shouldReturnHome = true;
     }
 
+    private void Awake() {
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+    }
+
+    public void SetIdleTime()
+    {
+        idleTime = Random.Range(minIdleTime, maxIdleTime);
+    }
+    public void ResetIdleTime()
+    {
+        idleTime = Random.Range(minIdleTime, maxIdleTime);
+        if (shouldReturnHome) {
+            idleTime = Random.Range(minHomeTime, maxHomeTime);
+            shouldReturnHome = false;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
 
         moving = false;
         idleTime = Random.Range(minIdleTime, maxIdleTime);
@@ -74,6 +98,7 @@ public class CookerController : MonoBehaviour
 
     public void Idle()
     {
+        Debug.Log("Idle ?");
         moving = false;
         animator.SetBool("IsMoving", false);
         idleTime = Random.Range(minIdleTime, maxIdleTime);
@@ -88,6 +113,7 @@ public class CookerController : MonoBehaviour
     {
         if (moving) {
             if (agent.remainingDistance != Mathf.Infinity && agent.pathStatus==NavMeshPathStatus.PathComplete && agent.remainingDistance== 0) {
+                    Debug.Log("At dest ! idle" + target.name + " " + Vector3.Distance(transform.position, target.position));
                 Idle();
             }
         } else {
@@ -96,6 +122,7 @@ public class CookerController : MonoBehaviour
                     MoveToWaypoint();
                     wander--;
                 } else {
+                    Debug.Log("Go home");
                     ReturnHome();
                 }
             } else {

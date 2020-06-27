@@ -42,4 +42,9 @@ public class DebugManager : MonoBehaviour
         arrow.transform.LookAt(lookAt);
     }
 
+    public void Log(string message)
+    {
+        Debug.Log(message);
+    }
+
 }
