@@ -10,7 +10,11 @@ public class MixerManager : MonoBehaviour
 
     public void SetVolume(string mixerName, float value)
     {
-        mixer.SetFloat(mixerName, Mathf.Log10(value) * 20 + 5);
+        if (value == 0) {
+            mixer.SetFloat(mixerName, -80);
+        } else {
+            mixer.SetFloat(mixerName, Mathf.Log10(value) * 20 + 5);
+        }
     }
     
     public void SetMasterVolume(float value)
