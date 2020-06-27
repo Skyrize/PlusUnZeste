@@ -8,11 +8,7 @@ using Manager = UnityEngine.SceneManagement.SceneManager
 public class MusicManager : MonoBehaviour
 {
     private AudioManager audioManager = null;
-
-    public void PlayMenuMusic()
-    {
-
-    }
+    private bool inGame = false;
 
     private void Awake() {
         audioManager = GetComponent<AudioManager>();
@@ -22,27 +18,32 @@ public class MusicManager : MonoBehaviour
     private int musicIndex = 0;
 
     private void Update() {
-        if (timer <= 0) {
-            audioManager.Play(musicIndex);
-            timer = audioManager.GetClipLenght();
-            musicIndex++;
-        if (musicIndex == 4)
-            musicIndex = 0;
+        if (inGame) {
 
-        } else {
-            timer -= Time.deltaTime;
+            if (timer <= 0) {
+                audioManager.Play(musicIndex);
+                timer = audioManager.GetClipLenght();
+                musicIndex++;
+            if (musicIndex == 4)
+                musicIndex = 0;
+
+            } else {
+                timer -= Time.deltaTime;
+            }
         }
     }
 
-    // Start is called before the first frame update
-    // void Start()
-    // {
-    //     Debug.Log("A retirer");
-    //     if (Manager.GetActiveScene().name == "MainMenu") {
-    //         PlayMenuMusic();
-    //     } else {
-    //         PlayGameMusic();
-    //     } 
-    // }
+    void Start()
+    {
+        if (Manager.GetActiveScene().name == "Main Menu") {
+            GetComponent<AudioSource>().loop = true;
+            GetComponent<AudioSource>().clip = audioManager.GetClip("MenuMusic");
+            GetComponent<AudioSource>().Play();
+            inGame = false;
+        } else {
+            inGame = true;
+            
+        } 
+    }
 
 }

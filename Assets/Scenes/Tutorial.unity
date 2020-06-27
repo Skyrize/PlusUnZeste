@@ -494,9 +494,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6819234208779820170, guid: fe1d5928dda7c1b4087d2d89276771bd,
         type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819234208779820170, guid: fe1d5928dda7c1b4087d2d89276771bd,
+        type: 3}
       propertyPath: onLifeUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 686015875}
+    - target: {fileID: 6819234208779820170, guid: fe1d5928dda7c1b4087d2d89276771bd,
+        type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819234208779820170, guid: fe1d5928dda7c1b4087d2d89276771bd,
+        type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819234208779820170, guid: fe1d5928dda7c1b4087d2d89276771bd,
+        type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 878942586}
+    - target: {fileID: 6819234208779820170, guid: fe1d5928dda7c1b4087d2d89276771bd,
+        type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819234208779820170, guid: fe1d5928dda7c1b4087d2d89276771bd,
+        type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7081561163711645295, guid: fe1d5928dda7c1b4087d2d89276771bd,
         type: 3}
       propertyPath: m_Mesh
@@ -960,65 +990,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &225801539
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 225801540}
-  - component: {fileID: 225801541}
-  - component: {fileID: 225801542}
-  m_Layer: 15
-  m_Name: DeathFloor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 119
-  m_IsActive: 1
---- !u!4 &225801540
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225801539}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4672843798756237823}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &225801541
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225801539}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 100, y: 3, z: 100}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &225801542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225801539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1543bbe406f7c10459272e1f66ef98c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePerTick: 1
-  TickPerSecond: 5
 --- !u!1 &270542458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,7 +1087,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1234
+  m_Name: pb_Mesh-351952
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9008,7 +8979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 582adbd84082fdb4faf7cd4beb1ccd14, type: 2}
   m_StaticLightingSkyUniqueID: 1
-  m_SkySettings: {fileID: 854668728}
+  m_SkySettings: {fileID: 770405200}
   m_SkySettingsFromProfile: {fileID: 448115243408767295, guid: 582adbd84082fdb4faf7cd4beb1ccd14,
     type: 2}
 --- !u!4 &753633142
@@ -9206,6 +9177,107 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 766692884}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &770405200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 11
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  hdriSky:
+    m_OverrideState: 0
+    m_Value: {fileID: 8900000, guid: 54a3a0570aebe8949bec4966f1376581, type: 3}
+  enableBackplate:
+    m_OverrideState: 0
+    m_Value: 0
+  backplateType:
+    m_OverrideState: 0
+    m_Value: 0
+  groundLevel:
+    m_OverrideState: 0
+    m_Value: 0
+  scale:
+    m_OverrideState: 0
+    m_Value: {x: 32, y: 32}
+  projectionDistance:
+    m_OverrideState: 0
+    m_Value: 16
+    min: 0.0000001
+  plateRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexOffset:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0}
+  blendAmount:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 100
+  shadowTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  pointLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  dirLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  rectLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!1001 &809826043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9443,107 +9515,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 406757369}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &854668728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 11
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  hdriSky:
-    m_OverrideState: 0
-    m_Value: {fileID: 8900000, guid: 54a3a0570aebe8949bec4966f1376581, type: 3}
-  enableBackplate:
-    m_OverrideState: 0
-    m_Value: 0
-  backplateType:
-    m_OverrideState: 0
-    m_Value: 0
-  groundLevel:
-    m_OverrideState: 0
-    m_Value: 0
-  scale:
-    m_OverrideState: 0
-    m_Value: {x: 32, y: 32}
-  projectionDistance:
-    m_OverrideState: 0
-    m_Value: 16
-    min: 0.0000001
-  plateRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexOffset:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0}
-  blendAmount:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 100
-  shadowTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  pointLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  dirLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  rectLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!1001 &857638110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9891,6 +9862,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
+            m_BoolArgument: 0
+          m_CallState: 2
     onStepEnd:
       m_PersistentCalls:
         m_Calls:
@@ -9903,6 +9885,17 @@ MonoBehaviour:
             m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
             m_BoolArgument: 0
           m_CallState: 2
   - text: "<b>Contr\xF4les</b>\n\nUtilise <b>ta souris</b> pour <b>tourner</b> la
@@ -9944,6 +9937,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
+            m_BoolArgument: 1
+          m_CallState: 2
     onStepEnd:
       m_PersistentCalls:
         m_Calls:
@@ -9956,6 +9960,17 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
             m_BoolArgument: 0
           m_CallState: 2
   - text: "<b>Dangers</b>\n\nFais <b>attention</b> aux <b>couteaux</b>,\nau <b>feu</b>,
@@ -9997,6 +10012,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
+            m_BoolArgument: 0
+          m_CallState: 2
     onStepEnd:
       m_PersistentCalls:
         m_Calls:
@@ -10020,6 +10046,17 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
             m_BoolArgument: 1
           m_CallState: 2
   - text: '<b>Ne tombe pas !</b>
@@ -10057,6 +10094,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
+            m_BoolArgument: 0
+          m_CallState: 2
     onStepEnd:
       m_PersistentCalls:
         m_Calls:
@@ -10080,6 +10128,17 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
             m_BoolArgument: 1
           m_CallState: 2
   - text: "<b>Cache-toi de Pedro</b>\n\nLe <b>m\xE9chant</b> cuisinier <b>Pedro veut
@@ -10187,6 +10246,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
+            m_BoolArgument: 0
+          m_CallState: 2
     onStepEnd:
       m_PersistentCalls:
         m_Calls:
@@ -10234,6 +10304,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
+            m_BoolArgument: 0
+          m_CallState: 2
   - text: "<b>Rester cach\xE9 !</b>\n\nQuand <b>l'oeil</b> apparait c'est que tu
       es <b>vue !</b>\n\nEn haut \xE0 droite se trouve <b>la Cuisto'vision</b>\nUtilise
       la pour savoir o\xF9 est <b>Pedro</b>\n\nQuand <b>Cuisto'vision</b> devient
@@ -10255,6 +10336,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
+            m_BoolArgument: 1
+          m_CallState: 2
     onStepEnd:
       m_PersistentCalls:
         m_Calls:
@@ -10267,6 +10359,17 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
             m_BoolArgument: 0
           m_CallState: 2
   - text: "<b>A toi la libert\xE9 !</b>\n\nSaute par la <b>fen\xEAtre</b> et vie
@@ -10285,6 +10388,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
+            m_BoolArgument: 1
+          m_CallState: 2
     onStepEnd:
       m_PersistentCalls:
         m_Calls:
@@ -10297,6 +10411,17 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4672843798756237823}
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Tutorial
             m_BoolArgument: 0
           m_CallState: 2
   tutorialTextDisplay: {fileID: 1796854812}
@@ -17295,7 +17420,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: bite
+  m_Text: Tutorial
 --- !u!222 &1796854813
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18848,6 +18973,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1850625697}
   m_PrefabAsset: {fileID: 0}
+--- !u!195 &2098592338 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 6459348065016523295, guid: 91589f0c2d856ec4f8db1940f792a292,
+    type: 3}
+  m_PrefabInstance: {fileID: 6459348065749014077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2133323821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19243,6 +19374,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1282179167438612028, guid: cc570b569683cfc45b7be0d3fc6dfe2f,
+        type: 3}
+      propertyPath: TickPerSecond
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282179167438612028, guid: cc570b569683cfc45b7be0d3fc6dfe2f,
+        type: 3}
+      propertyPath: damagePerTick
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1511999508568855040, guid: cc570b569683cfc45b7be0d3fc6dfe2f,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19343,6 +19484,16 @@ PrefabInstance:
       propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 86180166}
+    - target: {fileID: 4672843799080945478, guid: cc570b569683cfc45b7be0d3fc6dfe2f,
+        type: 3}
+      propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[6].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672843799080945478, guid: cc570b569683cfc45b7be0d3fc6dfe2f,
+        type: 3}
+      propertyPath: onWin.m_PersistentCalls.m_Calls.Array.data[6].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4854655326836432411, guid: cc570b569683cfc45b7be0d3fc6dfe2f,
         type: 3}
       propertyPath: onTimerReached.m_PersistentCalls.m_Calls.Array.size
@@ -19376,7 +19527,7 @@ PrefabInstance:
     - target: {fileID: 4854655326836432411, guid: cc570b569683cfc45b7be0d3fc6dfe2f,
         type: 3}
       propertyPath: onTimerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: MainMenu
+      value: Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 6093548730949374650, guid: cc570b569683cfc45b7be0d3fc6dfe2f,
         type: 3}
@@ -19395,12 +19546,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc570b569683cfc45b7be0d3fc6dfe2f, type: 3}
---- !u!4 &4672843798756237823 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4672843799080945479, guid: cc570b569683cfc45b7be0d3fc6dfe2f,
+--- !u!114 &4672843798756237823 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6682813433427054, guid: cc570b569683cfc45b7be0d3fc6dfe2f,
     type: 3}
   m_PrefabInstance: {fileID: 4672843798756237822}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4161f1152cc5fae4b8eab32e11aa9089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6459348065749014077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19451,7 +19608,7 @@ PrefabInstance:
     - target: {fileID: 6459348065016523289, guid: 91589f0c2d856ec4f8db1940f792a292,
         type: 3}
       propertyPath: onHidden.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6459348065016523289, guid: 91589f0c2d856ec4f8db1940f792a292,
         type: 3}
@@ -19537,11 +19694,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onHidden.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 533299383}
+      objectReference: {fileID: 2098592338}
     - target: {fileID: 6459348065016523289, guid: 91589f0c2d856ec4f8db1940f792a292,
         type: 3}
       propertyPath: onHidden.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_enabled
+      value: ResetPath
       objectReference: {fileID: 0}
     - target: {fileID: 6459348065016523289, guid: 91589f0c2d856ec4f8db1940f792a292,
         type: 3}
@@ -19551,7 +19708,7 @@ PrefabInstance:
     - target: {fileID: 6459348065016523289, guid: 91589f0c2d856ec4f8db1940f792a292,
         type: 3}
       propertyPath: onHidden.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6459348065016523289, guid: 91589f0c2d856ec4f8db1940f792a292,
         type: 3}

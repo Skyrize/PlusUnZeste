@@ -78,7 +78,6 @@ public class CookerController : MonoBehaviour
         idleTime = Random.Range(minIdleTime, maxIdleTime);
         if (shouldReturnHome) {
             idleTime = Random.Range(minHomeTime, maxHomeTime);
-            shouldReturnHome = false;
         }
     }
 
@@ -98,7 +97,6 @@ public class CookerController : MonoBehaviour
 
     public void Idle()
     {
-        Debug.Log("Idle ?");
         moving = false;
         animator.SetBool("IsMoving", false);
         idleTime = Random.Range(minIdleTime, maxIdleTime);
@@ -113,7 +111,6 @@ public class CookerController : MonoBehaviour
     {
         if (moving) {
             if (agent.remainingDistance != Mathf.Infinity && agent.pathStatus==NavMeshPathStatus.PathComplete && agent.remainingDistance== 0) {
-                    Debug.Log("At dest ! idle" + target.name + " " + Vector3.Distance(transform.position, target.position));
                 Idle();
             }
         } else {

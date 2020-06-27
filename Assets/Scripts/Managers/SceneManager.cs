@@ -7,6 +7,11 @@ using Manager = UnityEngine.SceneManagement.SceneManager;
 public class SceneManager : MonoBehaviour
 {
 
+    public void ReloadCurrentScene()
+    {
+        Manager.LoadScene(Manager.GetActiveScene().name);
+    }
+
     IEnumerator LoadSceneAsync(string sceneName)
     {
         AsyncOperation asyncLoad = Manager.LoadSceneAsync(sceneName);

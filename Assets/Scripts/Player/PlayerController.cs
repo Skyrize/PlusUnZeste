@@ -5,12 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private SphereMovement movement = null;
-
-
-    private void Start() {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
     
     // Update is called once per frame
     void Update()

@@ -41,6 +41,16 @@ public class AudioManager : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
+    public AudioClip GetClip(string clipName)
+    {
+        Audio audio = audios.Find((a) => a.name == clipName);
+        
+        if (audio.name == null) {
+            Debug.LogException(new System.Exception("Can't find audio named " + clipName));
+        }
+        return audio.clip;
+    }
+
     public float GetClipLenght()
     {
         return source.clip.length;
