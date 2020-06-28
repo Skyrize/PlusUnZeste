@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07a1e2e3de0d8341b17c82c4e3c0074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagesPerSeconds: 1
+  damagesPerSeconds: 10
   mask:
     serializedVersion: 2
     m_Bits: 97793
@@ -327,8 +327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6682076333f754cafcd1c80254c715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minIdleTime: 6
-  maxIdleTime: 9
+  minIdleTime: 4
+  maxIdleTime: 6
   minHomeTime: 10
   maxHomeTime: 12
   minWanderAmount: 2
@@ -2192,7 +2192,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6459348066891575500}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.065403156, y: 0, z: 0, w: 0.99785894}
   m_LocalPosition: {x: 0, y: 6.5, z: 0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2224,7 +2224,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

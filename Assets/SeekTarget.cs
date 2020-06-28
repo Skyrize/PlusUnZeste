@@ -27,7 +27,7 @@ public class SeekTarget : MonoBehaviour
     [Header("Runtime")]
     [SerializeField] private bool targetHidden = false;
     [SerializeField] private bool seeTarget = false;
-    [SerializeField] private float damageTimer = 1;
+    [SerializeField] private float damageTimer = 0;
     
     private Quaternion camBaseRotation = Quaternion.identity;
 
@@ -66,7 +66,6 @@ public class SeekTarget : MonoBehaviour
             seeTarget = false;
             // Debug.Log("targetHidden start");
             onHidden.Invoke();
-            damageTimer = 1;
             displayView.color = cameraColorOnHidden;
             GetComponent<Animator>().SetBool("IsMoving", false);
         }
@@ -79,7 +78,7 @@ public class SeekTarget : MonoBehaviour
             // Debug.Log("Start Lost !");
             onLost.Invoke();
             // view.transform.rotation = camBaseRotation;
-            damageTimer = 1;
+            damageTimer = 0;
             seeTarget = false;
             targetHidden = false;
             // view.transform.parent.transform.rotation = rotation;

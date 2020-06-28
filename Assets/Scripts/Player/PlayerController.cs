@@ -12,6 +12,5 @@ public class PlayerController : MonoBehaviour
         movement.direction.x = Input.GetAxis("Horizontal");
         movement.direction.z = Input.GetAxis("Vertical");
         movement.direction.Normalize();
-        movement.direction = transform.forward * movement.direction.z + transform.right * movement.direction.x;
     }
 }

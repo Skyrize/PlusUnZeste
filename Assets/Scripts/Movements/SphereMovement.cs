@@ -33,8 +33,8 @@ public class SphereMovement : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        movement = direction * speed;
-        direction = pivot.forward * movement.z + pivot.right * movement.x;
+        movement = pivot.forward * direction.z + pivot.right * direction.x;
+        movement *= speed;
         rb.AddForce(movement);
     }
 }

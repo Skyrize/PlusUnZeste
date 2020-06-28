@@ -4779,7 +4779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1543bbe406f7c10459272e1f66ef98c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerTick: 1
+  damagePerTick: 8
   TickPerSecond: 1
 --- !u!1 &9035150170422251305
 GameObject:
