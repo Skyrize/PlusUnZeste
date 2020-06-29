@@ -11,6 +11,8 @@ public class ScaleAnimation
     [SerializeField] protected float duration = 1f;
     [SerializeField] protected Vector3 scale = new Vector3(2f, 2f, 2f);
     [SerializeField] protected bool reverse = true;
+    [SerializeField] protected int loops = 0;
+    [SerializeField] protected LoopType loopType = LoopType.Yoyo;
     public string name {
         get {
             return _name;
@@ -27,6 +29,7 @@ public class ScaleAnimation
             animation.Append(target.DOScale(scale, duration));
         }
         animation.SetAutoKill(false);
+        animation.SetLoops(loops, loopType);
         animation.Pause();
         
     }
@@ -39,6 +42,9 @@ public class ScaleAnimation
 
 public class TweenAnimation : MonoBehaviour
 {
+    [Header("Animations")]
+    [SerializeField]
+    private int awakeAnimationIndex = -1;
     [SerializeField]
     private ScaleAnimation[] animations = null;
 
@@ -48,6 +54,9 @@ public class TweenAnimation : MonoBehaviour
         foreach (ScaleAnimation animation in animations)
         {
             animation.Initialize(transform);
+        }
+        if (awakeAnimationIndex != -1) {
+            Play(awakeAnimationIndex);
         }
     }
 

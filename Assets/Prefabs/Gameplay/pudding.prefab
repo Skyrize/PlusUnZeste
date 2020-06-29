@@ -126,11 +126,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8972d310518364a8e98cf3dd981be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  awakeAnimationIndex: 1
   animations:
   - _name: Bounce
     duration: 0.3
     scale: {x: 2, y: 0.8, z: 2}
     reverse: 1
+    loops: 0
+    loopType: 1
+  - _name: Jiggle
+    duration: 1
+    scale: {x: 1.3, y: 0.8, z: 1.3}
+    reverse: 1
+    loops: -1
+    loopType: 1
 --- !u!114 &6975197710655339483
 MonoBehaviour:
   m_ObjectHideFlags: 0

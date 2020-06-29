@@ -8,6 +8,7 @@ public class ForceApplier : MonoBehaviour
     [SerializeField] private ForceMode forceMode = ForceMode.VelocityChange;
 
     public void ApplyForceTo(GameObject target) {
+        target.GetComponent<Rigidbody>().velocity = Vector3.zero;
         target.GetComponent<Rigidbody>().AddForce(force, forceMode);
     }
 }

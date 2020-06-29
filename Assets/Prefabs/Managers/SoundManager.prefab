@@ -168,3 +168,9 @@ MonoBehaviour:
     minVolume: 0.2
     maxPitch: 1
     minPitch: 1
+  - name: Alert
+    clip: {fileID: 8300000, guid: 7d13a1664656a544ead4fa3b87396baa, type: 3}
+    maxVolume: 0.2
+    minVolume: 0.2
+    maxPitch: 1
+    minPitch: 1
