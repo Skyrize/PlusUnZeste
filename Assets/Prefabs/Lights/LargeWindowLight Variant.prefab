@@ -8,10 +8,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4802547116413339026, guid: 417acae65415dc3469c5a3673a7a3065, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4802547116413339026, guid: 417acae65415dc3469c5a3673a7a3065, type: 3}
       propertyPath: m_AreaSize.y
       value: 6.5
       objectReference: {fileID: 0}

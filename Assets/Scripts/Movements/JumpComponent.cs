@@ -8,6 +8,10 @@ public class JumpComponent : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private float jumpDelay = .1f;
+    [SerializeField] private float feetYOffset = .1f;
+    [SerializeField] private float feetRadius = .3f;
+    [SerializeField] private float feetSideOffset = .3f;
+    [SerializeField] private LayerMask groundMask;
     [SerializeField] private UnityEvent onJump = new UnityEvent();
     [Header("References")]
     [SerializeField] private Rigidbody rb;
@@ -26,19 +30,31 @@ public class JumpComponent : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.tag != "Trigger" && other.GetContact(0).point.y < transform.position.y && other.gameObject.tag == "Walkable")
+            return;
+        bool isBellowY = other.GetContact(0).point.y - feetYOffset < transform.position.y;
+        bool isBellowX = Mathf.Abs(other.GetContact(0).point.x - transform.position.x) < feetSideOffset;
+        bool isBellowZ = Mathf.Abs(other.GetContact(0).point.z - transform.position.z) < feetSideOffset;
+        bool isBellow = isBellowX && isBellowY && isBellowZ;
+        if (other.gameObject.tag != "Trigger" && isBellow) {
             isGrounded = true;
+            Debug.Log("hit" + other.GetContact(0).point.ToString());
+            Debug.DrawRay(other.GetContact(0).point, Vector3.right * 10f, Color.red, 2);
+            Debug.DrawRay(other.GetContact(0).point, -Vector3.right * 10f, Color.red, 2);
+            Debug.DrawRay(other.GetContact(0).point, Vector3.forward * 10f, Color.red, 2);
+            Debug.DrawRay(other.GetContact(0).point, -Vector3.forward * 10f, Color.red, 2);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (jumpTimer <= 0) {
-            canJump = true;
-        } else {
-            jumpTimer -= Time.deltaTime;
-        }
-        if (canJump && Input.GetButtonDown(Keycode.space)) {
+        isGrounded = Physics.CheckSphere(transform.position - Vector3.up * feetYOffset, feetRadius, groundMask);
+        // if (jumpTimer <= 0) {
+        //     canJump = true;
+        // } else {
+        //     jumpTimer -= Time.deltaTime;
+        // }
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space)) {
             Jump(Vector3.up * jumpForce);
         }
     }
@@ -51,6 +67,12 @@ public class JumpComponent : MonoBehaviour
         canJump = false;
         jumpTimer = jumpDelay;
         onJump.Invoke();
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.yellow;
+        // Gizmos.DrawWireCube(transform.position - Vector3.up * feetYOffset - Vector3.up * feetSideOffset / 2f, Vector3.one * feetSideOffset);
+        Gizmos.DrawWireSphere(transform.position - Vector3.up * feetYOffset, feetRadius);
     }
 
 }
