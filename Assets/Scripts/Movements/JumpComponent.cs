@@ -7,18 +7,14 @@ public class JumpComponent : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float jumpForce = 10;
-    [SerializeField] private float jumpDelay = .1f;
     [SerializeField] private float feetYOffset = .1f;
     [SerializeField] private float feetRadius = .3f;
-    [SerializeField] private float feetSideOffset = .3f;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private UnityEvent onJump = new UnityEvent();
     [Header("References")]
     [SerializeField] private Rigidbody rb;
     [Header("Runtime")]
     [SerializeField] private bool isGrounded = false;
-    [SerializeField] private bool canJump = true;
-    [SerializeField] private float jumpTimer = 0f;
 
 
 
@@ -29,21 +25,20 @@ public class JumpComponent : MonoBehaviour
             rb = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionEnter(Collision other) {
-            return;
-        bool isBellowY = other.GetContact(0).point.y - feetYOffset < transform.position.y;
-        bool isBellowX = Mathf.Abs(other.GetContact(0).point.x - transform.position.x) < feetSideOffset;
-        bool isBellowZ = Mathf.Abs(other.GetContact(0).point.z - transform.position.z) < feetSideOffset;
-        bool isBellow = isBellowX && isBellowY && isBellowZ;
-        if (other.gameObject.tag != "Trigger" && isBellow) {
-            isGrounded = true;
-            Debug.Log("hit" + other.GetContact(0).point.ToString());
-            Debug.DrawRay(other.GetContact(0).point, Vector3.right * 10f, Color.red, 2);
-            Debug.DrawRay(other.GetContact(0).point, -Vector3.right * 10f, Color.red, 2);
-            Debug.DrawRay(other.GetContact(0).point, Vector3.forward * 10f, Color.red, 2);
-            Debug.DrawRay(other.GetContact(0).point, -Vector3.forward * 10f, Color.red, 2);
-        }
-    }
+    // private void OnCollisionEnter(Collision other) {
+    //     bool isBellowY = other.GetContact(0).point.y - feetYOffset < transform.position.y;
+    //     bool isBellowX = Mathf.Abs(other.GetContact(0).point.x - transform.position.x) < feetSideOffset;
+    //     bool isBellowZ = Mathf.Abs(other.GetContact(0).point.z - transform.position.z) < feetSideOffset;
+    //     bool isBellow = isBellowX && isBellowY && isBellowZ;
+    //     if (other.gameObject.tag != "Trigger" && isBellow) {
+    //         isGrounded = true;
+    //         Debug.Log("hit" + other.GetContact(0).point.ToString());
+    //         Debug.DrawRay(other.GetContact(0).point, Vector3.right * 10f, Color.red, 2);
+    //         Debug.DrawRay(other.GetContact(0).point, -Vector3.right * 10f, Color.red, 2);
+    //         Debug.DrawRay(other.GetContact(0).point, Vector3.forward * 10f, Color.red, 2);
+    //         Debug.DrawRay(other.GetContact(0).point, -Vector3.forward * 10f, Color.red, 2);
+    //     }
+    // }
 
     // Update is called once per frame
     void Update()
@@ -64,8 +59,6 @@ public class JumpComponent : MonoBehaviour
         
         rb.AddForce(direction, ForceMode.Impulse);
         isGrounded = false;
-        canJump = false;
-        jumpTimer = jumpDelay;
         onJump.Invoke();
     }
 

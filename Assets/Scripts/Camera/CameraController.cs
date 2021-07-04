@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        xInput += Input.GetAxisRaw("Mouse X");
-        transform.rotation = Quaternion.Euler(0, xInput * speed, 0);
+        xInput += Input.GetAxisRaw("Mouse X") * Time.deltaTime * speed;
+        transform.rotation = Quaternion.Euler(0, xInput, 0);
     }
 }
