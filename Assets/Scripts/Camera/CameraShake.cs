@@ -24,6 +24,10 @@ public class CameraShake : MonoBehaviour
         done = false;
 
         while (elapsed < duration) {
+            if (Time.deltaTime == 0) {
+                yield return null;
+                continue;
+            }
             float x = Random.Range(-1, 1) * magnitude;
             float y = Random.Range(-1, 1) * magnitude;
 

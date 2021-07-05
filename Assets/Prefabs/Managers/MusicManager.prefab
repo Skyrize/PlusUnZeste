@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 21887962826939189}
   - component: {fileID: 21887962826939186}
   - component: {fileID: 21887962826939187}
-  - component: {fileID: 21887962826939188}
+  - component: {fileID: 393842103947397106}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -42,13 +42,12 @@ AudioSource:
   m_GameObject: {fileID: 21887962826939190}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 3179797247097744345, guid: 3d6fa4ec9e60ced4a84e4721e7e24757,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 3179797247097744345, guid: 3d6fa4ec9e60ced4a84e4721e7e24757, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -175,7 +174,7 @@ MonoBehaviour:
     minVolume: 1
     maxPitch: 1
     minPitch: 1
---- !u!114 &21887962826939188
+--- !u!114 &393842103947397106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,3 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce667e00b742ea41ab5b92b5f90c23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeOutDuration: 0.8
+  fadeInDuration: 0.2
+  levelMusic: GameMusic1

@@ -1,49 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Manager = UnityEngine.SceneManagement.SceneManager
-;
+using DG.Tweening;
 
 [RequireComponent(typeof(AudioManager))]
 public class MusicManager : MonoBehaviour
 {
+    [Header("Settings")]
+    [SerializeField] private float fadeOutDuration = 0.8f;
+    [SerializeField] private float fadeInDuration = 0.4f;
+    [SerializeField] private string levelMusic = "GameMusic1";
+    private string current = "";
     private AudioManager audioManager = null;
-    private bool inGame = false;
+    private AudioSource audioSource = null;
 
-    private void Awake() {
-        audioManager = GetComponent<AudioManager>();
+    public void PlayInstant(string name) {
+        if (current == name)
+            return;
+        audioSource.Stop();
+        current = name;
+        audioManager.Play(name);
     }
 
-    private float timer = 0;
-    private int musicIndex = 0;
+    IEnumerator _PlaySmooth(string name)
+    {
+        float volume = audioSource.volume;
+        audioSource.DOFade(0, fadeOutDuration);
+        yield return new WaitForSeconds(fadeOutDuration);
+        audioSource.Stop();
+        audioManager.Play(name);
+        audioSource.DOFade(volume, fadeInDuration);
+    }
 
-    private void Update() {
-        if (inGame) {
-
-            if (timer <= 0) {
-                audioManager.Play(musicIndex);
-                timer = audioManager.GetClipLenght();
-                musicIndex++;
-            if (musicIndex == 4)
-                musicIndex = 0;
-
-            } else {
-                timer -= Time.deltaTime;
-            }
-        }
+    public void PlaySmooth(string name) {
+        if (current == name)
+            return;
+        current = name;
+        StartCoroutine(_PlaySmooth(name));
     }
 
     void Start()
     {
-        if (Manager.GetActiveScene().name == "Main Menu") {
-            GetComponent<AudioSource>().loop = true;
-            GetComponent<AudioSource>().clip = audioManager.GetClip("MenuMusic");
-            GetComponent<AudioSource>().Play();
-            inGame = false;
-        } else {
-            inGame = true;
-            
-        } 
+        audioManager = GetComponent<AudioManager>();
+        audioSource = GetComponent<AudioSource>();
+        audioManager.Play(levelMusic);
     }
 
 }

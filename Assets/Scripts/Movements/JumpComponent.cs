@@ -16,7 +16,12 @@ public class JumpComponent : MonoBehaviour
     [Header("Runtime")]
     [SerializeField] private bool isGrounded = false;
 
-
+    // bool isForceJump = false;
+    // public void ForceJump()
+    // {
+    //     isForceJump = true;
+    //     GetComponent<SphereMovement>().enabled = false;
+    // }
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +49,10 @@ public class JumpComponent : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(transform.position - Vector3.up * feetYOffset, feetRadius, groundMask);
+        // if (isForceJump && isGrounded && Time.deltaTime != 0) {
+        //     isForceJump = false;
+        //     GetComponent<SphereMovement>().enabled = true;
+        // }
         // if (jumpTimer <= 0) {
         //     canJump = true;
         // } else {

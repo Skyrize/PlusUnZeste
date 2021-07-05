@@ -14805,6 +14805,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: floorFull (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3220860249189489430, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
 --- !u!4 &1340614075 stripped
@@ -14867,6 +14871,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: floorFull (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3220860249189489430, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
 --- !u!4 &1462119984 stripped
@@ -14928,6 +14936,10 @@ PrefabInstance:
     - target: {fileID: 3220860249189489430, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
       propertyPath: m_Name
       value: floorFull
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220860249189489430, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
@@ -15083,6 +15095,10 @@ PrefabInstance:
     - target: {fileID: 3220860249189489430, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
       propertyPath: m_Name
       value: floorFull (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220860249189489430, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}

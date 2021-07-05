@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 175234539094010825}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Waterlevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 175234539638746841}
   - component: {fileID: 175234539638746844}
   - component: {fileID: 435516178935823079}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water
   m_TagString: Walkable
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 2644465446643927894}
   - component: {fileID: 7526983366213694089}
   - component: {fileID: 5892364111840451493}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 6409168224964067811}
   - component: {fileID: 1004336894869768030}
   - component: {fileID: 8803076899986809395}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

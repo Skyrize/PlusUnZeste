@@ -33,7 +33,7 @@ public class CookerController : MonoBehaviour
     [Header("Runtime")]
     [SerializeField] private float idleTime = 0;
     [SerializeField] private int wander = 0;
-    [SerializeField] private bool shouldReturnHome = false;
+    [SerializeField] private bool returnHome = false;
     [SerializeField] private bool moving = false;
     [SerializeField] private Transform target = null;
 
@@ -41,7 +41,6 @@ public class CookerController : MonoBehaviour
     {
         target = targetDestination;
         agent.SetDestination(target.position);
-        animator.SetBool("IsMoving", true);
         moving = true;
     }
 
@@ -50,7 +49,6 @@ public class CookerController : MonoBehaviour
         target = WaypointManager.instance.GetRandomWaypoint();
         // onMoveToWaypoint.Invoke(target.position);
         agent.SetDestination(target.position);
-        animator.SetBool("IsMoving", true);
         moving = true;
     }
 
@@ -58,10 +56,9 @@ public class CookerController : MonoBehaviour
     {
         target = WaypointManager.instance.home;
         agent.SetDestination(target.position);
-        animator.SetBool("IsMoving", true);
         wander = Random.Range(minWanderAmount, maxWanderAmount + 1);
         moving = true;
-        shouldReturnHome = true;
+        returnHome = true;
     }
 
     private void Awake() {
@@ -76,9 +73,14 @@ public class CookerController : MonoBehaviour
     public void ResetIdleTime()
     {
         idleTime = Random.Range(minIdleTime, maxIdleTime);
-        if (shouldReturnHome) {
+        if (returnHome) {
             idleTime = Random.Range(minHomeTime, maxHomeTime);
         }
+    }
+
+    public void ResetBehavior()
+    {
+        SetDestination(target);
     }
 
     // Start is called before the first frame update
@@ -87,9 +89,9 @@ public class CookerController : MonoBehaviour
 
         moving = false;
         idleTime = Random.Range(minIdleTime, maxIdleTime);
-        if (shouldReturnHome) {
+        if (returnHome) {
             idleTime = Random.Range(minHomeTime, maxHomeTime);
-            shouldReturnHome = false;
+            returnHome = false;
         }
 
        wander = Random.Range(minWanderAmount, maxWanderAmount + 1);
@@ -98,20 +100,24 @@ public class CookerController : MonoBehaviour
     public void Idle()
     {
         moving = false;
-        animator.SetBool("IsMoving", false);
         idleTime = Random.Range(minIdleTime, maxIdleTime);
-        if (shouldReturnHome) {
+        if (returnHome) {
             idleTime = Random.Range(minHomeTime, maxHomeTime);
-            shouldReturnHome = false;
+            returnHome = false;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("Velocity", agent.velocity.sqrMagnitude);
         if (moving) {
             if (agent.remainingDistance != Mathf.Infinity && agent.pathStatus==NavMeshPathStatus.PathComplete && agent.remainingDistance== 0) {
                 Idle();
+            } else {
+                for (int i = 0; i < agent.path.corners.Length - 1; i++) {
+                    Debug.DrawLine(agent.path.corners[i], agent.path.corners[i + 1], Color.red, Time.deltaTime);
+                }
             }
         } else {
             if (idleTime <= 0) {

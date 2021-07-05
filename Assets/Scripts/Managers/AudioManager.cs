@@ -35,6 +35,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private List<Audio> audios = new List<Audio>();
 
+    private bool canPlay = true;
     private AudioSource source = null;
 
     private void Awake() {
@@ -109,5 +110,28 @@ public class AudioManager : MonoBehaviour
         }
         Play(audio);
     }
+
+    IEnumerator SetAudioTimer(float timer)
+    {
+        canPlay = false;
+        yield return new WaitForSeconds(timer);
+        canPlay = true;
+    }
+
+    public void PlaySolo(string audioName)
+    {
+        if (!canPlay)
+            return;
+        Audio audio = audios.Find((a) => a.name == audioName);
+        
+        if (audio.name == null) {
+            Debug.LogException(new System.Exception("Can't find audio named " + audioName));
+            return;
+        }
+        Play(audio);
+        StartCoroutine(SetAudioTimer(audio.clip.length));
+    }
+
+    
     
 }

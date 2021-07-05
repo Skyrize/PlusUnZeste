@@ -557,6 +557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: floorFull (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3220860249189489430, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
 --- !u!4 &110274574 stripped
@@ -773,6 +777,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: floorFull
       objectReference: {fileID: 0}
+    - target: {fileID: 3220860249189489430, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
 --- !u!4 &174453315 stripped
@@ -859,7 +867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.2
+      value: 4.205
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1069,6 +1077,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 565789887}
     m_Modifications:
+    - target: {fileID: 3427957110135741268, guid: eea11ffa3ff0c6a41ae5e70b57b05c3d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6792820533714701121, guid: eea11ffa3ff0c6a41ae5e70b57b05c3d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7255188751080684745, guid: eea11ffa3ff0c6a41ae5e70b57b05c3d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1116,6 +1132,10 @@ PrefabInstance:
     - target: {fileID: 8062651791367644787, guid: eea11ffa3ff0c6a41ae5e70b57b05c3d, type: 3}
       propertyPath: m_Name
       value: kitchenCabinetDrawer (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062651791367644787, guid: eea11ffa3ff0c6a41ae5e70b57b05c3d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eea11ffa3ff0c6a41ae5e70b57b05c3d, type: 3}
@@ -2593,6 +2613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: floorFull (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3220860249189489430, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
 --- !u!4 &370111137 stripped
@@ -2744,15 +2768,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.833
+      value: -5.833001
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.200001
+      value: 4.205001
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.103
+      value: -0.10299778
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4404,13 +4428,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 302507748193478279, guid: d4bca9e567d388241a29b971829a4b5a, type: 3}
   m_PrefabInstance: {fileID: 1942689141}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &446137796
+--- !u!43 &449522243
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-328096
+  m_Name: pb_Mesh-32484
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4819,6 +4843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cuttingBoard (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2051253834184687416, guid: 24aa828f12f513a4b8e4cb34acdf2c17, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24aa828f12f513a4b8e4cb34acdf2c17, type: 3}
 --- !u!1001 &545242396
@@ -5220,7 +5248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.2
+      value: 4.205
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5409,15 +5437,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.833
+      value: -5.76
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.200001
+      value: 4.205001
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.733
+      value: -1.915
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5938,6 +5966,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: kitchenCabinet (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6371924952909156200, guid: b8b0507a0caf1db4980ef33d4f574843, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623792226445877850, guid: b8b0507a0caf1db4980ef33d4f574843, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7623792226445877850, guid: b8b0507a0caf1db4980ef33d4f574843, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 119
@@ -6123,6 +6159,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: kitchenCabinet (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6371924952909156200, guid: b8b0507a0caf1db4980ef33d4f574843, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623792226445877850, guid: b8b0507a0caf1db4980ef33d4f574843, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7623792226445877850, guid: b8b0507a0caf1db4980ef33d4f574843, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 119
@@ -6188,6 +6232,10 @@ PrefabInstance:
     - target: {fileID: 3220860249189489430, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
       propertyPath: m_Name
       value: floorFull (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220860249189489430, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a4bb0f84c0dd640903cee485c6f955, type: 3}
@@ -8786,6 +8834,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cuttingBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 2051253834184687416, guid: 24aa828f12f513a4b8e4cb34acdf2c17, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24aa828f12f513a4b8e4cb34acdf2c17, type: 3}
 --- !u!1001 &1684098797
@@ -9269,6 +9321,14 @@ PrefabInstance:
     - target: {fileID: 6371924952909156200, guid: b8b0507a0caf1db4980ef33d4f574843, type: 3}
       propertyPath: m_Name
       value: kitchenCabinet (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371924952909156200, guid: b8b0507a0caf1db4980ef33d4f574843, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623792226445877850, guid: b8b0507a0caf1db4980ef33d4f574843, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7623792226445877850, guid: b8b0507a0caf1db4980ef33d4f574843, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9874,15 +9934,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.24
+      value: -5.41
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.2
+      value: 4.2050014
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.65
+      value: 6.56
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9952,11 +10012,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.200001
+      value: 4.205001
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.75
+      value: 5.750002
       objectReference: {fileID: 0}
     - target: {fileID: 3327238493590701563, guid: a60be7f7e7660eb42a2cc256790a2794, type: 3}
       propertyPath: m_LocalRotation.w

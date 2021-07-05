@@ -11,4 +11,9 @@ public class ForceApplier : MonoBehaviour
         target.GetComponent<Rigidbody>().velocity = Vector3.zero;
         target.GetComponent<Rigidbody>().AddForce(force, forceMode);
     }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(transform.position, force);
+    }
 }
