@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4084437288553701572}
   - component: {fileID: 1200879017057276952}
   m_Layer: 0
-  m_Name: traffic_light_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 503942691502168121}
   - component: {fileID: 2240943073306857710}
   m_Layer: 0
-  m_Name: traffic_light_1_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1495,7 +1495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4480903955145396233}
   m_Layer: 0
-  m_Name: Lights_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1614,7 +1614,7 @@ GameObject:
   - component: {fileID: 1026590998762064496}
   - component: {fileID: 5293690562562804312}
   m_Layer: 0
-  m_Name: Light_1
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1942,7 +1942,7 @@ GameObject:
   - component: {fileID: 3505962022176546912}
   - component: {fileID: 1344054063330174979}
   m_Layer: 0
-  m_Name: Light_1_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2266,7 +2266,7 @@ GameObject:
   - component: {fileID: 6295253385430738693}
   - component: {fileID: 225737153280654638}
   m_Layer: 0
-  m_Name: Light_2_5
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2900,7 +2900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 785012294560597110}
   m_Layer: 0
-  m_Name: Lights
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2939,7 +2939,7 @@ GameObject:
   - component: {fileID: 4966550635667072920}
   - component: {fileID: 1569594417870575448}
   m_Layer: 0
-  m_Name: Light_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3020,7 +3020,7 @@ GameObject:
   - component: {fileID: 6568482386030997334}
   - component: {fileID: 8519290736029518515}
   m_Layer: 0
-  m_Name: Light_2_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3457,7 +3457,7 @@ GameObject:
   - component: {fileID: 4689497962158443660}
   - component: {fileID: 6007635144065750222}
   m_Layer: 0
-  m_Name: traffic_light_2_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3656,7 +3656,7 @@ GameObject:
   - component: {fileID: 1121140244285760183}
   - component: {fileID: 7484668114028050333}
   m_Layer: 0
-  m_Name: Light_3_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3771,7 +3771,7 @@ GameObject:
   - component: {fileID: 9171453080210336380}
   - component: {fileID: 312027113738691360}
   m_Layer: 0
-  m_Name: Light_2_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3852,7 +3852,7 @@ GameObject:
   - component: {fileID: 9109073539124432257}
   - component: {fileID: 6205129034797670205}
   m_Layer: 0
-  m_Name: Light_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4095,7 +4095,7 @@ GameObject:
   - component: {fileID: 1707703877204714823}
   - component: {fileID: 6181125840891173191}
   m_Layer: 0
-  m_Name: Light_3_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4728,7 +4728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3432951220522730828}
   m_Layer: 0
-  m_Name: Lights_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4801,7 +4801,7 @@ GameObject:
   - component: {fileID: 1415945847863118844}
   - component: {fileID: 5921478679628867067}
   m_Layer: 0
-  m_Name: Light_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4963,7 +4963,7 @@ GameObject:
   - component: {fileID: 5845549764303325697}
   - component: {fileID: 1749850670429848301}
   m_Layer: 0
-  m_Name: traffic_light_2_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5838,7 +5838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3029322000901621273}
   m_Layer: 0
-  m_Name: Lights_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6477,7 +6477,7 @@ GameObject:
   - component: {fileID: 7868309318137816305}
   - component: {fileID: 5716932009551497904}
   m_Layer: 0
-  m_Name: Light
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6671,7 +6671,7 @@ GameObject:
   - component: {fileID: 3480563625654792681}
   - component: {fileID: 4839824079919840115}
   m_Layer: 0
-  m_Name: traffic_light_1
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6752,7 +6752,7 @@ GameObject:
   - component: {fileID: 6975092500052302870}
   - component: {fileID: 3981136482745866332}
   m_Layer: 0
-  m_Name: Light_5
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7157,7 +7157,7 @@ GameObject:
   - component: {fileID: 3142389805558796462}
   - component: {fileID: 5592676085898423564}
   m_Layer: 0
-  m_Name: traffic_light
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7238,7 +7238,7 @@ GameObject:
   - component: {fileID: 5091206753851421190}
   - component: {fileID: 3105303827612848273}
   m_Layer: 0
-  m_Name: Light_3_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7805,7 +7805,7 @@ GameObject:
   - component: {fileID: 8939601210903335481}
   - component: {fileID: 6956958116912447962}
   m_Layer: 0
-  m_Name: Light_1_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8129,7 +8129,7 @@ GameObject:
   - component: {fileID: 8788310531426748890}
   - component: {fileID: 1708486720816727630}
   m_Layer: 0
-  m_Name: Light_3_5
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8372,7 +8372,7 @@ GameObject:
   - component: {fileID: 8745633416422319311}
   - component: {fileID: 8745633416422319304}
   m_Layer: 0
-  m_Name: Light_1_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8696,7 +8696,7 @@ GameObject:
   - component: {fileID: 8745633416444325328}
   - component: {fileID: 8745633416444325329}
   m_Layer: 0
-  m_Name: Light_2_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9185,7 +9185,7 @@ GameObject:
   - component: {fileID: 8745633416492090807}
   - component: {fileID: 8745633416492090800}
   m_Layer: 0
-  m_Name: Light_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9560,7 +9560,7 @@ GameObject:
   - component: {fileID: 8745633416543605124}
   - component: {fileID: 8745633416543605125}
   m_Layer: 0
-  m_Name: traffic_light_1
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10083,7 +10083,7 @@ GameObject:
   - component: {fileID: 8745633416566351890}
   - component: {fileID: 8745633416566351891}
   m_Layer: 0
-  m_Name: Light_2_5
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10215,7 +10215,7 @@ GameObject:
   - component: {fileID: 8745633416567041800}
   - component: {fileID: 8745633416567041801}
   m_Layer: 0
-  m_Name: Light_1_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10577,7 +10577,7 @@ GameObject:
   - component: {fileID: 8745633416607985332}
   - component: {fileID: 8745633416607985333}
   m_Layer: 0
-  m_Name: traffic_light_1_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11061,7 +11061,7 @@ GameObject:
   - component: {fileID: 8745633416671716623}
   - component: {fileID: 8745633416671716616}
   m_Layer: 0
-  m_Name: traffic_light_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11304,7 +11304,7 @@ GameObject:
   - component: {fileID: 8745633416706719184}
   - component: {fileID: 8745633416706719185}
   m_Layer: 0
-  m_Name: traffic_light_1_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12056,7 +12056,7 @@ GameObject:
   - component: {fileID: 8745633416785376726}
   - component: {fileID: 8745633416785376727}
   m_Layer: 0
-  m_Name: traffic_light_2_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12380,7 +12380,7 @@ GameObject:
   - component: {fileID: 8745633416797245863}
   - component: {fileID: 8745633416797245856}
   m_Layer: 0
-  m_Name: traffic_light_2_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12498,7 +12498,7 @@ GameObject:
   - component: {fileID: 8745633416806184864}
   - component: {fileID: 8745633416806184865}
   m_Layer: 0
-  m_Name: Light_3_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12660,7 +12660,7 @@ GameObject:
   - component: {fileID: 8745633416822683193}
   - component: {fileID: 8745633416822683194}
   m_Layer: 0
-  m_Name: Light_1_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12940,7 +12940,7 @@ GameObject:
   - component: {fileID: 8745633416862672802}
   - component: {fileID: 8745633416862672803}
   m_Layer: 0
-  m_Name: traffic_light_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13345,7 +13345,7 @@ GameObject:
   - component: {fileID: 8745633416904911432}
   - component: {fileID: 8745633416904911433}
   m_Layer: 0
-  m_Name: Light_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13669,7 +13669,7 @@ GameObject:
   - component: {fileID: 8745633416923001973}
   - component: {fileID: 8745633416923001974}
   m_Layer: 0
-  m_Name: Light_4_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14265,7 +14265,7 @@ GameObject:
   - component: {fileID: 8745633416983998067}
   - component: {fileID: 8745633416983998060}
   m_Layer: 0
-  m_Name: traffic_light
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14508,7 +14508,7 @@ GameObject:
   - component: {fileID: 8745633417010953025}
   - component: {fileID: 8745633417010953026}
   m_Layer: 0
-  m_Name: Light_3_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14589,7 +14589,7 @@ GameObject:
   - component: {fileID: 8745633417011073984}
   - component: {fileID: 8745633417011073985}
   m_Layer: 0
-  m_Name: traffic_light
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15075,7 +15075,7 @@ GameObject:
   - component: {fileID: 8745633417056871405}
   - component: {fileID: 8745633417056871406}
   m_Layer: 0
-  m_Name: Light_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15350,7 +15350,7 @@ GameObject:
   - component: {fileID: 8745633417086766432}
   - component: {fileID: 8745633417086766433}
   m_Layer: 0
-  m_Name: Light_3_5
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15512,7 +15512,7 @@ GameObject:
   - component: {fileID: 8745633417104384168}
   - component: {fileID: 8745633417104384169}
   m_Layer: 0
-  m_Name: traffic_light_1_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15591,7 +15591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745633417106493995}
   m_Layer: 0
-  m_Name: Lights
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15630,7 +15630,7 @@ GameObject:
   - component: {fileID: 8745633417108371704}
   - component: {fileID: 8745633417108371705}
   m_Layer: 0
-  m_Name: Light_3_5
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15790,7 +15790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745633417111055854}
   m_Layer: 0
-  m_Name: Lights_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15985,7 +15985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745633417128524608}
   m_Layer: 0
-  m_Name: Lights_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16347,7 +16347,7 @@ GameObject:
   - component: {fileID: 8745633417144606031}
   - component: {fileID: 8745633417144606024}
   m_Layer: 0
-  m_Name: Light_2_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16509,7 +16509,7 @@ GameObject:
   - component: {fileID: 8745633417173623752}
   - component: {fileID: 8745633417173623753}
   m_Layer: 0
-  m_Name: traffic_light_2_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17519,7 +17519,7 @@ GameObject:
   - component: {fileID: 8745633417213840160}
   - component: {fileID: 8745633417213840161}
   m_Layer: 0
-  m_Name: Light_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18727,7 +18727,7 @@ GameObject:
   - component: {fileID: 8745633417321286467}
   - component: {fileID: 8745633417321286524}
   m_Layer: 0
-  m_Name: Light_3_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19083,7 +19083,7 @@ GameObject:
   - component: {fileID: 8745633417356239943}
   - component: {fileID: 8745633417356239936}
   m_Layer: 0
-  m_Name: Light
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19594,7 +19594,7 @@ GameObject:
   - component: {fileID: 8745633417398006051}
   - component: {fileID: 8745633417398006108}
   m_Layer: 0
-  m_Name: Light_2_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19675,7 +19675,7 @@ GameObject:
   - component: {fileID: 8745633417398608288}
   - component: {fileID: 8745633417398608289}
   m_Layer: 0
-  m_Name: Light_5
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19756,7 +19756,7 @@ GameObject:
   - component: {fileID: 8745633417399449145}
   - component: {fileID: 8745633417399449146}
   m_Layer: 0
-  m_Name: Light_2_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20080,7 +20080,7 @@ GameObject:
   - component: {fileID: 8745633417411754870}
   - component: {fileID: 8745633417411754871}
   m_Layer: 0
-  m_Name: traffic_light_2_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20246,7 +20246,7 @@ GameObject:
   - component: {fileID: 8745633417424599896}
   - component: {fileID: 8745633417424599897}
   m_Layer: 0
-  m_Name: traffic_light_2_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20568,7 +20568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745633417455026051}
   m_Layer: 0
-  m_Name: Lights_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20636,7 +20636,7 @@ GameObject:
   - component: {fileID: 8745633417457841479}
   - component: {fileID: 8745633417457841472}
   m_Layer: 0
-  m_Name: Light_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20910,7 +20910,7 @@ GameObject:
   - component: {fileID: 8745633417483093984}
   - component: {fileID: 8745633417483093985}
   m_Layer: 0
-  m_Name: Light_2_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21396,7 +21396,7 @@ GameObject:
   - component: {fileID: 8745633417521745466}
   - component: {fileID: 8745633417521745467}
   m_Layer: 0
-  m_Name: Light_2_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23296,7 +23296,7 @@ GameObject:
   - component: {fileID: 8745633417643186813}
   - component: {fileID: 8745633417643186814}
   m_Layer: 0
-  m_Name: Light_3_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23375,7 +23375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745633417664066675}
   m_Layer: 0
-  m_Name: Lights_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23575,7 +23575,7 @@ GameObject:
   - component: {fileID: 8745633417668017011}
   - component: {fileID: 8745633417668017004}
   m_Layer: 0
-  m_Name: Light_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23720,7 +23720,7 @@ GameObject:
   - component: {fileID: 8745633417712026753}
   - component: {fileID: 8745633417712026754}
   m_Layer: 0
-  m_Name: Light_3_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23880,7 +23880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745633417712067860}
   m_Layer: 0
-  m_Name: Lights_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23996,7 +23996,7 @@ GameObject:
   - component: {fileID: 8745633417717528157}
   - component: {fileID: 8745633417717528158}
   m_Layer: 0
-  m_Name: Light_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24108,7 +24108,7 @@ GameObject:
   - component: {fileID: 8745633417729283189}
   - component: {fileID: 8745633417729283190}
   m_Layer: 0
-  m_Name: Light_2_5
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24270,7 +24270,7 @@ GameObject:
   - component: {fileID: 8745633417741994109}
   - component: {fileID: 8745633417741994110}
   m_Layer: 0
-  m_Name: Light
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24868,7 +24868,7 @@ GameObject:
   - component: {fileID: 8745633417781570066}
   - component: {fileID: 8745633417781570067}
   m_Layer: 0
-  m_Name: traffic_light_1
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24949,7 +24949,7 @@ GameObject:
   - component: {fileID: 8745633417794948136}
   - component: {fileID: 8745633417794948137}
   m_Layer: 0
-  m_Name: Light_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25354,7 +25354,7 @@ GameObject:
   - component: {fileID: 8745633417832530685}
   - component: {fileID: 8745633417832530686}
   m_Layer: 0
-  m_Name: Light_3_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25872,7 +25872,7 @@ GameObject:
   - component: {fileID: 8745633417871494155}
   - component: {fileID: 8745633417871494148}
   m_Layer: 0
-  m_Name: Light_1_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26277,7 +26277,7 @@ GameObject:
   - component: {fileID: 8745633417909581766}
   - component: {fileID: 8745633417909581767}
   m_Layer: 0
-  m_Name: Light_3_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26437,7 +26437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745633417917012519}
   m_Layer: 0
-  m_Name: Lights
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26476,7 +26476,7 @@ GameObject:
   - component: {fileID: 8745633417920304242}
   - component: {fileID: 8745633417920304243}
   m_Layer: 0
-  m_Name: Light_1_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27084,7 +27084,7 @@ GameObject:
   - component: {fileID: 8745633417962149209}
   - component: {fileID: 8745633417962149210}
   m_Layer: 0
-  m_Name: traffic_light_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27165,7 +27165,7 @@ GameObject:
   - component: {fileID: 8745633417967883289}
   - component: {fileID: 8745633417967883290}
   m_Layer: 0
-  m_Name: Light_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27246,7 +27246,7 @@ GameObject:
   - component: {fileID: 8745633417990127526}
   - component: {fileID: 8745633417990127527}
   m_Layer: 0
-  m_Name: traffic_light_2_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27408,7 +27408,7 @@ GameObject:
   - component: {fileID: 8745633417995381585}
   - component: {fileID: 8745633417995381586}
   m_Layer: 0
-  m_Name: Light_2_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27570,7 +27570,7 @@ GameObject:
   - component: {fileID: 8745633418005134177}
   - component: {fileID: 8745633418005134178}
   m_Layer: 0
-  m_Name: Light_4_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27649,7 +27649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745633418007132447}
   m_Layer: 0
-  m_Name: Lights_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27683,7 +27683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745633418009188512}
   m_Layer: 0
-  m_Name: Lights_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27800,7 +27800,7 @@ GameObject:
   - component: {fileID: 8745633418026459628}
   - component: {fileID: 8745633418026459629}
   m_Layer: 0
-  m_Name: Light_1
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28367,7 +28367,7 @@ GameObject:
   - component: {fileID: 8745633418067688890}
   - component: {fileID: 8745633418067688891}
   m_Layer: 0
-  m_Name: Light_2_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28853,7 +28853,7 @@ GameObject:
   - component: {fileID: 8745633418096568508}
   - component: {fileID: 8745633418096568509}
   m_Layer: 0
-  m_Name: Light_1_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29052,7 +29052,7 @@ GameObject:
   - component: {fileID: 8745633418113177742}
   - component: {fileID: 8745633418113177743}
   m_Layer: 0
-  m_Name: Light_5
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29930,7 +29930,7 @@ GameObject:
   - component: {fileID: 8745633418201678824}
   - component: {fileID: 8745633418201678825}
   m_Layer: 0
-  m_Name: Light_1
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30124,7 +30124,7 @@ GameObject:
   - component: {fileID: 8745633418212593872}
   - component: {fileID: 8745633418212593873}
   m_Layer: 0
-  m_Name: traffic_light_1
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30205,7 +30205,7 @@ GameObject:
   - component: {fileID: 8745633418219744012}
   - component: {fileID: 8745633418219744013}
   m_Layer: 0
-  m_Name: Light_1
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30448,7 +30448,7 @@ GameObject:
   - component: {fileID: 8745633418247561677}
   - component: {fileID: 8745633418247561678}
   m_Layer: 0
-  m_Name: traffic_light
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30772,7 +30772,7 @@ GameObject:
   - component: {fileID: 8745633418259500034}
   - component: {fileID: 8745633418259500035}
   m_Layer: 0
-  m_Name: Light_3_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31096,7 +31096,7 @@ GameObject:
   - component: {fileID: 8745633418265873451}
   - component: {fileID: 8745633418265873444}
   m_Layer: 0
-  m_Name: Light_3_5
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31697,7 +31697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745633418302304737}
   m_Layer: 0
-  m_Name: Lights
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32011,7 +32011,7 @@ GameObject:
   - component: {fileID: 8745633418311682599}
   - component: {fileID: 8745633418311682592}
   m_Layer: 0
-  m_Name: Light_2_5
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32372,7 +32372,7 @@ GameObject:
   - component: {fileID: 8745633418366521828}
   - component: {fileID: 8745633418366521829}
   m_Layer: 0
-  m_Name: Light_4_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32696,7 +32696,7 @@ GameObject:
   - component: {fileID: 8745633418386008276}
   - component: {fileID: 8745633418386008277}
   m_Layer: 0
-  m_Name: Light
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33048,7 +33048,7 @@ GameObject:
   - component: {fileID: 8745633418408809018}
   - component: {fileID: 8745633418408809019}
   m_Layer: 0
-  m_Name: Light_3_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33210,7 +33210,7 @@ GameObject:
   - component: {fileID: 8745633418449082978}
   - component: {fileID: 8745633418449082979}
   m_Layer: 0
-  m_Name: Light_2_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33451,7 +33451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745633418457026192}
   m_Layer: 0
-  m_Name: Lights_3
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33767,7 +33767,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745633418473138345}
   m_Layer: 0
-  m_Name: Lights_4
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34190,7 +34190,7 @@ GameObject:
   - component: {fileID: 8745633418516479525}
   - component: {fileID: 8745633418516479526}
   m_Layer: 0
-  m_Name: Light_5
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34676,7 +34676,7 @@ GameObject:
   - component: {fileID: 6982445079489537359}
   - component: {fileID: 5204727229181580290}
   m_Layer: 0
-  m_Name: Light_4_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34757,7 +34757,7 @@ GameObject:
   - component: {fileID: 7490375616162934463}
   - component: {fileID: 8691116156166964494}
   m_Layer: 0
-  m_Name: Light_2_2
+  m_Name: maplght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
