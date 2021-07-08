@@ -172,7 +172,7 @@ public class SeekTarget : MonoBehaviour
     void LateUpdate()
     {
         bool targetInView = IsTargetInView();
-        Debug.Log($"in view {targetInView}");
+        // Debug.Log($"in view {targetInView}");
         if (targetInView) {
             if (IsTargetDirectlyVisible()) {
                 if (state != Visibility.VISIBLE) {
@@ -185,7 +185,7 @@ public class SeekTarget : MonoBehaviour
                 BecomeHidden();
             }
         } else if (state == Visibility.HIDDEN) {
-            Debug.Log("Target not in view");
+            // Debug.Log("Target not in view");
             BecomeOutOfView();
         }
         animator.SetFloat("Velocity", agent.velocity.sqrMagnitude);
