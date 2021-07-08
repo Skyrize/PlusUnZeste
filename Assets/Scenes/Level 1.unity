@@ -6791,6 +6791,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 192537736}
     m_Modifications:
+    - target: {fileID: 1201729098681894220, guid: 75128a2d913133849b334441828987df, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6321280859448886882, guid: 75128a2d913133849b334441828987df, type: 3}
       propertyPath: m_Name
       value: wallWindow
@@ -8058,7 +8062,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-102970
+  m_Name: pb_Mesh-203844
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
