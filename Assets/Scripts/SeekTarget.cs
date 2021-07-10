@@ -30,7 +30,6 @@ public class SeekTarget : MonoBehaviour
     [SerializeField] private Transform rightEye;
     [SerializeField] private Transform head;
 
-    [SerializeField] private Transform viewTarget;
     private Animator animator;
     private NavMeshAgent agent;
 
@@ -51,7 +50,7 @@ public class SeekTarget : MonoBehaviour
     private LookAtConstraint viewConstraint;
 
     private void Start() {
-        viewSource.sourceTransform = viewTarget;
+        viewSource.sourceTransform = target;
         viewSource.weight = 1;
         viewConstraint = head.GetComponent<LookAtConstraint>();
         controller = GetComponent<CookerController>();
@@ -105,7 +104,6 @@ public class SeekTarget : MonoBehaviour
     void ChaseTarget()
     {
         // transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
-        viewTarget.position = target.position;
         // NavMeshHit hit;
         
         agent.SetDestination(target.position);
