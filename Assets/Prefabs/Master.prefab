@@ -9061,6 +9061,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 199448849235544810, guid: cc570b569683cfc45b7be0d3fc6dfe2f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6300634222760126238}
     - target: {fileID: 1282179167438612028, guid: cc570b569683cfc45b7be0d3fc6dfe2f, type: 3}
       propertyPath: TickPerSecond
       value: 2
@@ -9087,7 +9091,7 @@ PrefabInstance:
       objectReference: {fileID: 7721054669679816763}
     - target: {fileID: 3165261011019849591, guid: cc570b569683cfc45b7be0d3fc6dfe2f, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3802028418999534753, guid: cc570b569683cfc45b7be0d3fc6dfe2f, type: 3}
       propertyPath: m_LocalPosition.x

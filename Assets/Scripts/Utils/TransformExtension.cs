@@ -12,4 +12,26 @@ public static class TransformExtension {
             }
         }
     }
+
+    public static Transform GetDeepestChild(this Transform transform)
+    {
+        if (transform.childCount >= 1)
+            return transform.GetChild(0).GetDeepestChild();
+        return transform;
+    }
+
+    public static Transform[] GetAllChildren(this Transform transform)
+    {
+        Transform[] children = new Transform[transform.childCount];
+
+        for (int i = 0; i != transform.childCount; i++) {
+            children[i] = transform.GetChild(i);
+        }
+        return children;
+    }
+
+    public static Transform GetRandomChild(this Transform transform)
+    {
+        return transform.GetChild(Random.Range(0, transform.childCount));
+    }
 }
