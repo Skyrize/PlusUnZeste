@@ -10154,10 +10154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 3
-  jumpDelay: 0.1
   feetYOffset: 0.1
   feetRadius: 0.14
-  feetSideOffset: 0.1
   groundMask:
     serializedVersion: 2
     m_Bits: 17
@@ -10190,8 +10188,6 @@ MonoBehaviour:
         m_CallState: 2
   rb: {fileID: 6819234208779820173}
   isGrounded: 0
-  canJump: 1
-  jumpTimer: 0
 --- !u!114 &6819234208779820172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10378,8 +10374,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 750ba6b7f7bc4a44da9d154178d1eb23, type: 2}
-  - {fileID: 2100000, guid: f7158e0cc8b170846bc6cd566e59843a, type: 2}
+  - {fileID: 2100000, guid: 827831c8f7c5313488692ce1dfc661ac, type: 2}
+  - {fileID: 2100000, guid: 73e1ccd8510f7884c948e243b102474e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

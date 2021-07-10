@@ -203,9 +203,9 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
-    - _FresnelBrightness: 0.15
-    - _FresnelPower: 0.15
-    - _FresnelShadowDropoff: 0.15
+    - _FresnelBrightness: 0.05
+    - _FresnelPower: 0.25
+    - _FresnelShadowDropoff: 0.25
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -223,7 +223,7 @@ Material:
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
-    - _LightScalar: 1
+    - _LightScalar: 10
     - _LinkDetailsWithBase: 1
     - _LowIntensity: 1
     - _MaterialID: 1
@@ -232,19 +232,19 @@ Material:
     - _NormalMapSpace: 0
     - _NormalScale: 1
     - _OcclusionStrength: 1
-    - _OutlineSize: 4
+    - _OutlineSize: 8
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
     - _Parallax: 0.02
-    - _RampLevels: 50
+    - _RampLevels: 4
     - _ReceivesSSR: 1
     - _RefractionModel: 0
-    - _RimAlpha: 0.3
-    - _RimDropOff: 0.15
-    - _RimPower: 0.15
+    - _RimAlpha: 0.05
+    - _RimDropOff: 0.4
+    - _RimPower: 0.25
     - _SSRefractionProjectionModel: 0
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
