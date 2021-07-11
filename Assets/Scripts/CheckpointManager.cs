@@ -2,6 +2,7 @@ using System.Runtime.InteropServices;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CheckpointManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] Transform currentCheckpoint;
     Rigidbody rb;
     public Transform CurrentCheckpoint => currentCheckpoint;
+    public UnityEvent onTrigger = new UnityEvent();
 
     private void Awake() {
         currentCheckpoint = transform.Find("Start Checkpoint");
@@ -20,6 +22,7 @@ public class CheckpointManager : MonoBehaviour
     public void TriggerCheckpoint(Transform checkpoint)
     {
         Debug.Log($"new checkpoint {checkpoint.name}");
+        onTrigger.Invoke();
         currentCheckpoint = checkpoint;
     }
 

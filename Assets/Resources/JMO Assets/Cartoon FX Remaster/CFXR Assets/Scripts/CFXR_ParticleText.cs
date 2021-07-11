@@ -128,7 +128,9 @@ namespace CartoonFX
 						totalWidth += (charWidth * 0.01f + letterSpacing) * size;
 
 						// create gameobject with particle system
-						var letterObj = new GameObject(letter.ToString(), typeof(ParticleSystem));
+						var letterObj = new GameObject(letter.ToString(), typeof(RectTransform));
+						letterObj.layer = LayerMask.NameToLayer("UI");
+						letterObj.AddComponent<ParticleSystem>();
 						letterObj.transform.SetParent(this.transform);
 						letterObj.transform.localPosition = Vector3.zero;
 						letterObj.transform.localRotation = Quaternion.identity;
