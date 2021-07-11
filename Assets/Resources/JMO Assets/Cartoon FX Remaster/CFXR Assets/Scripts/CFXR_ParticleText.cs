@@ -31,6 +31,7 @@ namespace CartoonFX
 		[Range(0f, 2f)] public float compensateLifetime = 0;
 
 		[Header("Misc")]
+		public bool ui = false;
 		public float lifetimeMultiplier = 1f;
 		[Range(-90f, 90f)] public float rotation = -5f;
 		public float sortingFudgeOffset = 0.1f;
@@ -45,6 +46,8 @@ namespace CartoonFX
 			{
 				return;
 			}
+
+			GetComponent<ParticleSystemRenderer>().alignment = ui ? ParticleSystemRenderSpace.Local : ParticleSystemRenderSpace.View;
 
 			// parse text to only allow valid characters
 			List<char> allowed = new List<char>(font.CharSequence.ToCharArray());
@@ -68,6 +71,9 @@ namespace CartoonFX
 		{
 			if (text == null || font == null || !font.IsValid())
 				return;
+				
+			GetComponent<ParticleSystemRenderer>().alignment = ui ? ParticleSystemRenderSpace.Local : ParticleSystemRenderSpace.View;
+
 
 			// delete all children
 			int length = this.transform.childCount;
@@ -128,9 +134,14 @@ namespace CartoonFX
 						totalWidth += (charWidth * 0.01f + letterSpacing) * size;
 
 						// create gameobject with particle system
-						var letterObj = new GameObject(letter.ToString(), typeof(RectTransform));
-						letterObj.layer = LayerMask.NameToLayer("UI");
-						letterObj.AddComponent<ParticleSystem>();
+						GameObject letterObj;
+						if (ui) {
+							letterObj = new GameObject(letter.ToString(), typeof(RectTransform));
+							letterObj.layer = LayerMask.NameToLayer("UI");
+							letterObj.AddComponent<ParticleSystem>();
+						} else {
+							letterObj = new GameObject(letter.ToString(), typeof(ParticleSystem));
+						}
 						letterObj.transform.SetParent(this.transform);
 						letterObj.transform.localPosition = Vector3.zero;
 						letterObj.transform.localRotation = Quaternion.identity;
