@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DamagesOnTouch : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class DamagesOnTouch : MonoBehaviour
     [SerializeField] private float damageAmount = 1;
     [Header("References")]
     [SerializeField] private Collider hitBox = null;
+    public UnityEvent onTouch = new UnityEvent();
 
     private void OnCollisionEnter(Collision other) {
         ContactPoint contactPoint = other.GetContact(0);
@@ -15,6 +17,7 @@ public class DamagesOnTouch : MonoBehaviour
 
         if (otherHealth != null && contactPoint.thisCollider == hitBox) {
             otherHealth.ReduceHealth(damageAmount);
+            onTouch.Invoke();
         }
         
     }

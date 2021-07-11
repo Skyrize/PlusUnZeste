@@ -76,28 +76,12 @@ public class HealthComponent : MonoBehaviour
         }
     }
 
-    public float Health {
-        get {
-            return _actualHealth;
-        }
-    }
-
-    public float MaxHealth {
-        get {
-            return maxHealth;
-        }
-    }
-
-    public bool IsAlive {
-        get {
-            return actualHealth > 0;
-        }
-    }
-    public bool IsDead {
-        get {
-            return !IsAlive;
-        }
-    }
+    public float HealthRatio => _actualHealth / maxHealth;
+    public float Health => _actualHealth;
+    public float MaxHealth => maxHealth;
+    public bool IsAlive => actualHealth > 0;
+    public bool IsDead => !IsAlive;
+    public bool IsFullHealth => actualHealth == maxHealth;
 
     public void ReduceHealth(float amount)
     {
@@ -115,6 +99,21 @@ public class HealthComponent : MonoBehaviour
             return;
         actualHealth += amount;
         onHealEvent.Invoke(amount);
+    }
+
+    public void Kill() {
+        Destroy(this.gameObject);
+    }
+
+    public void SetMaxHealth(float newMax)
+    {
+        this.maxHealth = newMax;
+        this.actualHealth = newMax;
+    }
+
+    public void FullHealth()
+    {
+        actualHealth = maxHealth;
     }
 
 }

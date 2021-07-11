@@ -97,6 +97,8 @@ public class SeekTarget : MonoBehaviour
         onSeeTarget.Invoke(target.position);
         if (viewConstraint.sourceCount == 0)
             viewConstraint.AddSource(viewSource);
+        if (viewConstraint.sourceCount == 0)
+            viewConstraint.AddSource(viewSource);
         controller.enabled = false;
         Debug.Log("TARGET IN SIGHT !");
     }
@@ -166,6 +168,11 @@ public class SeekTarget : MonoBehaviour
         }
     }
 
+    public void Respawn()
+    {
+        BecomeOutOfView();
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {
@@ -182,7 +189,7 @@ public class SeekTarget : MonoBehaviour
             } else if (state == Visibility.VISIBLE) {
                 BecomeHidden();
             }
-        } else if (state == Visibility.HIDDEN) {
+        } else if (state != Visibility.LOST) {
             // Debug.Log("Target not in view");
             BecomeOutOfView();
         }

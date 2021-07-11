@@ -205,6 +205,9 @@
 			float4 _OutlineColor;
 			fixed4 frag(v2f i) : SV_Target
 			{
+				if (_ScreenParams.x == 480) {
+					return float4(0, 0, 0, 0);
+				}
 				return _OutlineColor;
 			}
 				ENDCG

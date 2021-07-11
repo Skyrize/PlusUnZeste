@@ -22,6 +22,7 @@ public class CheckpointManager : MonoBehaviour
     public void TriggerCheckpoint(Transform checkpoint)
     {
         Debug.Log($"new checkpoint {checkpoint.name}");
+            //TODO : save state of game by retrieving "saveComponents" which capture value of each dynamics objects and allow to reset them
         onTrigger.Invoke();
         currentCheckpoint = checkpoint;
     }

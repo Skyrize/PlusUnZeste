@@ -83,6 +83,13 @@ public class CookerController : MonoBehaviour
         SetDestination(target);
     }
 
+    public void Respawn()
+    {
+        Debug.Log($"warp {agent.Warp(WaypointManager.instance.home.position)}");
+        GetComponent<SeekTarget>().Respawn();
+        ReturnHome();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
