@@ -34,4 +34,16 @@ public static class TransformExtension {
     {
         return transform.GetChild(Random.Range(0, transform.childCount));
     }
+
+    public static T[] GetComponentsInDirectChildren<T>(this Transform transform)
+    {
+        List<T> result = new List<T>();
+
+        for (int i = 0; i != transform.childCount; i++) {
+            T comp = transform.GetChild(i).GetComponent<T>();
+            if (comp != null)
+                result.Add(comp);
+        }
+        return result.ToArray();
+    }
 }

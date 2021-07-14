@@ -12,6 +12,7 @@ public class SeekTarget : MonoBehaviour
     [SerializeField] private float minWait = 3;
     [SerializeField] private float maxWait = 5;
     [SerializeField] private float damagesPerSeconds = 1;
+    [SerializeField] float reactionTime = .4f;
     [SerializeField] private LayerMask mask = 0;
     [SerializeField] private Color cameraColorOnSee = new Color(1, 0.25f, 0.25f, 1);
     [SerializeField] private Color cameraColorOnHidden = new Color(1, 0.25f, 0.25f, 1);
@@ -24,14 +25,14 @@ public class SeekTarget : MonoBehaviour
     [Header("References")]
     [SerializeField] private Camera view = null;
     [SerializeField] private Transform target = null;
-    [SerializeField] private RawImage displayView = null;
+    [SerializeField] private RawImage viewUI = null;
+    [SerializeField] private OpacityController alertUI = null;
     [SerializeField] private CookerController controller;
     [SerializeField] private Transform leftEye;
     [SerializeField] private Transform rightEye;
     [SerializeField] private Transform head;
 
-    private Animator animator;
-    private NavMeshAgent agent;
+    private CustomAgent agent;
 
     enum Visibility
     {
@@ -40,22 +41,42 @@ public class SeekTarget : MonoBehaviour
         LOST
     };
     [Header("Runtime")]
-    [SerializeField] private Visibility state = Visibility.LOST;
+    [SerializeField] private Visibility _state = Visibility.LOST;
+    private Visibility state {
+        get {
+            return _state;
+        }
+
+        set {
+            canReact = false;
+            _state = value;
+            StartCoroutine(React());
+        }
+    }
+    [SerializeField] bool canReact = true;
     [SerializeField] private float damageTimer = 0;
+    [SerializeField] private float currentWaitTime = 0;
     [SerializeField] private float waitTimer = 0;
     
     private Quaternion camBaseRotation = Quaternion.identity;
     private Plane[] planes = new Plane[6];
     private ConstraintSource viewSource;
     private LookAtConstraint viewConstraint;
+    WaitForSeconds timer;
+
+    IEnumerator React()
+    {
+        yield return timer;
+        canReact = true;
+    }
 
     private void Start() {
+        timer = new WaitForSeconds(reactionTime);
         viewSource.sourceTransform = target;
         viewSource.weight = 1;
         viewConstraint = head.GetComponent<LookAtConstraint>();
         controller = GetComponent<CookerController>();
-        animator = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<CustomAgent>();
         camBaseRotation = view.transform.rotation;
     }
 
@@ -93,7 +114,8 @@ public class SeekTarget : MonoBehaviour
         if (state == Visibility.VISIBLE)
             return;
         state = Visibility.VISIBLE;
-        displayView.color = cameraColorOnSee;
+        viewUI.color = cameraColorOnSee;
+        alertUI.SetOpacity(1);
         onSeeTarget.Invoke(target.position);
         if (viewConstraint.sourceCount == 0)
             viewConstraint.AddSource(viewSource);
@@ -106,13 +128,11 @@ public class SeekTarget : MonoBehaviour
     void ChaseTarget()
     {
         // transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
-        // NavMeshHit hit;
-        
-        agent.SetDestination(target.position);
-        // if (NavMesh.SamplePosition(target.position, out hit, 1000f, 1 << 4)) {
-        //     agent.SetDestination(hit.position);
-        //     Debug.DrawRay(hit.position, Vector3.up * 100, Color.red, Time.deltaTime);
-        // }
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(target.position, out hit, 1000f, 1 << 4)) {
+            agent.MoveTo(hit.position, target.position - transform.position);
+            Debug.DrawRay(hit.position, Vector3.up * 100, Color.red, Time.deltaTime);
+        }
     }
 
     void BecomeHidden()
@@ -120,10 +140,11 @@ public class SeekTarget : MonoBehaviour
         state = Visibility.HIDDEN;
         // Debug.Log("targetHidden start");
         waitTimer = Random.Range(minWait, maxWait);
+        currentWaitTime = waitTimer;
         lastKnownPosition = target.position;
         agent.ResetPath();
         onHidden.Invoke();
-        displayView.color = cameraColorOnHidden;
+        viewUI.color = cameraColorOnHidden;
         Debug.Log("targetHidden");
     }
 
@@ -134,6 +155,7 @@ public class SeekTarget : MonoBehaviour
         onLost.Invoke();
         // view.transform.rotation = camBaseRotation;
         damageTimer = 0;
+        alertUI.SetOpacity(0);
         state = Visibility.LOST;
         if (viewConstraint.sourceCount == 1)
             viewConstraint.RemoveSource(0);
@@ -142,7 +164,7 @@ public class SeekTarget : MonoBehaviour
             controller.ResetBehavior();
         }
         // view.transform.parent.transform.rotation = rotation;
-        displayView.color = Color.white;
+        viewUI.color = Color.white;
         Debug.Log("Lost !");
     }
 
@@ -159,12 +181,13 @@ public class SeekTarget : MonoBehaviour
     void Wait()
     {
         if (waitTimer <= 0) {
-            if (viewConstraint.sourceCount == 1)
-                viewConstraint.RemoveSource(0);
-            controller.ResetBehavior();
+            BecomeOutOfView();
         } else {
             // head.transform.LookAt(lastKnownPosition);
             waitTimer -= Time.deltaTime;
+            float ratio = waitTimer / currentWaitTime;
+            viewUI.color = Color.Lerp(Color.white, cameraColorOnHidden, ratio);
+            alertUI.SetOpacity(ratio);
         }
     }
 
@@ -180,20 +203,19 @@ public class SeekTarget : MonoBehaviour
         // Debug.Log($"in view {targetInView}");
         if (targetInView) {
             if (IsTargetDirectlyVisible()) {
-                if (state != Visibility.VISIBLE) {
+                if (state != Visibility.VISIBLE && canReact) {
                     SeeTarget();
                 } else {
                     ChaseTarget();
                     DamageTarget();
                 }
-            } else if (state == Visibility.VISIBLE) {
+            } else if (state == Visibility.VISIBLE && canReact) {
                 BecomeHidden();
             }
-        } else if (state != Visibility.LOST) {
+        } else if (state != Visibility.LOST && canReact) {
             // Debug.Log("Target not in view");
             BecomeOutOfView();
         }
-        animator.SetFloat("Velocity", agent.velocity.sqrMagnitude);
         if (state == Visibility.HIDDEN)
             Wait();
     }

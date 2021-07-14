@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 6459348065016523289}
   - component: {fileID: 6459348065016523288}
   - component: {fileID: 920740236248478583}
+  - component: {fileID: 4967595707411468600}
   m_Layer: 0
   m_Name: Cook
   m_TagString: Untagged
@@ -233,7 +234,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6459348065016556674}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.75
+  m_Radius: 1.6
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -242,7 +243,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 7
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -261,6 +262,7 @@ MonoBehaviour:
   minWait: 6
   maxWait: 8
   damagesPerSeconds: 10
+  reactionTime: 0.4
   mask:
     serializedVersion: 2
     m_Bits: 97793
@@ -342,7 +344,8 @@ MonoBehaviour:
   leftEye: {fileID: 7818406984685827082}
   rightEye: {fileID: 9027371556084138207}
   head: {fileID: 6459348065016656036}
-  state: 2
+  _state: 2
+  canReact: 1
   damageTimer: 1
   waitTimer: 0
 --- !u!114 &6459348065016523288
@@ -387,6 +390,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4967595707411468600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6459348065016556674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a171b9db0be1154dbc12713e5513991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementThreshold: 0.1
+  rotationSpeed: 180
+  arrivalRadius: 2
 --- !u!1 &6459348065016556676
 GameObject:
   m_ObjectHideFlags: 0

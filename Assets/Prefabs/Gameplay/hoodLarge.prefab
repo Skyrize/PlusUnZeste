@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2133066123398902317}
   - component: {fileID: 8864322154496272125}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 5803301336603324524}
   - component: {fileID: 5097151316608932874}
   - component: {fileID: 4850112059390647853}
-  m_Layer: 15
+  m_Layer: 2
   m_Name: Aspirateur
   m_TagString: Trigger
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 3743310033867063857}
   - component: {fileID: 6975620418153922248}
   - component: {fileID: 852124625417762588}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: hoodLarge
   m_TagString: Walkable
   m_Icon: {fileID: 0}
@@ -5111,7 +5111,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

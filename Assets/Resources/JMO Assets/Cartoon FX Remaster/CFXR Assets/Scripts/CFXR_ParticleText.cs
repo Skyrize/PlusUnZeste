@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.SceneManagement;
 #endif
 
 namespace CartoonFX
@@ -253,8 +254,19 @@ namespace CartoonFX
 
 			if (refresh)
 			{
+				Debug.Log("refresh");
 				Undo.RecordObject(this.target, "Generate Particle Text");
-				(this.target as CFXR_ParticleText).GenerateText();
+				var script = this.target as CFXR_ParticleText;
+				script.GenerateText();
+				
+				
+				if (PrefabUtility.IsPartOfRegularPrefab(script))
+				{
+					var pf = PrefabUtility.GetPrefabInstanceHandle(script);
+					EditorUtility.SetDirty(PrefabUtility.GetPrefabInstanceHandle(pf));
+					PrefabUtility.RecordPrefabInstancePropertyModifications(pf);
+				}
+            	EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
 			}
 		}
 	}

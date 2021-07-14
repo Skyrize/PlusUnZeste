@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6829421440933445150}
   - component: {fileID: 2576929972441094446}
   - component: {fileID: 3564156377195984973}
-  m_Layer: 15
+  m_Layer: 2
   m_Name: Ketchup
   m_TagString: Walkable
   m_Icon: {fileID: 0}

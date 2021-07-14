@@ -27,8 +27,7 @@ public class CookerController : MonoBehaviour
     // [SerializeField] private PositionEvent onReturnHome = new PositionEvent();
     // [SerializeField] private UnityEvent onStartIdle = new UnityEvent();
 
-    private NavMeshAgent agent;
-    private Animator animator;
+    private CustomAgent agent;
 
     [Header("Runtime")]
     [SerializeField] private float idleTime = 0;
@@ -40,30 +39,26 @@ public class CookerController : MonoBehaviour
     public void SetDestination(Transform targetDestination)
     {
         target = targetDestination;
-        agent.SetDestination(target.position);
+        agent.MoveTo(target);
         moving = true;
     }
 
     public void MoveToWaypoint()
     {
-        target = WaypointManager.instance.GetRandomWaypoint();
-        // onMoveToWaypoint.Invoke(target.position);
-        agent.SetDestination(target.position);
-        moving = true;
+        SetDestination(WaypointManager.instance.GetRandomWaypoint());
     }
 
     public void ReturnHome()
     {
         target = WaypointManager.instance.home;
-        agent.SetDestination(target.position);
+        agent.MoveTo(target);
         wander = Random.Range(minWanderAmount, maxWanderAmount + 1);
         moving = true;
         returnHome = true;
     }
 
     private void Awake() {
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        agent = GetComponent<CustomAgent>();
     }
 
     public void SetIdleTime()
@@ -102,6 +97,7 @@ public class CookerController : MonoBehaviour
         }
 
        wander = Random.Range(minWanderAmount, maxWanderAmount + 1);
+       agent.Warp(WaypointManager.instance.home);
     }
 
     public void Idle()
@@ -114,17 +110,13 @@ public class CookerController : MonoBehaviour
         }
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Velocity", agent.velocity.sqrMagnitude);
         if (moving) {
-            if (agent.remainingDistance != Mathf.Infinity && agent.pathStatus==NavMeshPathStatus.PathComplete && agent.remainingDistance== 0) {
+            if (agent.HasReachedDestination) {
                 Idle();
-            } else {
-                for (int i = 0; i < agent.path.corners.Length - 1; i++) {
-                    Debug.DrawLine(agent.path.corners[i], agent.path.corners[i + 1], Color.red, Time.deltaTime);
-                }
             }
         } else {
             if (idleTime <= 0) {
