@@ -29349,7 +29349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6300634222760126238}
-  currentCheckpoint: {fileID: 0}
+  currentCheckpoint: {fileID: 4733333800515858480}
   onTrigger:
     m_PersistentCalls:
       m_Calls:
