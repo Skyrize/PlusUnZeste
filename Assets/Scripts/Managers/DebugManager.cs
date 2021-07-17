@@ -6,6 +6,7 @@ public class DebugManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject debugArrowPrefab = null;
+    [SerializeField] private SceneManager sceneManager = null;
     static private DebugManager _instance = null;
     static public DebugManager instance {
         get {
@@ -26,6 +27,28 @@ public class DebugManager : MonoBehaviour
         instance = this;
         // DontDestroyOnLoad(this.gameObject);
     }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.F1)) {
+            sceneManager.LoadScene("Level 1");
+        }
+        if (Input.GetKeyDown(KeyCode.F2)) {
+            sceneManager.LoadScene("Level 2");
+        }
+        if (Input.GetKeyDown(KeyCode.F3)) {
+            sceneManager.LoadScene("Level 3");
+        }
+        if (Input.GetKeyDown(KeyCode.F4)) {
+            sceneManager.LoadScene("Level 4");
+        }
+        if (Input.GetKeyDown(KeyCode.F5)) {
+            sceneManager.LoadScene("Level 5");
+        }
+        if (Input.GetKeyDown(KeyCode.F6)) {
+            sceneManager.LoadScene("Level 6");
+        }
+    }
+
     public void CreateDebugArrow(ContactPoint contactPoint, bool reverse = false)
     {
         if (reverse) {

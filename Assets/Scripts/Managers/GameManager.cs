@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UnityEvent onLevelStart = new UnityEvent();
     [SerializeField] private UnityEvent onWin = new UnityEvent();
     [SerializeField] private UnityEvent onLose = new UnityEvent();
+    [SerializeField] private UnityEvent onRespawn = new UnityEvent();
+    [SerializeField] private UnityEvent onRespawnCheckpoint = new UnityEvent();
+    [SerializeField] private UnityEvent onRestart = new UnityEvent();
 
     static private GameManager _instance = null;
     static public GameManager instance {
@@ -69,6 +72,21 @@ public class GameManager : MonoBehaviour
     public void Lose()
     {
         onLose.Invoke();
+    }
+
+    public void Respawn()
+    {
+        onRespawn.Invoke();
+    }
+
+    public void RespawnCheckpoint()
+    {
+        onRespawnCheckpoint.Invoke();
+    }
+
+    public void Restart()
+    {
+        onRestart.Invoke();
     }
 
     // Start is called before the first frame update

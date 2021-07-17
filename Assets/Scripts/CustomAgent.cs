@@ -9,8 +9,8 @@ public class CustomAgent : MonoBehaviour
 {
     [SerializeField] float rotationSpeed = 30f;
     [SerializeField] float arrivalRadius = 1f;
-    NavMeshAgent agent;
-    Animator animator;
+    [SerializeField] NavMeshAgent agent;
+    [SerializeField] Animator animator;
 
     Vector3 facing;
 
@@ -50,8 +50,6 @@ public class CustomAgent : MonoBehaviour
     }
     void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
     }
 
     public bool HasReachedDestination => !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance && (!agent.hasPath || agent.velocity.sqrMagnitude == 0f);

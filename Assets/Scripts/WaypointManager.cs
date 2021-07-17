@@ -14,29 +14,21 @@ public class WaypointManager : MonoBehaviour
             return _home;
         }
     }
-    static private WaypointManager _instance = null;
-    static public WaypointManager instance {
-        get {
-            if (_instance == null)
-                Debug.LogException(new System.Exception("Asking for instance too early (awake)"));
-            return WaypointManager._instance;
-        }
-
-        set {
-            if (_instance) {
-                Debug.LogException(new System.Exception("More thand one WaypointManager in the Scene"));
-            } else {
-                _instance = value;
-            }
-        }
-    }
-
-    private void Awake() {
-        instance = this;
-    }
+    [SerializeField]
+    int currentWaypoint = 0;
 
     public Transform GetRandomWaypoint()
     {
         return waypoints[Random.Range(0, waypoints.Length)];
+    }
+
+    public Transform GetNextWaypoint()
+    {
+        Transform result = waypoints[currentWaypoint];
+
+        currentWaypoint++;
+        if (currentWaypoint == waypoints.Length)
+            currentWaypoint = 0;
+        return result;
     }
 }

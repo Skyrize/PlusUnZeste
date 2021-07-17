@@ -19,6 +19,7 @@ public class CookerController : MonoBehaviour
     [SerializeField] private float maxHomeTime = 8;
 
     [Header("Wanders")]
+    [SerializeField] private bool randomizeWaypoint = false;
     [SerializeField] private int minWanderAmount = 1;
     [SerializeField] private int maxWanderAmount = 2;
 
@@ -27,7 +28,7 @@ public class CookerController : MonoBehaviour
     // [SerializeField] private PositionEvent onReturnHome = new PositionEvent();
     // [SerializeField] private UnityEvent onStartIdle = new UnityEvent();
 
-    private CustomAgent agent;
+    [SerializeField] private CustomAgent agent;
 
     [Header("Runtime")]
     [SerializeField] private float idleTime = 0;
@@ -35,6 +36,7 @@ public class CookerController : MonoBehaviour
     [SerializeField] private bool returnHome = false;
     [SerializeField] private bool moving = false;
     [SerializeField] private Transform target = null;
+    WaypointManager waypointManager;
 
     public void SetDestination(Transform targetDestination)
     {
@@ -45,12 +47,16 @@ public class CookerController : MonoBehaviour
 
     public void MoveToWaypoint()
     {
-        SetDestination(WaypointManager.instance.GetRandomWaypoint());
+        if (randomizeWaypoint) {
+            SetDestination(waypointManager.GetRandomWaypoint());
+        } else {
+            SetDestination(waypointManager.GetNextWaypoint());
+        }
     }
 
     public void ReturnHome()
     {
-        target = WaypointManager.instance.home;
+        target = waypointManager.home;
         agent.MoveTo(target);
         wander = Random.Range(minWanderAmount, maxWanderAmount + 1);
         moving = true;
@@ -58,17 +64,31 @@ public class CookerController : MonoBehaviour
     }
 
     private void Awake() {
+
+        var comps = transform.GetComponents<Component>();
+
+        foreach (var item in comps)
+        {
+            Debug.LogError($"comp {item.name}");
+        }
         agent = GetComponent<CustomAgent>();
+        waypointManager = FindObjectOfType<WaypointManager>();
+        Debug.LogError($"pass1 {waypointManager != null}");
         moving = false;
         idleTime = Random.Range(minIdleTime, maxIdleTime);
         if (returnHome) {
             idleTime = Random.Range(minHomeTime, maxHomeTime);
-            target = WaypointManager.instance.home;
+        Debug.LogError("pass2");
+            target = waypointManager.home;
+        Debug.LogError("pass3");
             returnHome = false;
         }
 
        wander = Random.Range(minWanderAmount, maxWanderAmount + 1);
-       agent.Warp(WaypointManager.instance.home);
+        Debug.LogError($"pass4 {agent != null}");
+        var home = waypointManager.home;
+       agent.Warp(home);
+        Debug.LogError("pass5");
     }
 
     public void SetIdleTime()
@@ -90,7 +110,7 @@ public class CookerController : MonoBehaviour
 
     public void Respawn()
     {
-        Debug.Log($"warp {agent.Warp(WaypointManager.instance.home.position)}");
+        Debug.Log($"warp {agent.Warp(waypointManager.home.position)}");
         GetComponent<SeekTarget>().Respawn();
         ReturnHome();
     }

@@ -397,8 +397,10 @@ MonoBehaviour:
   maxIdleTime: 4.5
   minHomeTime: 10
   maxHomeTime: 12
+  randomizeWaypoint: 0
   minWanderAmount: 2
   maxWanderAmount: 3
+  agent: {fileID: 4967595707411468600}
   idleTime: 0
   wander: 0
   returnHome: 0
@@ -437,6 +439,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 180
   arrivalRadius: 2
+  agent: {fileID: 6459348065016523295}
+  animator: {fileID: 920740236248478583}
 --- !u!1 &6459348065016556676
 GameObject:
   m_ObjectHideFlags: 0

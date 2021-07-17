@@ -5998,6 +5998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugArrowPrefab: {fileID: 4391200772794651341, guid: 276a768fe5987c04e9b5cc04494f8c6f, type: 3}
+  sceneManager: {fileID: 378807683993404624}
 --- !u!1 &187252049241606438
 GameObject:
   m_ObjectHideFlags: 0
@@ -6140,6 +6141,99 @@ MonoBehaviour:
       - m_Target: {fileID: 7466208676083698171}
         m_TargetAssemblyTypeName: WinUI, Assembly-CSharp
         m_MethodName: Lose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3927816926620964664}
+        m_TargetAssemblyTypeName: EventBinder, Assembly-CSharp
+        m_MethodName: CallEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Die
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRespawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7466208676083698171}
+        m_TargetAssemblyTypeName: WinUI, Assembly-CSharp
+        m_MethodName: Respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3927816926620964664}
+        m_TargetAssemblyTypeName: EventBinder, Assembly-CSharp
+        m_MethodName: CallEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Die
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRespawnCheckpoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4649003141219632261}
+        m_TargetAssemblyTypeName: CheckpointManager, Assembly-CSharp
+        m_MethodName: Respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3927816926620964664}
+        m_TargetAssemblyTypeName: EventBinder, Assembly-CSharp
+        m_MethodName: CallEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Respawn
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 187252049235170228}
+        m_TargetAssemblyTypeName: CookerController, Assembly-CSharp
+        m_MethodName: Respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRestart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 378807683993404624}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: ReloadCurrentScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22855,6 +22949,7 @@ MonoBehaviour:
   - {fileID: 2083195074489299910}
   - {fileID: 1403393017940876997}
   _home: {fileID: 8539812949478443726}
+  currentWaypoint: 0
 --- !u!1 &2027152720026772833
 GameObject:
   m_ObjectHideFlags: 0
@@ -29350,6 +29445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 6300634222760126238}
   currentCheckpoint: {fileID: 4733333800515858480}
+  playerHealthSave: 0
   onTrigger:
     m_PersistentCalls:
       m_Calls:
@@ -67793,51 +67889,12 @@ MonoBehaviour:
   easing: 0
   loseDuration: 3
   loseEasing: 0
-  onLose:
+  onRespawnHalf:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3927816926620964664}
-        m_TargetAssemblyTypeName: EventBinder, Assembly-CSharp
-        m_MethodName: CallEvent
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Die
-          m_BoolArgument: 0
-        m_CallState: 2
-  onLoseHalf:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4649003141219632261}
-        m_TargetAssemblyTypeName: CheckpointManager, Assembly-CSharp
-        m_MethodName: Respawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Respawn
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3927816926620964664}
-        m_TargetAssemblyTypeName: EventBinder, Assembly-CSharp
-        m_MethodName: CallEvent
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Respawn
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 187252049235170228}
-        m_TargetAssemblyTypeName: CookerController, Assembly-CSharp
-        m_MethodName: Respawn
+      - m_Target: {fileID: 187252049241606441}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RespawnCheckpoint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -67845,6 +67902,21 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onLoseHalf:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 187252049241606441}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Respawn
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7153717307184773391
@@ -89788,7 +89860,7 @@ MonoBehaviour:
   easing: 0
   loseDuration: 1.5
   loseEasing: 0
-  onLose:
+  onRespawnHalf:
     m_PersistentCalls:
       m_Calls: []
   onLoseHalf:
@@ -95253,7 +95325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6819234208779820170, guid: fe1d5928dda7c1b4087d2d89276771bd, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Lose
+      value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819234208779820170, guid: fe1d5928dda7c1b4087d2d89276771bd, type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6819234208779820170, guid: fe1d5928dda7c1b4087d2d89276771bd, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

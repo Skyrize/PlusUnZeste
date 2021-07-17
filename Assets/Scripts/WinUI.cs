@@ -12,7 +12,7 @@ public class WinUI : MonoBehaviour
     [SerializeField] Ease easing;
     [SerializeField] float loseDuration = 1.5f;
     [SerializeField] Ease loseEasing;
-    public UnityEvent onLose = new UnityEvent();
+    public UnityEvent onRespawnHalf = new UnityEvent();
     public UnityEvent onLoseHalf = new UnityEvent();
     Image image;
 
@@ -21,15 +21,23 @@ public class WinUI : MonoBehaviour
     }
     public void Win()
     {
-        image.DOFade(1, duration).SetEase(easing);
+        var tween = image.DOFade(1, duration).SetEase(easing);
+    }
+
+    public void Respawn()
+    {
+        Sequence sequence = DOTween.Sequence();
+        var tween = image.DOFade(1, loseDuration / 2f).SetEase(loseEasing);
+        tween.onComplete += () => onRespawnHalf.Invoke();
+        sequence.Append(tween);
+        sequence.Append(image.DOFade(0, loseDuration / 2f).SetEase(loseEasing));
+        sequence.Play();
     }
 
     public void Lose()
     {
-        onLose.Invoke();
         Sequence sequence = DOTween.Sequence();
         var tween = image.DOFade(1, loseDuration / 2f).SetEase(loseEasing);
-        tween.onComplete += () => Debug.Log("Complete");
         tween.onComplete += () => onLoseHalf.Invoke();
         sequence.Append(tween);
         sequence.Append(image.DOFade(0, loseDuration / 2f).SetEase(loseEasing));

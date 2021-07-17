@@ -5719,7 +5719,11 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 187252049235170229, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
+    - {fileID: 187252049235170228, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
+    - {fileID: 2291496106125617300, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
+    - {fileID: 187252049235170227, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
 --- !u!114 &1255879168 stripped
 MonoBehaviour:
