@@ -59,6 +59,16 @@ public class CookerController : MonoBehaviour
 
     private void Awake() {
         agent = GetComponent<CustomAgent>();
+        moving = false;
+        idleTime = Random.Range(minIdleTime, maxIdleTime);
+        if (returnHome) {
+            idleTime = Random.Range(minHomeTime, maxHomeTime);
+            target = WaypointManager.instance.home;
+            returnHome = false;
+        }
+
+       wander = Random.Range(minWanderAmount, maxWanderAmount + 1);
+       agent.Warp(WaypointManager.instance.home);
     }
 
     public void SetIdleTime()
@@ -89,15 +99,6 @@ public class CookerController : MonoBehaviour
     void Start()
     {
 
-        moving = false;
-        idleTime = Random.Range(minIdleTime, maxIdleTime);
-        if (returnHome) {
-            idleTime = Random.Range(minHomeTime, maxHomeTime);
-            returnHome = false;
-        }
-
-       wander = Random.Range(minWanderAmount, maxWanderAmount + 1);
-       agent.Warp(WaypointManager.instance.home);
     }
 
     public void Idle()

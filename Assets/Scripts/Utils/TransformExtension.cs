@@ -35,12 +35,15 @@ public static class TransformExtension {
         return transform.GetChild(Random.Range(0, transform.childCount));
     }
 
-    public static T[] GetComponentsInDirectChildren<T>(this Transform transform)
+    public static T[] GetComponentsInDirectChildren<T>(this Transform transform, bool includeDisabled = false)
     {
         List<T> result = new List<T>();
 
         for (int i = 0; i != transform.childCount; i++) {
-            T comp = transform.GetChild(i).GetComponent<T>();
+            var child = transform.GetChild(i);
+            if (!includeDisabled && !child.gameObject.activeInHierarchy)
+                continue;
+            T comp = child.GetComponent<T>();
             if (comp != null)
                 result.Add(comp);
         }

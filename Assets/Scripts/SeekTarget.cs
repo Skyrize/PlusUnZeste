@@ -70,7 +70,8 @@ public class SeekTarget : MonoBehaviour
         canReact = true;
     }
 
-    private void Start() {
+    private void Awake() {
+        Debug.Log("cook awake");
         timer = new WaitForSeconds(reactionTime);
         viewSource.sourceTransform = target;
         viewSource.weight = 1;
@@ -78,6 +79,9 @@ public class SeekTarget : MonoBehaviour
         controller = GetComponent<CookerController>();
         agent = GetComponent<CustomAgent>();
         camBaseRotation = view.transform.rotation;
+    }
+
+    private void Start() {
     }
 
     bool IsTargetInView()
@@ -109,6 +113,18 @@ public class SeekTarget : MonoBehaviour
         return IsTargetDirectlyVisible(leftEye) || IsTargetDirectlyVisible(rightEye);
     }
 
+    public void UnsetTargetView()
+    {
+        if (viewConstraint.sourceCount == 1)
+            viewConstraint.RemoveSource(0);
+    }
+
+    public void SetTargetView()
+    {
+        if (viewConstraint.sourceCount == 0)
+            viewConstraint.AddSource(viewSource);
+    }
+
     void SeeTarget()
     {
         if (state == Visibility.VISIBLE)
@@ -117,10 +133,7 @@ public class SeekTarget : MonoBehaviour
         viewUI.color = cameraColorOnSee;
         alertUI.SetOpacity(1);
         onSeeTarget.Invoke(target.position);
-        if (viewConstraint.sourceCount == 0)
-            viewConstraint.AddSource(viewSource);
-        if (viewConstraint.sourceCount == 0)
-            viewConstraint.AddSource(viewSource);
+        SetTargetView();
         controller.enabled = false;
         Debug.Log("TARGET IN SIGHT !");
     }
@@ -157,8 +170,7 @@ public class SeekTarget : MonoBehaviour
         damageTimer = 0;
         alertUI.SetOpacity(0);
         state = Visibility.LOST;
-        if (viewConstraint.sourceCount == 1)
-            viewConstraint.RemoveSource(0);
+        UnsetTargetView();
         if (!controller.enabled) {
             controller.enabled = true;
             controller.ResetBehavior();
