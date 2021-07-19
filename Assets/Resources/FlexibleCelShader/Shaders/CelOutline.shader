@@ -28,6 +28,8 @@
 		_FresnelBrightness("Soft Edge Light Brightness", Range(0, 1)) = 0
 		_FresnelPower("Soft Edge Light Size", Range(0, 1)) = 0
 		_FresnelShadowDropoff("Soft Edge Light Dropoff", range(0, 1)) = 0
+		
+        _DissolvePercentage("DissolvePercentage", Range(0,1)) = 0.0
 	}
 	
 	SubShader
@@ -102,10 +104,14 @@
 			float     _FresnelPower;
 			float4    _FresnelColor;
 			float     _FresnelShadowDropoff;
+			
+    		float _DissolvePercentage;
 
 			fixed4 frag(v2f i) : SV_Target
 			{
 				_RampLevels -= 1;
+				float gradient = tex2D(_MainTex, i.uv).r;
+        		clip(gradient - _DissolvePercentage);
 
 				// Get view direction && light direction for rim lighting
 				float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.worldPos.xyz);
