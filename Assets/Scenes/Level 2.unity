@@ -13491,10 +13491,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 2124682987571400976, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 323170819}
     - target: {fileID: 2282822803401775777, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
       propertyPath: m_TextStyleHashCode
       value: -1183493901

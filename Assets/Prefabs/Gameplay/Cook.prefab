@@ -296,7 +296,7 @@ MonoBehaviour:
   reactionTime: 0.4
   mask:
     serializedVersion: 2
-    m_Bits: 97793
+    m_Bits: 65
   cameraColorOnSee: {r: 1, g: 0.25, b: 0.25, a: 1}
   cameraColorOnHidden: {r: 1, g: 0.7573783, b: 0.4009434, a: 1}
   onSeeTarget:
@@ -372,6 +372,7 @@ MonoBehaviour:
   target: {fileID: 0}
   viewUI: {fileID: 0}
   alertUI: {fileID: 0}
+  hiddenUI: {fileID: 0}
   controller: {fileID: 6459348065016523288}
   leftEye: {fileID: 7818406984685827082}
   rightEye: {fileID: 9027371556084138207}

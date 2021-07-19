@@ -95709,10 +95709,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2298282031109914564, guid: fe1d5928dda7c1b4087d2d89276771bd, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6819234208779820170, guid: fe1d5928dda7c1b4087d2d89276771bd, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
