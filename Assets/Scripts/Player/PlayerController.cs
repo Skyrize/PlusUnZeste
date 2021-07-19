@@ -5,12 +5,39 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private SphereMovement movement = null;
-    
+    [SerializeField] JumpComponent jump;
+    [SerializeField] bool isBumped = false;
+    [SerializeField] float disableDuration = .5f;
+    [SerializeField] float currentDisableTimer;
+    public bool IsBumped {
+        get {
+            return isBumped;
+        }
+
+        set {
+            Debug.Log("Set");
+            isBumped = value;
+            if (isBumped)
+                currentDisableTimer = disableDuration;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        movement.direction.x = Input.GetAxis("Horizontal");
-        movement.direction.z = Input.GetAxis("Vertical");
-        movement.direction.Normalize();
+        if (isBumped) {
+            movement.direction = Vector3.zero;
+            if (currentDisableTimer > 0) {
+                currentDisableTimer -= Time.deltaTime;
+                return;
+            }
+            if (jump.IsGrounded) {
+                isBumped = false;
+            }
+        } else {
+            movement.direction.x = Input.GetAxis("Horizontal");
+            movement.direction.z = Input.GetAxis("Vertical");
+            movement.direction.Normalize();
+        }
     }
 }

@@ -22,6 +22,11 @@ public class RigidbodyAnimation : MonoBehaviour
         DOTween.To(() => rb.angularDrag, (x) => rb.angularDrag = x, endValue, duration);
         DOTween.To(() => rb.drag, (x) => rb.drag = x, endValue, duration);
     }
+    public void SlowDown(float value)
+    {
+        DOTween.To(() => rb.angularDrag, (x) => rb.angularDrag = x, value, duration);
+        DOTween.To(() => rb.drag, (x) => rb.drag = x, value, duration);
+    }
 
     public void Release()
     {

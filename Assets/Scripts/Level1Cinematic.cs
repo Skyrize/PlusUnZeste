@@ -110,12 +110,12 @@ public class Level1Cinematic : MonoBehaviour
         yield return new WaitForSeconds(lookAtWindowDuration);
         psIdea.Play();
         yield return new WaitForSeconds(psIdea.main.duration);
-        playerCamera.DOFieldOfView(cameraFOV - 15, cameraFOVDuration).SetEase(cameraFOVEase);
+        playerCamera.DOFieldOfView(cameraFOV - 45, cameraFOVDuration).SetEase(Ease.OutBack);
         
         yield return new WaitForSeconds(cameraFOVDuration);
 
         UnsetLookAt();
-        playerCamera.DOFieldOfView(baseFOV, cameraFOVDuration / 2).SetEase(cameraFOVEase);
+        playerCamera.DOFieldOfView(baseFOV, cameraFOVDuration / 2).SetEase(Ease.InExpo);
         yield return new WaitForSeconds(cameraFOVDuration / 2);
         psEscape.Play();
         // controller.SmoothLookAt(hideout.position, lookAtDuration / 2);

@@ -15,6 +15,7 @@ public class JumpComponent : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [Header("Runtime")]
     [SerializeField] private bool isGrounded = false;
+    public bool IsGrounded => isGrounded;
 
     // bool isForceJump = false;
     // public void ForceJump()

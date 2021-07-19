@@ -351,6 +351,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallWindowLight
       objectReference: {fileID: 0}
+    - target: {fileID: 4802547116413339031, guid: 417acae65415dc3469c5a3673a7a3065, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417acae65415dc3469c5a3673a7a3065, type: 3}
 --- !u!4 &1412349141417182422 stripped
@@ -412,6 +416,10 @@ PrefabInstance:
     - target: {fileID: 4802547116413339031, guid: 417acae65415dc3469c5a3673a7a3065, type: 3}
       propertyPath: m_Name
       value: SmallWindowLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802547116413339031, guid: 417acae65415dc3469c5a3673a7a3065, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417acae65415dc3469c5a3673a7a3065, type: 3}

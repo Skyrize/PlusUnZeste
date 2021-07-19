@@ -27,6 +27,7 @@ public class SeekTarget : MonoBehaviour
     [SerializeField] private Transform target = null;
     [SerializeField] private RawImage viewUI = null;
     [SerializeField] private OpacityController alertUI = null;
+    [SerializeField] private OpacityController hiddenUI = null;
     [SerializeField] private CookerController controller;
     [SerializeField] private Transform leftEye;
     [SerializeField] private Transform rightEye;
@@ -132,20 +133,26 @@ public class SeekTarget : MonoBehaviour
         state = Visibility.VISIBLE;
         viewUI.color = cameraColorOnSee;
         alertUI.SetOpacity(1);
+        hiddenUI.SetOpacity(0);
         onSeeTarget.Invoke(target.position);
         SetTargetView();
         controller.enabled = false;
         Debug.Log("TARGET IN SIGHT !");
     }
 
+    void MoveTo(Vector3 position)
+    {
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(position, out hit, 1000f, 1 << 4)) {
+            agent.MoveTo(hit.position, position - transform.position);
+            Debug.DrawRay(hit.position, Vector3.up * 100, Color.red, Time.deltaTime);
+        }
+    }
+
     void ChaseTarget()
     {
         // transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(target.position, out hit, 1000f, 1 << 4)) {
-            agent.MoveTo(hit.position, target.position - transform.position);
-            Debug.DrawRay(hit.position, Vector3.up * 100, Color.red, Time.deltaTime);
-        }
+        MoveTo(target.position);
     }
 
     void BecomeHidden()
@@ -154,20 +161,21 @@ public class SeekTarget : MonoBehaviour
         // Debug.Log("targetHidden start");
         waitTimer = Random.Range(minWait, maxWait);
         currentWaitTime = waitTimer;
-        lastKnownPosition = target.position;
-        agent.ResetPath();
+        alertUI.SetOpacity(0);
+        hiddenUI.SetOpacity(1);
+        MoveTo(target.position); // Go To last know position one last time
         onHidden.Invoke();
         viewUI.color = cameraColorOnHidden;
         Debug.Log("targetHidden");
     }
 
-    private Vector3 lastKnownPosition;
     void BecomeOutOfView()
     {
         // Debug.Log("Start Lost !");
         onLost.Invoke();
         // view.transform.rotation = camBaseRotation;
         damageTimer = 0;
+        hiddenUI.SetOpacity(0);
         alertUI.SetOpacity(0);
         state = Visibility.LOST;
         UnsetTargetView();
@@ -199,7 +207,7 @@ public class SeekTarget : MonoBehaviour
             waitTimer -= Time.deltaTime;
             float ratio = waitTimer / currentWaitTime;
             viewUI.color = Color.Lerp(Color.white, cameraColorOnHidden, ratio);
-            alertUI.SetOpacity(ratio);
+            hiddenUI.SetOpacity(ratio);
         }
     }
 

@@ -23,4 +23,8 @@ public class OpacityController : MonoBehaviour
     {
         canvasGroup.DOFade(target, fadeDuration);
     }
+    public void AnimateOpacity(float target, float duration)
+    {
+        canvasGroup.DOFade(target, duration);
+    }
 }

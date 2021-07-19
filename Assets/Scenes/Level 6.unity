@@ -3055,7 +3055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5641199533200704418, guid: 3e544447d89568f418e901e89b8a0ef5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5641199533200704418, guid: 3e544447d89568f418e901e89b8a0ef5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3373,8 +3373,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 187252049235170228, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
+      propertyPath: maxHomeTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 187252049235170228, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
       propertyPath: minHomeTime
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 187252049235170228, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
       propertyPath: maxWanderAmount
@@ -22471,7 +22475,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1177752
+  m_Name: pb_Mesh-774154
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
