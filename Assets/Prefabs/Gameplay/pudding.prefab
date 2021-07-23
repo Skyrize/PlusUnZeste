@@ -5316,10 +5316,12 @@ MonoBehaviour:
   audios:
   - name: Boing
     clip: {fileID: 8300000, guid: 60a03cb63d112c444ae242eb7012747a, type: 3}
+    loop: 0
     maxVolume: 0.22
     minVolume: 0.18
     maxPitch: 1.1
     minPitch: 0.9
+  source: {fileID: 0}
 --- !u!1 &5214605051213080433
 GameObject:
   m_ObjectHideFlags: 0

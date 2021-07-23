@@ -10224,16 +10224,19 @@ MonoBehaviour:
   audios:
   - name: Dive
     clip: {fileID: 8300000, guid: 2f27b7e1076952d40bfa08b3fba70ced, type: 3}
+    loop: 0
     maxVolume: 0.2
     minVolume: 0.1
     maxPitch: 1.2
     minPitch: 0.85
   - name: Swim
     clip: {fileID: 8300000, guid: ea98c1d2d0d331741bfec1f22d8105f9, type: 3}
+    loop: 0
     maxVolume: 0.2
     minVolume: 0.1
     maxPitch: 1.2
     minPitch: 0.85
+  source: {fileID: 0}
 --- !u!1 &2553332498917347751
 GameObject:
   m_ObjectHideFlags: 0

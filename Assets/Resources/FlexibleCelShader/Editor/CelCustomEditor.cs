@@ -79,9 +79,14 @@ public class CelCustomEditor : MaterialEditor
         EditorGUILayout.EndHorizontal();
     }
 
+    bool unfolded = true;
+
     public override void OnInspectorGUI()
     {
+        unfolded = EditorGUILayout.Foldout(unfolded, "Settings");
 
+        if (unfolded) {
+            
         drawPresets();
 
         GUILayout.Space(spacing);
@@ -124,6 +129,13 @@ public class CelCustomEditor : MaterialEditor
         showProperty("_FresnelBrightness");
         showProperty("_FresnelPower");
         showProperty("_FresnelShadowDropoff");
+
+        GUILayout.Space(spacing);
+        EditorGUILayout.LabelField("Disolve", EditorStyles.boldLabel);
+        showProperty("_DissolveTex");
+        showProperty("_DissolvePercentage");
+        showProperty("_DissolveRepetition");
+        }
 
         /*GUILayout.Space(spacing);
         EditorGUILayout.LabelField("Vertical Gradient", EditorStyles.boldLabel);

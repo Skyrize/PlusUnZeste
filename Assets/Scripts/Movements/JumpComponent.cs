@@ -9,6 +9,8 @@ public class JumpComponent : MonoBehaviour
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private float feetYOffset = .1f;
     [SerializeField] private float feetRadius = .3f;
+    [SerializeField] private float sideOffset = .1f;
+    [SerializeField] private float sideRadius = .3f;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private UnityEvent onJump = new UnityEvent();
     [Header("References")]
@@ -50,6 +52,14 @@ public class JumpComponent : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(transform.position - Vector3.up * feetYOffset, feetRadius, groundMask);
+
+        if (!isGrounded) {
+            bool isGroundLeft = Physics.CheckSphere(transform.position - Vector3.right * sideOffset, sideRadius, groundMask);
+            bool isGroundRight = Physics.CheckSphere(transform.position + Vector3.right * sideOffset, sideRadius, groundMask);
+
+            if (isGroundLeft && isGroundRight)
+                isGrounded = true;
+        }
         // if (isForceJump && isGrounded && Time.deltaTime != 0) {
         //     isForceJump = false;
         //     GetComponent<SphereMovement>().enabled = true;
@@ -76,6 +86,9 @@ public class JumpComponent : MonoBehaviour
         Gizmos.color = Color.yellow;
         // Gizmos.DrawWireCube(transform.position - Vector3.up * feetYOffset - Vector3.up * feetSideOffset / 2f, Vector3.one * feetSideOffset);
         Gizmos.DrawWireSphere(transform.position - Vector3.up * feetYOffset, feetRadius);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position + Vector3.right * sideOffset, sideRadius);
+        Gizmos.DrawWireSphere(transform.position - Vector3.right * sideOffset, sideRadius);
     }
 
 }

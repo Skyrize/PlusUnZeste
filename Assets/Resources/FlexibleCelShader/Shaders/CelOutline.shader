@@ -28,10 +28,18 @@
 		_FresnelBrightness("Soft Edge Light Brightness", Range(0, 1)) = 0
 		_FresnelPower("Soft Edge Light Size", Range(0, 1)) = 0
 		_FresnelShadowDropoff("Soft Edge Light Dropoff", range(0, 1)) = 0
-		
-        _DissolvePercentage("DissolvePercentage", Range(0,1)) = 0.0
+
+		_DissolveTex("Albedo (RGB)", 2D) = "white" {}
+        _DissolvePercentage("DissolvePercentage", Range(0,2)) = 0.0
+        _DissolveRepetition("DissolveRepetition", Vector) = (1,1,1,1)
+
 	}
-	
+//(0.9607843,0.7254902,0.2588235,1)
+	CGINCLUDE
+    #include "Packages/jp.keijiro.noiseshader/Shader/ClassicNoise2D.hlsl"
+    #include "Packages/jp.keijiro.noiseshader/Shader/ClassicNoise3D.hlsl"
+	ENDCG
+
 	SubShader
 	{
 		
@@ -59,6 +67,7 @@
 				float3 worldBitangent : TEXCOORD4;
 				float4 worldPos : TEXCOORD5;
 				float4 pos : SV_POSITION;
+            	float3 viewDist : TEXCOORD6;
 			};
 
 			v2f vert(appdata_tan v)
@@ -77,6 +86,11 @@
 				o.worldTangent = UnityObjectToWorldNormal(v.tangent);
 				o.worldBitangent = cross(o.worldTangent, o.worldNormal);
 
+				float3 viewDirW = WorldSpaceViewDir(v.vertex);
+				float viewLength = length(viewDirW);
+				o.viewDist.x = viewLength;
+				o.viewDist.y = viewLength;
+				o.viewDist.z = viewLength;
 				// Compute shadows data
 				TRANSFER_SHADOW(o);
 
@@ -85,6 +99,7 @@
 
 			float4    _Color;
 			sampler2D _MainTex;
+			sampler2D _DissolveTex;
 			uniform float4 _MainTex_ST;
 			sampler2D _NormalTex;
 			uniform float4 _NormalTex_ST;
@@ -106,12 +121,20 @@
 			float     _FresnelShadowDropoff;
 			
     		float _DissolvePercentage;
-
+    		float4 _DissolveRepetition;
+			
 			fixed4 frag(v2f i) : SV_Target
 			{
 				_RampLevels -= 1;
-				float gradient = tex2D(_MainTex, i.uv).r;
-        		clip(gradient - _DissolvePercentage);
+				// float gradient = tex2D(_MainTex, i.uv).r;
+
+				//Dissolve effect
+				if (_ScreenParams.x != 480) {
+					// float l = length(_WorldSpaceCameraPos - i.worldPos.xyz);
+					float gradient = ClassicNoise(i.pos.xyz);
+					// clip(saturate(i.viewDist.x - l + gradient * saturate(i.viewDist.x)) - 0.5);
+					clip(gradient - _DissolvePercentage + 1);
+				}
 
 				// Get view direction && light direction for rim lighting
 				float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.worldPos.xyz);
@@ -195,9 +218,12 @@
 			struct v2f
 			{
 				float4 vertex : SV_POSITION;
+				float4 worldPos : TEXCOORD5;
+				float3 viewDist : TEXCOORD6;
 			};
 
 			float _OutlineSize;
+    		float _DissolvePercentage;
 			v2f vert(appdata v)
 			{
 				v2f o;
@@ -205,6 +231,12 @@
 				half3 worldNormal = UnityObjectToWorldNormal(v.normal);
 				worldPos.xyz = worldPos.xyz + worldNormal * _OutlineSize * 0.001;
 				o.vertex = mul(UNITY_MATRIX_VP, worldPos);
+				o.worldPos = worldPos;
+				float3 viewDirW = WorldSpaceViewDir(v.vertex);
+				float viewLength = length(viewDirW);
+				o.viewDist.x = viewLength;
+				o.viewDist.y = viewLength;
+				o.viewDist.z = viewLength;
 				return o;
 			}
 
@@ -212,8 +244,15 @@
 			fixed4 frag(v2f i) : SV_Target
 			{
 				if (_ScreenParams.x == 480) {
-					return float4(0, 0, 0, 0);
+					clip(-1);
+				} else {
+					float gradient = ClassicNoise(i.vertex.xyz);
+
+        			clip(gradient - _DissolvePercentage + 1);
 				}
+				// float l = length(_WorldSpaceCameraPos - i.worldPos.xyz);
+				// float gradient = ClassicNoise(i.vertex.xyz);
+				// clip(saturate(i.viewDist.x - l + gradient * saturate(i.viewDist.x)) - 0.5);
 				return _OutlineColor;
 			}
 				ENDCG

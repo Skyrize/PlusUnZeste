@@ -65,30 +65,18 @@ public class CookerController : MonoBehaviour
 
     private void Awake() {
 
-        var comps = transform.GetComponents<Component>();
-
-        foreach (var item in comps)
-        {
-            Debug.LogError($"comp {item.name}");
-        }
         agent = GetComponent<CustomAgent>();
         waypointManager = FindObjectOfType<WaypointManager>();
-        Debug.LogError($"pass1 {waypointManager != null}");
         moving = false;
         idleTime = Random.Range(minIdleTime, maxIdleTime);
         if (returnHome) {
             idleTime = Random.Range(minHomeTime, maxHomeTime);
-        Debug.LogError("pass2");
             target = waypointManager.home;
-        Debug.LogError("pass3");
             returnHome = false;
         }
-
-       wander = Random.Range(minWanderAmount, maxWanderAmount + 1);
-        Debug.LogError($"pass4 {agent != null}");
+        wander = Random.Range(minWanderAmount, maxWanderAmount + 1);
         var home = waypointManager.home;
-       agent.Warp(home);
-        Debug.LogError("pass5");
+        agent.Warp(home);
     }
 
     public void SetIdleTime()

@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minWait: 6
-  maxWait: 8
+  maxWait: 6
   damagesPerSeconds: 10
   reactionTime: 0.4
   mask:
@@ -2353,7 +2353,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 215
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 38214961c8c368045a5a1bc11415dd65, type: 2}
   m_TargetDisplay: 0

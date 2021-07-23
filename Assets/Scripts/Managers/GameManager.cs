@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private TMPro.TMP_Text timerUI;
     [Header("Events")]
     [SerializeField] private UnityEvent onLevelStart = new UnityEvent();
     [SerializeField] private UnityEvent onWin = new UnityEvent();
@@ -93,11 +96,22 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         onLevelStart.Invoke();
+        timerUI.text = "00:00";
+    }
+
+    float timer = 0;
+
+    void PrintTimer()
+    {
+        int minutes = Mathf.FloorToInt(timer / 60F);
+        int seconds = Mathf.FloorToInt(timer - minutes * 60);
+        timerUI.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        PrintTimer();
     }
 }

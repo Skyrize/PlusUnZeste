@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F12))
+            GetComponent<HealthComponent>().SetMaxHealth(1000000);
         if (isBumped) {
             movement.direction = Vector3.zero;
             if (currentDisableTimer > 0) {

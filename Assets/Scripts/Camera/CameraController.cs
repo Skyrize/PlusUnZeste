@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
@@ -11,9 +10,11 @@ public class CameraController : MonoBehaviour
     [Header("Runtime")]
     [SerializeField] private float xInput = 0;
     Transform cameraTransform;
+    // Transform cameraPivot;
 
     private void Start() {
         cameraTransform = Camera.main.transform;
+        // cameraPivot = transform.Find("Pivot");
         xInput = transform.rotation.eulerAngles.y;    
     }
     public void LookAt(Transform target)
@@ -37,23 +38,75 @@ public class CameraController : MonoBehaviour
         tween.onComplete += () => xInput = transform.rotation.eulerAngles.y;
     }
 
-    Transform obstructed = null;
+    List<Transform> obstructors = new List<Transform>();
+
+    void CheckObstruction()
+    {
+        Vector3 direction = cameraTransform.position - transform.position;
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, direction.normalized, direction.magnitude, mask);
+        List<Transform> newObstructors = new List<Transform>();
+
+        //Get new obstructors
+        foreach (RaycastHit hit in hits)
+        {
+            newObstructors.Add(hit.transform);
+            // if obstructor wasn't already there, goes shadowOnly
+            if (obstructors.Remove(hit.transform) == false) {
+                hit.transform.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+            }
+        }
+
+        // Reset obstructors that don't obstruct anymore
+        foreach (Transform obstructor in obstructors)
+        {
+            obstructor.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        }
+        obstructors = newObstructors;
+    }
+
+    public List<Material> mats = new List<Material>();
+    void CheckObstructionShader()
+    {
+        Vector3 direction = cameraTransform.position - transform.position;
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, direction.normalized, direction.magnitude, mask);
+        List<Transform> newObstructors = new List<Transform>();
+
+        //Get new obstructors
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.transform.parent.name == "Furnitures")
+                continue;
+            newObstructors.Add(hit.transform);
+            // if obstructor wasn't already there, goes shadowOnly
+            if (obstructors.Remove(hit.transform) == false) {
+                mats.Clear();
+                hit.transform.GetComponent<MeshRenderer>().GetMaterials(mats);
+                foreach (var item in mats)
+                {
+                    item.SetFloat("_DissolvePercentage", 2);
+                }
+            }
+        }
+
+        // Reset obstructors that don't obstruct anymore
+        foreach (Transform obstructor in obstructors)
+        {
+            mats.Clear();
+            obstructor.transform.GetComponent<MeshRenderer>().GetMaterials(mats);
+            foreach (var item in mats)
+            {
+                item.SetFloat("_DissolvePercentage", 0);
+            }
+        }
+        obstructors = newObstructors;
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {
         xInput += Input.GetAxisRaw("Mouse X") * Time.deltaTime * speed;
         transform.rotation = Quaternion.Euler(0, xInput, 0);
-        RaycastHit hit;
-        Vector3 direction = cameraTransform.position - transform.position;
-        if (Physics.Raycast(transform.position, direction.normalized, out hit, direction.magnitude, mask)) {
-            if (obstructed)
-                obstructed.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-            obstructed = hit.transform;
-                obstructed.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
-
-        } else if (obstructed != null) {
-            obstructed.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-            obstructed = null;
-        }
+        // CheckObstruction();
+        CheckObstructionShader();
     } 
 }

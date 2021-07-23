@@ -6,6 +6,7 @@ using UnityEngine;
 public struct Audio {
     public string name;
     public AudioClip clip;
+    public bool loop;
     public float maxVolume;
     public float minVolume;
     public float maxPitch;
@@ -36,10 +37,11 @@ public class AudioManager : MonoBehaviour
     private List<Audio> audios = new List<Audio>();
 
     private bool canPlay = true;
-    private AudioSource source = null;
+    [SerializeField] private AudioSource source = null;
 
     private void Awake() {
-        source = GetComponent<AudioSource>();
+        if (!source)
+            source = GetComponent<AudioSource>();
     }
 
     public AudioClip GetClip(string clipName)
@@ -74,7 +76,11 @@ public class AudioManager : MonoBehaviour
         if (randomizeVolume)
             source.volume = Random.Range(audio.minVolume, audio.maxVolume);
         source.clip = audio.clip;
-        source.PlayOneShot(audio.clip);
+        if (audio.loop) {
+            source.Play();
+        } else {
+            source.PlayOneShot(audio.clip);
+        }
 
     }
 

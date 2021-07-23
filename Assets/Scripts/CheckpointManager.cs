@@ -20,7 +20,7 @@ public class CheckpointManager : MonoBehaviour
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.R)) {
-            GameManager.instance.Lose();
+            GameManager.instance.Respawn();
         }
     }
 
