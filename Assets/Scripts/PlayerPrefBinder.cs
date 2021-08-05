@@ -23,7 +23,7 @@ public class PlayerPrefBinder : MonoBehaviour
     [SerializeField] private FloatEvent onFloatEvent = new FloatEvent();
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         onFloatEvent.Invoke(PlayerPrefs.GetFloat(prefName, 0.5f));
     }

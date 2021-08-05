@@ -22,11 +22,30 @@ public class CheckpointManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) {
             GameManager.instance.Respawn();
         }
+
+        if (Input.GetKey(KeyCode.C)) {
+            if (Input.GetKeyDown(KeyCode.U) && transform.childCount > 0) {
+                TriggerCheckpoint(transform.GetChild(0));
+                Respawn();
+            }
+            if (Input.GetKeyDown(KeyCode.I) && transform.childCount > 1) {
+                TriggerCheckpoint(transform.GetChild(1));
+                Respawn();
+            }
+            if (Input.GetKeyDown(KeyCode.O) && transform.childCount > 2) {
+                TriggerCheckpoint(transform.GetChild(2));
+                Respawn();
+            }
+            if (Input.GetKeyDown(KeyCode.P) && transform.childCount > 3) {
+                TriggerCheckpoint(transform.GetChild(3));
+                Respawn();
+            }
+        }
     }
 
     public void TriggerCheckpoint(Transform checkpoint)
     {
-        Debug.Log($"new checkpoint {checkpoint.name}");
+        // Debug.Log($"new checkpoint {checkpoint.name}");
             //TODO : save state of game by retrieving "saveComponents" which capture value of each dynamics objects and allow to reset them
         playerHealthSave = player.GetComponent<HealthComponent>().Health;
         onTrigger.Invoke();
@@ -37,5 +56,7 @@ public class CheckpointManager : MonoBehaviour
     {
         player.position = currentCheckpoint.position;
         player.GetComponent<HealthComponent>().SetHealth(playerHealthSave);
+        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        player.parent.Find("Camera, Texts & Sound").GetComponent<CameraController>().LookAt(currentCheckpoint.forward);
     }
 }

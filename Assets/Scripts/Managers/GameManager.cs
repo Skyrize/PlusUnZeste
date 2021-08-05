@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UnityEvent onRespawnCheckpoint = new UnityEvent();
     [SerializeField] private UnityEvent onRestart = new UnityEvent();
 
+    GameObject cook;
+
     static private GameManager _instance = null;
     static public GameManager instance {
         get {
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
     }
     private void Awake() {
         instance = this;
+        cook = FindObjectOfType<CookerController>(true).gameObject;
         // DontDestroyOnLoad(this.gameObject);
     }
 
@@ -111,6 +114,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.N))
+                cook.SetActive(!cook.activeInHierarchy);
         timer += Time.deltaTime;
         PrintTimer();
     }

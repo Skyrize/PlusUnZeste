@@ -15,6 +15,7 @@ public class CameraController : MonoBehaviour
     private void Start() {
         cameraTransform = Camera.main.transform;
         // cameraPivot = transform.Find("Pivot");
+        // LookAt(transform.forward);
         xInput = transform.rotation.eulerAngles.y;    
     }
     public void LookAt(Transform target)
@@ -74,13 +75,18 @@ public class CameraController : MonoBehaviour
         //Get new obstructors
         foreach (RaycastHit hit in hits)
         {
-            if (hit.transform.parent.name == "Furnitures")
+            if (hit.transform.parent?.name == "Furnitures")
                 continue;
             newObstructors.Add(hit.transform);
             // if obstructor wasn't already there, goes shadowOnly
             if (obstructors.Remove(hit.transform) == false) {
                 mats.Clear();
-                hit.transform.GetComponent<MeshRenderer>().GetMaterials(mats);
+                var renderers = hit.transform.GetComponentsInChildren<MeshRenderer>();
+                
+                foreach (var renderer in renderers)
+                {
+                    renderer.GetMaterials(mats);
+                }
                 foreach (var item in mats)
                 {
                     item.SetFloat("_DissolvePercentage", 2);
@@ -92,7 +98,12 @@ public class CameraController : MonoBehaviour
         foreach (Transform obstructor in obstructors)
         {
             mats.Clear();
-            obstructor.transform.GetComponent<MeshRenderer>().GetMaterials(mats);
+            var renderers = obstructor.GetComponentsInChildren<MeshRenderer>();
+            
+            foreach (var renderer in renderers)
+            {
+                renderer.GetMaterials(mats);
+            }
             foreach (var item in mats)
             {
                 item.SetFloat("_DissolvePercentage", 0);

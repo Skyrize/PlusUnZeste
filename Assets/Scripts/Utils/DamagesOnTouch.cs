@@ -7,15 +7,26 @@ public class DamagesOnTouch : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float damageAmount = 1;
+    [SerializeField] private float cooldown = 0.75f;
+    [SerializeField] private bool isCooldown = true;
     [Header("References")]
-    [SerializeField] private Collider hitBox = null;
+    [SerializeField]
+    private List<Collider> hitBoxes;
     public UnityEvent onTouch = new UnityEvent();
+
+    IEnumerator Cooldown()
+    {
+        isCooldown = false;
+        yield return new WaitForSeconds(cooldown);
+        isCooldown = true;
+    }
 
     private void OnCollisionEnter(Collision other) {
         ContactPoint contactPoint = other.GetContact(0);
         HealthComponent otherHealth = other.gameObject.GetComponent<HealthComponent>();
 
-        if (otherHealth != null && contactPoint.thisCollider == hitBox) {
+        if (otherHealth != null && hitBoxes.Contains(contactPoint.thisCollider) && isCooldown == true) {
+            StartCoroutine(Cooldown());
             otherHealth.ReduceHealth(damageAmount);
             onTouch.Invoke();
         }
@@ -23,7 +34,7 @@ public class DamagesOnTouch : MonoBehaviour
     }
 
     private void Awake() {
-        if (!hitBox)
-            hitBox = GetComponentInChildren<Collider>();
+        if (hitBoxes.Count == 0)
+            hitBoxes.AddRange(GetComponentsInChildren<Collider>());
     }
 }

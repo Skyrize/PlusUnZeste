@@ -15,6 +15,7 @@ public class JumpComponent : MonoBehaviour
     [SerializeField] private UnityEvent onJump = new UnityEvent();
     [Header("References")]
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private Transform pivot;
     [Header("Runtime")]
     [SerializeField] private bool isGrounded = false;
     public bool IsGrounded => isGrounded;
@@ -54,8 +55,8 @@ public class JumpComponent : MonoBehaviour
         isGrounded = Physics.CheckSphere(transform.position - Vector3.up * feetYOffset, feetRadius, groundMask);
 
         if (!isGrounded) {
-            bool isGroundLeft = Physics.CheckSphere(transform.position - Vector3.right * sideOffset, sideRadius, groundMask);
-            bool isGroundRight = Physics.CheckSphere(transform.position + Vector3.right * sideOffset, sideRadius, groundMask);
+            bool isGroundLeft = Physics.CheckSphere(transform.position - transform.up * sideOffset, sideRadius, groundMask);
+            bool isGroundRight = Physics.CheckSphere(transform.position + transform.up * sideOffset, sideRadius, groundMask);
 
             if (isGroundLeft && isGroundRight)
                 isGrounded = true;
@@ -87,8 +88,8 @@ public class JumpComponent : MonoBehaviour
         // Gizmos.DrawWireCube(transform.position - Vector3.up * feetYOffset - Vector3.up * feetSideOffset / 2f, Vector3.one * feetSideOffset);
         Gizmos.DrawWireSphere(transform.position - Vector3.up * feetYOffset, feetRadius);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position + Vector3.right * sideOffset, sideRadius);
-        Gizmos.DrawWireSphere(transform.position - Vector3.right * sideOffset, sideRadius);
+        Gizmos.DrawWireSphere(transform.position + transform.up * sideOffset, sideRadius);
+        Gizmos.DrawWireSphere(transform.position - transform.up * sideOffset, sideRadius);
     }
 
 }

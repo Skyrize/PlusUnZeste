@@ -2,20 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
 public class EjectOnTouch : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float ejectionForce = 3;
+    [SerializeField] private float ejectionTimer = .3f;
     [Header("References")]
-    [SerializeField] private Collider hitBox = null;
+    [SerializeField]
+    private List<Collider> hitBoxes;
+    [SerializeField] bool canEject = true;
+
+    private IEnumerator ToggleEject()
+    {
+        canEject = false;
+        yield return new WaitForSeconds(ejectionTimer);
+        canEject = true;
+    }
 
     private void OnCollisionEnter(Collision other) {
+        if (!canEject) {
+            return;
+        }
         ContactPoint contactPoint = other.GetContact(0);
         GameProperty properties = other.gameObject.GetComponent<GameProperty>();
         Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
 
-        if (properties && rb && contactPoint.thisCollider == hitBox && properties.HasProperty(GameProperty.Property.EJECTABLE)) {
+        if (properties && rb && hitBoxes.Contains(contactPoint.thisCollider) == true && properties.HasProperty(GameProperty.Property.EJECTABLE)) {
+            
             rb.AddForce(-contactPoint.normal * ejectionForce, ForceMode.Impulse);
         }
     }
@@ -33,7 +46,7 @@ public class EjectOnTouch : MonoBehaviour
     // }
 
     private void Awake() {
-        if (!hitBox)
-            hitBox = GetComponentInChildren<Collider>();
+        if (hitBoxes.Count == 0)
+            hitBoxes.AddRange(GetComponentsInChildren<Collider>());
     }
 }

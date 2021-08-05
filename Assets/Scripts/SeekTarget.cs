@@ -11,7 +11,8 @@ public class SeekTarget : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float minWait = 3;
     [SerializeField] private float maxWait = 5;
-    [SerializeField] private float damagesPerSeconds = 1;
+    [SerializeField] private float damages = 1;
+    [SerializeField] private float tickRate = .3f;
     [SerializeField] float reactionTime = .4f;
     [SerializeField] private LayerMask mask = 0;
     [SerializeField] private Color cameraColorOnSee = new Color(1, 0.25f, 0.25f, 1);
@@ -51,7 +52,8 @@ public class SeekTarget : MonoBehaviour
         set {
             canReact = false;
             _state = value;
-            StartCoroutine(React());
+            if (isActiveAndEnabled)
+                StartCoroutine(React());
         }
     }
     [SerializeField] bool canReact = true;
@@ -72,7 +74,7 @@ public class SeekTarget : MonoBehaviour
     }
 
     private void Awake() {
-        Debug.Log("cook awake");
+        // Debug.Log("cook awake");
         timer = new WaitForSeconds(reactionTime);
         viewSource.sourceTransform = target;
         viewSource.weight = 1;
@@ -137,7 +139,7 @@ public class SeekTarget : MonoBehaviour
         onSeeTarget.Invoke(target.position);
         SetTargetView();
         controller.enabled = false;
-        Debug.Log("TARGET IN SIGHT !");
+        // Debug.Log("TARGET IN SIGHT !");
     }
 
     void MoveTo(Vector3 position)
@@ -166,7 +168,7 @@ public class SeekTarget : MonoBehaviour
         MoveTo(target.position); // Go To last know position one last time
         onHidden.Invoke();
         viewUI.color = cameraColorOnHidden;
-        Debug.Log("targetHidden");
+        // Debug.Log("targetHidden");
     }
 
     void BecomeOutOfView()
@@ -174,7 +176,7 @@ public class SeekTarget : MonoBehaviour
         // Debug.Log("Start Lost !");
         onLost.Invoke();
         // view.transform.rotation = camBaseRotation;
-        damageTimer = 0;
+        damageTimer = tickRate;
         hiddenUI.SetOpacity(0);
         alertUI.SetOpacity(0);
         state = Visibility.LOST;
@@ -185,14 +187,14 @@ public class SeekTarget : MonoBehaviour
         }
         // view.transform.parent.transform.rotation = rotation;
         viewUI.color = Color.white;
-        Debug.Log("Lost !");
+        // Debug.Log("Lost !");
     }
 
     void DamageTarget()
     {
         if (damageTimer <= 0) {
-            target.GetComponent<HealthComponent>()?.ReduceHealth(damagesPerSeconds);
-            damageTimer = 1;
+            target.GetComponent<HealthComponent>()?.ReduceHealth(damages);
+            damageTimer = tickRate;
         } else {
             damageTimer -= Time.deltaTime;
         }

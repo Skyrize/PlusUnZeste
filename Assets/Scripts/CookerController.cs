@@ -98,7 +98,7 @@ public class CookerController : MonoBehaviour
 
     public void Respawn()
     {
-        Debug.Log($"warp {agent.Warp(waypointManager.home.position)}");
+        // Debug.Log($"warp {agent.Warp(waypointManager.home.position)}");
         GetComponent<SeekTarget>().Respawn();
         ReturnHome();
     }
@@ -133,7 +133,7 @@ public class CookerController : MonoBehaviour
                     MoveToWaypoint();
                     wander--;
                 } else {
-                    Debug.Log("Go home");
+                    // Debug.Log("Go home");
                     ReturnHome();
                 }
             } else {

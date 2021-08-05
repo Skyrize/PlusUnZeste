@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         }
 
         set {
-            Debug.Log("Set");
+            // Debug.Log("Set");
             isBumped = value;
             if (isBumped)
                 currentDisableTimer = disableDuration;
@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
             movement.direction.x = Input.GetAxis("Horizontal");
             movement.direction.z = Input.GetAxis("Vertical");
             movement.direction.Normalize();
+            movement.pivotInput = Input.GetAxis("Pivot");
         }
     }
 }

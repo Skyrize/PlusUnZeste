@@ -7,12 +7,14 @@ public class SphereMovement : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float speed = 3;
+    [SerializeField] private float pivotSpeed = 1;
     [Header("References")]
     private Rigidbody rb = null;
     [SerializeField] private Transform pivot = null;
 
     [Header("Runtime")]
     [SerializeField] public Vector3 direction = Vector3.zero;
+    [SerializeField] public float pivotInput = 0;
     [SerializeField] private Vector3 movement = Vector3.zero;
     [SerializeField] private Vector3 eulerAngleVelocity = Vector3.zero;
 
@@ -36,5 +38,6 @@ public class SphereMovement : MonoBehaviour
         movement = pivot.forward * direction.z + pivot.right * direction.x;
         movement *= speed;
         rb.AddForce(movement);
+        rb.AddTorque(pivotSpeed * pivot.up * pivotInput);
     }
 }

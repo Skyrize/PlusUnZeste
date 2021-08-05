@@ -292,7 +292,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minWait: 6
   maxWait: 6
-  damagesPerSeconds: 10
+  damages: 10
+  tickRate: 1
   reactionTime: 0.4
   mask:
     serializedVersion: 2

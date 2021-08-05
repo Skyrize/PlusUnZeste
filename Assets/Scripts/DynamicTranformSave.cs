@@ -21,6 +21,21 @@ public class DynamicTranformSave : ScriptableObject
     public DynamicSave[] saves;
 
 #if UNITY_EDITOR
+    public void Save(Transform container)
+    {
+        Transform[] targets = container.GetAllChildren();
+        if (targets.Length == 0) {
+            Debug.LogError("Missing targets for save");
+            return;
+        }
+        saves = new DynamicSave[targets.Length];
+        for (int i = 0; i != targets.Length; i++) {
+            var target = targets[i];
+            saves[i].target = target.transform;
+            saves[i].position = target.transform.position;
+            saves[i].rotation = target.transform.rotation;
+        }
+    }
     public void Save()
     {
         GameObject[] targets = Selection.gameObjects;
@@ -37,6 +52,25 @@ public class DynamicTranformSave : ScriptableObject
         }
     }
 
+    public void Load(Transform container)
+    {
+        Transform[] targets = container.GetAllChildren();
+        if (targets.Length != saves.Length) {
+            Debug.LogError("Data saved and targets selected mismatch");
+            return;
+        }
+        for (int i = 0; i != targets.Length; i++) {
+            var target = targets[i];
+            var save = Array.Find(saves, (save) => save.target == target.transform);
+            if (save.target == null) {
+                Debug.LogError($"No save for transform {target.transform.name}");
+                continue;
+            }
+            Undo.RecordObject(target.transform, "Load Dynamics");
+            target.transform.position = save.position;
+            target.transform.rotation = save.rotation;
+        }
+    }
     public void Load()
     {
         GameObject[] targets = Selection.gameObjects;

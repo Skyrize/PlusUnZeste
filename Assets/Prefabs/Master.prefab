@@ -35711,9 +35711,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7721054669679816763}
+      - m_Target: {fileID: 1750623008526732673}
         m_TargetAssemblyTypeName: 
-        m_MethodName: SetActive
+        m_MethodName: 
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -57209,8 +57209,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -720492587007712053, guid: 3d6fa4ec9e60ced4a84e4721e7e24757, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5ed9970e17bfee943a6dff056dc3a9d0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.16834107
-  m_Pitch: 1.0237173
+  m_Volume: 0.18157187
+  m_Pitch: 1.0562217
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -62740,9 +62740,9 @@ MonoBehaviour:
           m_StringArgument: Click
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7721054669679816763}
+      - m_Target: {fileID: 1750623008526732673}
         m_TargetAssemblyTypeName: 
-        m_MethodName: SetActive
+        m_MethodName: 
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -69358,6 +69358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   save: {fileID: 0}
+  container: {fileID: 0}
 --- !u!1 &7214088278043057905
 GameObject:
   m_ObjectHideFlags: 0
@@ -90781,8 +90782,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38389508bb2dd674d8aa9b2bd5056483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useTag: 0
-  tags: []
+  useTag: 1
+  tags:
+  - Player
   onTouch:
     m_PersistentCalls:
       m_Calls:
