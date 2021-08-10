@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.AI;
 using UnityEngine.Animations;
 
+
 public class SeekTarget : MonoBehaviour
 {
     [Header("Settings")]
@@ -61,11 +62,39 @@ public class SeekTarget : MonoBehaviour
     [SerializeField] private float currentWaitTime = 0;
     [SerializeField] private float waitTimer = 0;
     
-    private Quaternion camBaseRotation = Quaternion.identity;
-    private Plane[] planes = new Plane[6];
     private ConstraintSource viewSource;
     private LookAtConstraint viewConstraint;
     WaitForSeconds timer;
+
+    [System.Serializable]
+    struct Save
+    {
+        public Visibility state;
+        public float damageTimer;
+        public float currentWaitTime;
+        public float waitTimer;
+    };
+
+    [SerializeField] Save currentSave;
+
+    public void LoadState()
+    {
+        if (!gameObject.activeInHierarchy)
+            return;
+        this.state = currentSave.state;
+        this.damageTimer = currentSave.damageTimer;
+        this.currentWaitTime = currentSave.currentWaitTime;
+        this.waitTimer = currentSave.waitTimer;
+        BecomeOutOfView();
+    }
+
+    public void SaveState()
+    {
+        currentSave.state = this.state;
+        currentSave.damageTimer = this.damageTimer;
+        currentSave.currentWaitTime = this.currentWaitTime;
+        currentSave.waitTimer = this.waitTimer;
+    }
 
     IEnumerator React()
     {
@@ -81,10 +110,10 @@ public class SeekTarget : MonoBehaviour
         viewConstraint = head.GetComponent<LookAtConstraint>();
         controller = GetComponent<CookerController>();
         agent = GetComponent<CustomAgent>();
-        camBaseRotation = view.transform.rotation;
     }
 
     private void Start() {
+        SaveState();
     }
 
     bool IsTargetInView()
@@ -139,6 +168,7 @@ public class SeekTarget : MonoBehaviour
         onSeeTarget.Invoke(target.position);
         SetTargetView();
         controller.enabled = false;
+        target.GetComponent<PlayerController>().UpdateVisibility(true);
         // Debug.Log("TARGET IN SIGHT !");
     }
 
@@ -168,6 +198,7 @@ public class SeekTarget : MonoBehaviour
         MoveTo(target.position); // Go To last know position one last time
         onHidden.Invoke();
         viewUI.color = cameraColorOnHidden;
+        target.GetComponent<PlayerController>().UpdateVisibility(false);
         // Debug.Log("targetHidden");
     }
 
@@ -180,6 +211,7 @@ public class SeekTarget : MonoBehaviour
         hiddenUI.SetOpacity(0);
         alertUI.SetOpacity(0);
         state = Visibility.LOST;
+        target.GetComponent<PlayerController>().UpdateVisibility(false);
         UnsetTargetView();
         if (!controller.enabled) {
             controller.enabled = true;
@@ -215,7 +247,7 @@ public class SeekTarget : MonoBehaviour
 
     public void Respawn()
     {
-        BecomeOutOfView();
+        // BecomeOutOfView();
     }
 
     // Update is called once per frame

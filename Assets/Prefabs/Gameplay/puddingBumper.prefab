@@ -4954,7 +4954,7 @@ GameObject:
   - component: {fileID: 6975197710655339483}
   - component: {fileID: 2818911885582620883}
   m_Layer: 0
-  m_Name: pudding
+  m_Name: puddingBumper
   m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

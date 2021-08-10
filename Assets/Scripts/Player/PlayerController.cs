@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System.Runtime.InteropServices;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private SphereMovement movement = null;
+    [SerializeField] private MeshRenderer altMesh = null;
     [SerializeField] JumpComponent jump;
     [SerializeField] bool isBumped = false;
     [SerializeField] float disableDuration = .5f;
@@ -41,6 +43,14 @@ public class PlayerController : MonoBehaviour
             movement.direction.z = Input.GetAxis("Vertical");
             movement.direction.Normalize();
             movement.pivotInput = Input.GetAxis("Pivot");
+        }
+    }
+
+    public void UpdateVisibility(bool value)
+    {
+        foreach (var item in altMesh.materials)
+        {
+            item.SetFloat("_isMainColor", value ? 0 : 1);
         }
     }
 }

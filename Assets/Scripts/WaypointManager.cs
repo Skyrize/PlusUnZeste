@@ -17,6 +17,20 @@ public class WaypointManager : MonoBehaviour
     [SerializeField]
     int currentWaypoint = 0;
 
+    private void Start() {
+        List <Transform> _waypoints = new List<Transform>();
+        for (int i = 0; i != transform.childCount; i++) {
+            var child = transform.GetChild(i);
+            if (child.name != "Home" && child.gameObject.activeInHierarchy)
+                _waypoints.Add(child);
+        }
+        waypoints = new Transform[_waypoints.Count];
+        for (int i = 0; i != _waypoints.Count; i++)
+        {
+            waypoints[i] = _waypoints[i];
+        }
+    }
+
     public Transform GetRandomWaypoint()
     {
         return waypoints[Random.Range(0, waypoints.Length)];

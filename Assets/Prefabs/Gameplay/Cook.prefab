@@ -383,6 +383,11 @@ MonoBehaviour:
   damageTimer: 1
   currentWaitTime: 0
   waitTimer: 0
+  currentSave:
+    state: 0
+    damageTimer: 0
+    currentWaitTime: 0
+    waitTimer: 0
 --- !u!114 &6459348065016523288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +413,14 @@ MonoBehaviour:
   returnHome: 0
   moving: 0
   target: {fileID: 0}
+  currentSave:
+    idleTime: 0
+    wander: 0
+    returnHome: 0
+    moving: 0
+    target: {fileID: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    position: {x: 0, y: 0, z: 0}
 --- !u!95 &920740236248478583
 Animator:
   serializedVersion: 3
@@ -439,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a171b9db0be1154dbc12713e5513991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 180
+  rotationSpeed: 60
   arrivalRadius: 2
   agent: {fileID: 6459348065016523295}
   animator: {fileID: 920740236248478583}
@@ -2348,7 +2361,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 110
+  field of view: 90
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

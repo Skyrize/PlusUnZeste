@@ -5,10 +5,12 @@ public class CheckpointManager : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] Transform currentCheckpoint;
+    [SerializeField] Transform cook;
     [SerializeField] float playerHealthSave = 0;
     Rigidbody rb;
     public Transform CurrentCheckpoint => currentCheckpoint;
     public UnityEvent onTrigger = new UnityEvent();
+    CameraController cam;
 
     private void Awake() {
         currentCheckpoint = transform.Find("Start Checkpoint");
@@ -16,6 +18,7 @@ public class CheckpointManager : MonoBehaviour
             Debug.LogError("Need at least one checkpoint named \"Start Checkpoint\" for checkpoint Manager.");
         }
         playerHealthSave = player.GetComponent<HealthComponent>().Health;
+        cam = player.parent.Find("Camera, Texts & Sound").GetComponent<CameraController>();
     }
 
     private void Update() {
@@ -50,6 +53,8 @@ public class CheckpointManager : MonoBehaviour
         playerHealthSave = player.GetComponent<HealthComponent>().Health;
         onTrigger.Invoke();
         currentCheckpoint = checkpoint;
+        cook.GetComponent<CookerController>().SaveState();
+        cook.GetComponent<SeekTarget>().SaveState();
     }
 
     public void Respawn()
@@ -57,6 +62,8 @@ public class CheckpointManager : MonoBehaviour
         player.position = currentCheckpoint.position;
         player.GetComponent<HealthComponent>().SetHealth(playerHealthSave);
         player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        player.parent.Find("Camera, Texts & Sound").GetComponent<CameraController>().LookAt(currentCheckpoint.forward);
+        cam.LookAt(currentCheckpoint.forward);
+        cook.GetComponent<CookerController>().LoadState();
+        cook.GetComponent<SeekTarget>().LoadState();
     }
 }

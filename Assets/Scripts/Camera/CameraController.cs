@@ -85,7 +85,9 @@ public class CameraController : MonoBehaviour
                 
                 foreach (var renderer in renderers)
                 {
-                    renderer.GetMaterials(mats);
+                    List<Material> m = new List<Material>();
+                    renderer.GetMaterials(m);
+                    mats.AddRange(m);
                 }
                 foreach (var item in mats)
                 {
@@ -102,7 +104,9 @@ public class CameraController : MonoBehaviour
             
             foreach (var renderer in renderers)
             {
-                renderer.GetMaterials(mats);
+                List<Material> m = new List<Material>();
+                renderer.GetMaterials(m);
+                mats.AddRange(m);
             }
             foreach (var item in mats)
             {

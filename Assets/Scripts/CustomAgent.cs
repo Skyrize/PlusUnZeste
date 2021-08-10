@@ -34,6 +34,7 @@ public class CustomAgent : MonoBehaviour
 
     public void MoveTo(Vector3 destination, Vector3 facingDirection)
     {
+        if (isActiveAndEnabled)
         agent.SetDestination(destination);
         facing = facingDirection;
         facing.Normalize();

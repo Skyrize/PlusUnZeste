@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     }
     private void Awake() {
         instance = this;
-        cook = FindObjectOfType<CookerController>(true).gameObject;
+        cook = FindObjectOfType<CookerController>(true)?.gameObject;
         // DontDestroyOnLoad(this.gameObject);
     }
 
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.B))
+        if (cook && Input.GetKey(KeyCode.B))
             if (Input.GetKeyDown(KeyCode.N))
                 cook.SetActive(!cook.activeInHierarchy);
         timer += Time.deltaTime;

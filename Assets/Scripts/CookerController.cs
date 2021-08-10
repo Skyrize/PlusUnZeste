@@ -37,6 +37,46 @@ public class CookerController : MonoBehaviour
     [SerializeField] private bool moving = false;
     [SerializeField] private Transform target = null;
     WaypointManager waypointManager;
+    
+    [System.Serializable]
+    struct Save
+    {
+        public float idleTime;
+        public int wander;
+        public bool returnHome;
+        public bool moving;
+        public Transform target;
+        public Quaternion rotation;
+        public Vector3 position;
+    };
+
+    [SerializeField] Save currentSave;
+
+    public void LoadState()
+    {
+        if (!gameObject.activeInHierarchy)
+            return;
+        this.idleTime = currentSave.idleTime;
+        this.wander = currentSave.wander;
+        this.returnHome = currentSave.returnHome;
+        this.moving = currentSave.moving;
+        this.target = currentSave.target;
+        transform.rotation = currentSave.rotation;
+        agent.Warp(currentSave.position);
+        SetDestination(this.target);
+    }
+
+    public void SaveState()
+    {
+        currentSave.idleTime = this.idleTime;
+        currentSave.wander = this.wander;
+        currentSave.returnHome = this.returnHome;
+        currentSave.moving = this.moving;
+        currentSave.target = this.target;
+        currentSave.rotation = transform.rotation;
+        currentSave.position = transform.position;
+
+    }
 
     public void SetDestination(Transform targetDestination)
     {
@@ -69,14 +109,15 @@ public class CookerController : MonoBehaviour
         waypointManager = FindObjectOfType<WaypointManager>();
         moving = false;
         idleTime = Random.Range(minIdleTime, maxIdleTime);
+        target = waypointManager.home;
         if (returnHome) {
             idleTime = Random.Range(minHomeTime, maxHomeTime);
-            target = waypointManager.home;
             returnHome = false;
         }
         wander = Random.Range(minWanderAmount, maxWanderAmount + 1);
         var home = waypointManager.home;
         agent.Warp(home);
+        SaveState();
     }
 
     public void SetIdleTime()
@@ -99,8 +140,8 @@ public class CookerController : MonoBehaviour
     public void Respawn()
     {
         // Debug.Log($"warp {agent.Warp(waypointManager.home.position)}");
-        GetComponent<SeekTarget>().Respawn();
-        ReturnHome();
+        // GetComponent<SeekTarget>().Respawn();
+        // ReturnHome();
     }
 
     // Start is called before the first frame update

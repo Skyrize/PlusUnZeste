@@ -46,6 +46,17 @@ namespace CartoonFX
 			Destroy
 		}
 
+		public void ScaleParticle(float ratio)
+		{
+			var ps = GetComponentsInChildren<ParticleSystem>(true);
+
+			foreach (var item in ps)
+			{
+				var main = item.main;
+				main.startSize = main.startSize.constant * ratio;
+			}
+		}
+
 		[System.Serializable]
 		public class AnimatedLight
 		{

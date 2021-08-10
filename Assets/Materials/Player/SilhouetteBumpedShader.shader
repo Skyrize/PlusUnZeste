@@ -3,6 +3,8 @@
 Shader "Outlined/Silhouetted Bumped Diffuse" {
 	Properties {
 		_Color ("Main Color", Color) = (.5,.5,.5,1)
+		_AltColor ("Alt Color", Color) = (1,0,0,1)
+		[Toggle] _isMainColor("is Main Color", Float) = 0
 		_OutlineColor ("Outline Color", Color) = (0,0,0,1)
 		_Outline ("Outline width", Range (0.0, 0.03)) = .005
 		_MainTex ("Base (RGB)", 2D) = "white" { }
@@ -24,7 +26,9 @@ struct v2f {
  
 uniform float _Outline;
 uniform float4 _OutlineColor;
- 
+uniform float4 _AltColor;
+float _isMainColor;
+
 v2f vert(appdata v) {
 	// just make a copy of incoming vertex data but scaled according to normal direction
 	v2f o;
@@ -34,7 +38,13 @@ v2f vert(appdata v) {
 	float2 offset = TransformViewToProjection(norm.xy);
  
 	o.pos.xy += offset * o.pos.z * _Outline;
-	o.color = _OutlineColor;
+	
+	if (_isMainColor == 1) {
+		o.color = _OutlineColor;
+	} else {
+		o.color = _AltColor;
+	}
+	
 	return o;
 }
 ENDCG
@@ -45,17 +55,16 @@ ENDCG
 		// note that a vertex shader is specified here but its using the one above
 		Pass {
 			Name "OUTLINE"
-			Tags { "LightMode" = "Always" }
 			Cull Off
 			ZWrite Off
 			ZTest Always
  
 			// you can choose what kind of blending mode you want for the outline
-			Blend SrcAlpha OneMinusSrcAlpha // Normal
+			// Blend SrcAlpha OneMinusSrcAlpha // Normal
 			//Blend One One // Additive
 			//Blend One OneMinusDstColor // Soft Additive
 			//Blend DstColor Zero // Multiplicative
-			//Blend DstColor SrcColor // 2x Multiplicative
+			Blend DstColor SrcColor // 2x Multiplicative
  
 CGPROGRAM
 #pragma vertex vert
@@ -78,7 +87,11 @@ sampler2D _MainTex;
 sampler2D _BumpMap;
 uniform float3 _Color;
 void surf(Input IN, inout SurfaceOutput o) {
-	o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb * _Color;
+	if (_isMainColor == 1) {
+		o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb * _Color;
+	} else {
+		o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb * _AltColor;
+	}
 	o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
 }
 ENDCG
@@ -90,18 +103,17 @@ ENDCG
  
 		Pass {
 			Name "OUTLINE"
-			Tags { "LightMode" = "Always" }
 			Cull Front
 			ZWrite Off
 			ZTest Always
 			Offset 15,15
  
 			// you can choose what kind of blending mode you want for the outline
-			Blend SrcAlpha OneMinusSrcAlpha // Normal
+			// Blend SrcAlpha OneMinusSrcAlpha // Normal
 			//Blend One One // Additive
 			//Blend One OneMinusDstColor // Soft Additive
 			//Blend DstColor Zero // Multiplicative
-			//Blend DstColor SrcColor // 2x Multiplicative
+			Blend DstColor SrcColor // 2x Multiplicative
  
 			CGPROGRAM
 			#pragma vertex vert
@@ -120,7 +132,11 @@ sampler2D _MainTex;
 sampler2D _BumpMap;
 uniform float3 _Color;
 void surf(Input IN, inout SurfaceOutput o) {
-	o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb * _Color;
+	if (_isMainColor == 1) {
+		o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb * _Color;
+	} else {
+		o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb * _AltColor;
+	}
 	o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
 }
 ENDCG

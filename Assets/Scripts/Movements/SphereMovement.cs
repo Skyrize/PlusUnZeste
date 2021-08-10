@@ -22,6 +22,10 @@ public class SphereMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void OnDisable() {
+        direction = Vector3.zero;
+    }
+
     public void Stop()
     {
         rb.velocity = Vector3.zero;
@@ -38,6 +42,6 @@ public class SphereMovement : MonoBehaviour
         movement = pivot.forward * direction.z + pivot.right * direction.x;
         movement *= speed;
         rb.AddForce(movement);
-        rb.AddTorque(pivotSpeed * pivot.up * pivotInput);
+        // rb.AddTorque(pivotSpeed * pivot.up * pivotInput);
     }
 }
