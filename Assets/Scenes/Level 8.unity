@@ -3782,7 +3782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 187252049235170228, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
       propertyPath: maxWanderAmount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 187252049235170228, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
       propertyPath: minWanderAmount
