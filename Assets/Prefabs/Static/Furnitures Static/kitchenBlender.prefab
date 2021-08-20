@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 8315555919807384842}
   - component: {fileID: 2347014154664481096}
   - component: {fileID: 1698748477224879853}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: blenderCup
   m_TagString: Untagged
   m_Icon: {fileID: 0}

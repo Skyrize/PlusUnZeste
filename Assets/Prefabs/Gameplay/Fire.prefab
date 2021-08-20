@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8303406829855035459}
-  - component: {fileID: 8303406829855035458}
   - component: {fileID: 8303406829855035457}
   - component: {fileID: 4995417812286063887}
   - component: {fileID: 2378294290278579287}
+  - component: {fileID: 4672602885754272685}
   m_Layer: 2
   m_Name: Fire
   m_TagString: Trigger
@@ -36,19 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &8303406829855035458
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303406829855035468}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.6
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8303406829855035457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +183,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultEventName: Burn
+--- !u!136 &4672602885754272685
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8303406829855035468}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.6
+  m_Height: 2.13
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8303406830388577595
 GameObject:
   m_ObjectHideFlags: 0
@@ -5230,7 +5231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1.8
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: InitialModule.startSizeY.minScalar
@@ -5243,6 +5244,10 @@ PrefabInstance:
     - target: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.46666667
       objectReference: {fileID: 0}
     - target: {fileID: 8656522925583198860, guid: e509867be4f82f246a95eca1ee5a2d61, type: 3}
       propertyPath: VelocityModule.speedModifier.scalar

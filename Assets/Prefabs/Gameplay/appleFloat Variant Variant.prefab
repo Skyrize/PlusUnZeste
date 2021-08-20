@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -3645058858012553506, guid: 7aca83fc433e6404ba5887fb51324a4c, type: 3}
+    - target: {fileID: 380828272023625262, guid: e30b2fb9e3771c64984e87e83b59d752, type: 3}
+      propertyPath: m_Mass
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2547421315345703169, guid: e30b2fb9e3771c64984e87e83b59d752, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -65,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4060767199594952972, guid: e30b2fb9e3771c64984e87e83b59d752, type: 3}
       propertyPath: m_Name
-      value: appleFloat Variant
+      value: appleFloat Variant Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30b2fb9e3771c64984e87e83b59d752, type: 3}

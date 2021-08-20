@@ -78,7 +78,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4247487611054633261, guid: 3aef4439a42060749bfa61041e25b5bc, type: 3}
       propertyPath: m_Name
-      value: LemonJuice
+      value: LemonJuice Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8347676055105881396, guid: 3aef4439a42060749bfa61041e25b5bc, type: 3}
       propertyPath: m_RootOrder
@@ -98,15 +98,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8347676055105881396, guid: 3aef4439a42060749bfa61041e25b5bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.317
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8347676055105881396, guid: 3aef4439a42060749bfa61041e25b5bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8347676055105881396, guid: 3aef4439a42060749bfa61041e25b5bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8347676055105881396, guid: 3aef4439a42060749bfa61041e25b5bc, type: 3}
       propertyPath: m_LocalRotation.w

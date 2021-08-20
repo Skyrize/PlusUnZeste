@@ -32,4 +32,12 @@ public class SceneManager : MonoBehaviour
     {
         StartCoroutine(LoadSceneAsync(sceneName));
     }
+
+    private void Update() {
+        for (int i = 0; i != 12; i++) {
+            if (Input.GetKeyDown(KeyCode.F1 + i)) {
+                LoadScene($"Level {i + 1}");
+            }
+        }
+    }
 }

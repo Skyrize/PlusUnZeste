@@ -11,6 +11,7 @@ public class CheckpointManager : MonoBehaviour
     public Transform CurrentCheckpoint => currentCheckpoint;
     public UnityEvent onTrigger = new UnityEvent();
     CameraController cam;
+    Vector3 baseInertia;
 
     private void Awake() {
         currentCheckpoint = transform.Find("Start Checkpoint");
@@ -19,6 +20,7 @@ public class CheckpointManager : MonoBehaviour
         }
         playerHealthSave = player.GetComponent<HealthComponent>().Health;
         cam = player.parent.Find("Camera, Texts & Sound").GetComponent<CameraController>();
+        baseInertia = player.GetComponent<Rigidbody>().inertiaTensor;
     }
 
     private void Update() {
@@ -27,21 +29,11 @@ public class CheckpointManager : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.C)) {
-            if (Input.GetKeyDown(KeyCode.U) && transform.childCount > 0) {
-                TriggerCheckpoint(transform.GetChild(0));
-                Respawn();
-            }
-            if (Input.GetKeyDown(KeyCode.I) && transform.childCount > 1) {
-                TriggerCheckpoint(transform.GetChild(1));
-                Respawn();
-            }
-            if (Input.GetKeyDown(KeyCode.O) && transform.childCount > 2) {
-                TriggerCheckpoint(transform.GetChild(2));
-                Respawn();
-            }
-            if (Input.GetKeyDown(KeyCode.P) && transform.childCount > 3) {
-                TriggerCheckpoint(transform.GetChild(3));
-                Respawn();
+            for (int i = 0; i != 10; i++) {
+                if (Input.GetKeyDown(KeyCode.Keypad0 + i) && transform.childCount > i) {
+                    TriggerCheckpoint(transform.GetChild(i));
+                    Respawn();
+                }
             }
         }
     }
@@ -59,10 +51,15 @@ public class CheckpointManager : MonoBehaviour
 
     public void Respawn()
     {
+        cam.LookAt(player.position + currentCheckpoint.forward);
         player.position = currentCheckpoint.position;
+        player.transform.forward = currentCheckpoint.forward;
+        player.transform.up = -currentCheckpoint.right;
         player.GetComponent<HealthComponent>().SetHealth(playerHealthSave);
         player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        cam.LookAt(currentCheckpoint.forward);
+        player.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        player.GetComponent<Rigidbody>().inertiaTensor = baseInertia;
+        player.GetComponent<Rigidbody>().inertiaTensorRotation = Quaternion.identity;
         cook.GetComponent<CookerController>().LoadState();
         cook.GetComponent<SeekTarget>().LoadState();
     }

@@ -28,7 +28,8 @@ public class EjectOnTouch : MonoBehaviour
         Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
 
         if (properties && rb && hitBoxes.Contains(contactPoint.thisCollider) == true && properties.HasProperty(GameProperty.Property.EJECTABLE)) {
-            
+            Debug.Log("Eject");
+            StartCoroutine(ToggleEject());
             rb.AddForce(-contactPoint.normal * ejectionForce, ForceMode.Impulse);
         }
     }

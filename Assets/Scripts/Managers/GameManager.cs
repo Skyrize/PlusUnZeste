@@ -111,6 +111,11 @@ public class GameManager : MonoBehaviour
         timerUI.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
+    public void ResetTimer()
+    {
+        timer = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {

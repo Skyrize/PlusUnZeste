@@ -52,14 +52,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6084519660745108918}
   serializedVersion: 2
-  m_Mass: 0.09
+  m_Mass: 0.1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!59 &1350196595838596724
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -366,15 +366,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8776294699312706439, guid: 330a2bffef324b94eafe3dd14a41e716, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.70901
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8776294699312706439, guid: 330a2bffef324b94eafe3dd14a41e716, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.1999416
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8776294699312706439, guid: 330a2bffef324b94eafe3dd14a41e716, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.1100073
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8776294699312706439, guid: 330a2bffef324b94eafe3dd14a41e716, type: 3}
       propertyPath: m_LocalRotation.w
@@ -382,15 +382,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8776294699312706439, guid: 330a2bffef324b94eafe3dd14a41e716, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000051580715
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8776294699312706439, guid: 330a2bffef324b94eafe3dd14a41e716, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000039712795
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8776294699312706439, guid: 330a2bffef324b94eafe3dd14a41e716, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00002233467
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8776294699312706439, guid: 330a2bffef324b94eafe3dd14a41e716, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -493,6 +493,14 @@ PrefabInstance:
     - target: {fileID: 1805732046665165694, guid: 354b8447640ceb146beb51895049299e, type: 3}
       propertyPath: m_Name
       value: cookingSpatula
+      objectReference: {fileID: 0}
+    - target: {fileID: 7564475744715674132, guid: 354b8447640ceb146beb51895049299e, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7564475744715674132, guid: 354b8447640ceb146beb51895049299e, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 354b8447640ceb146beb51895049299e, type: 3}

@@ -70,7 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6888731623972895109, guid: 75025ae652992434ab73c6f5f3187587, type: 3}
       propertyPath: m_Name
-      value: orangeFloat
+      value: orangeFloat Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101041789844954791, guid: 75025ae652992434ab73c6f5f3187587, type: 3}
+      propertyPath: m_Mass
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7169092684598488218, guid: 75025ae652992434ab73c6f5f3187587, type: 3}

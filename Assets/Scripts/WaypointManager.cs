@@ -15,7 +15,7 @@ public class WaypointManager : MonoBehaviour
         }
     }
     [SerializeField]
-    int currentWaypoint = 0;
+    public int currentWaypoint = 0;
 
     private void Start() {
         List <Transform> _waypoints = new List<Transform>();

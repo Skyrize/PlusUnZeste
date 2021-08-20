@@ -29016,6 +29016,10 @@ PrefabInstance:
       value: 6.31
       objectReference: {fileID: 0}
     - target: {fileID: 4733333800515858480, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.575
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733333800515858480, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
       propertyPath: m_LocalPosition.z
       value: -7.36
       objectReference: {fileID: 0}
@@ -29303,6 +29307,17 @@ Rigidbody:
   m_CorrespondingSourceObject: {fileID: 6646057257831838297, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
   m_PrefabInstance: {fileID: 1061952925}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1061952927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 187252049241606441, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
+  m_PrefabInstance: {fileID: 1061952925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461fd055988bdb94db77fcd299c43df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1070142266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43417,6 +43432,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: Enable
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1061952927}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: ResetTimer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!4 &2023552584 stripped

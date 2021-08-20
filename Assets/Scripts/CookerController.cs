@@ -48,6 +48,7 @@ public class CookerController : MonoBehaviour
         public Transform target;
         public Quaternion rotation;
         public Vector3 position;
+        public int currentWaypoint;
     };
 
     [SerializeField] Save currentSave;
@@ -62,12 +63,15 @@ public class CookerController : MonoBehaviour
         this.moving = currentSave.moving;
         this.target = currentSave.target;
         transform.rotation = currentSave.rotation;
+        waypointManager.currentWaypoint = currentSave.currentWaypoint;
         agent.Warp(currentSave.position);
         SetDestination(this.target);
     }
 
     public void SaveState()
     {
+        if (!gameObject.activeInHierarchy)
+            return;
         currentSave.idleTime = this.idleTime;
         currentSave.wander = this.wander;
         currentSave.returnHome = this.returnHome;
@@ -75,7 +79,7 @@ public class CookerController : MonoBehaviour
         currentSave.target = this.target;
         currentSave.rotation = transform.rotation;
         currentSave.position = transform.position;
-
+        currentSave.currentWaypoint = waypointManager.currentWaypoint;
     }
 
     public void SetDestination(Transform targetDestination)

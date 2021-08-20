@@ -75,11 +75,12 @@ public class Water : MonoBehaviour
             onDive.Invoke(otherBody.transform);
         }
     }
+    public float floatingForce = 1;
 
     private void FixedUpdate() {
         foreach (SubmergedEntity entity in submergedEntities)
         {
-            float displacement = waterLevel.position.y - entity.entityBody.transform.position.y;
+            float displacement = waterLevel.position.y - entity.entityBody.transform.position.y + Mathf.Sin(Time.time + entity.entityBody.transform.position.x + entity.entityBody.transform.position.z) * floatingForce;
 
             if (displacement > 0) {
                 entity.entityBody.AddForce(Vector3.up * displacement * Buoyancy * 3, ForceMode.Acceleration);

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Security.Cryptography;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -67,6 +68,7 @@ public class KitchenStoveGenerator : MonoBehaviour
             var pan = PrefabUtility.InstantiatePrefab(pansPrefab[point.panIndex], point.basePoint) as GameObject;
             // var pan = GameObject.Instantiate(pansPrefab[point.panIndex], point.basePoint);
             pan.transform.Translate(0, panYOffset, 0);
+            pan.transform.Rotate(Vector3.up * Random.Range(0, 361));
             #endif
         }
     }

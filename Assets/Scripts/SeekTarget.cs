@@ -90,6 +90,8 @@ public class SeekTarget : MonoBehaviour
 
     public void SaveState()
     {
+        if (!gameObject.activeInHierarchy)
+            return;
         currentSave.state = this.state;
         currentSave.damageTimer = this.damageTimer;
         currentSave.currentWaitTime = this.currentWaitTime;

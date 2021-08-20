@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1543bbe406f7c10459272e1f66ef98c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerTick: 8
-  TickPerSecond: 2
+  damagePerTick: 4
+  TickPerSecond: 4
   onDamage:
     m_PersistentCalls:
       m_Calls: []

@@ -421,6 +421,7 @@ MonoBehaviour:
     target: {fileID: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     position: {x: 0, y: 0, z: 0}
+    currentWaypoint: 0
 --- !u!95 &920740236248478583
 Animator:
   serializedVersion: 3
@@ -2327,7 +2328,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6459348066891575500}
-  m_LocalRotation: {x: 0.1713391, y: 0.000000028081205, z: -0.000000032033334, w: 0.98521215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.009640013, z: 0.0072699953}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2335,7 +2336,7 @@ Transform:
   - {fileID: 9027371556084138207}
   m_Father: {fileID: 6459348065016656036}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 19.731, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &6459348066891575496
 Camera:
   m_ObjectHideFlags: 0
