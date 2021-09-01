@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
             movement.direction.x = Input.GetAxis("Horizontal");
             movement.direction.z = Input.GetAxis("Vertical");
             movement.direction.Normalize();
-            movement.pivotInput = Input.GetAxis("Pivot");
+            // movement.pivotInput = Input.GetAxis("Pivot");
         }
     }
 

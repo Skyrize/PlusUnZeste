@@ -24,7 +24,7 @@ public class CheckpointManager : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(InputSaveManager.instance.GetKey("Respawn"))) {
             GameManager.instance.Respawn();
         }
 

@@ -14,7 +14,7 @@ public class SphereMovement : MonoBehaviour
 
     [Header("Runtime")]
     [SerializeField] public Vector3 direction = Vector3.zero;
-    [SerializeField] public float pivotInput = 0;
+    // [SerializeField] public float pivotInput = 0;
     [SerializeField] private Vector3 movement = Vector3.zero;
     [SerializeField] private Vector3 eulerAngleVelocity = Vector3.zero;
 

@@ -26,7 +26,7 @@ public class PauseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(InputSaveManager.instance.GetKey("Pause"))) {
             if (paused) {
                 paused = false;
                 onUnpause.Invoke();
@@ -36,5 +36,9 @@ public class PauseManager : MonoBehaviour
 
             }
         }
+    }
+
+    private void Start() {
+        Unpause();
     }
 }

@@ -37,11 +37,6 @@ public class GameManager : MonoBehaviour
     private void Awake() {
         instance = this;
         cook = FindObjectOfType<CookerController>(true)?.gameObject;
-        var savers = FindObjectsOfType<PlayerPrefBinder>(true);
-        foreach (var item in savers)
-        {
-            item.Load();
-        }
         // DontDestroyOnLoad(this.gameObject);
     }
 
@@ -105,6 +100,11 @@ public class GameManager : MonoBehaviour
     {
         onLevelStart.Invoke();
         timerUI.text = "00:00";
+        var savers = FindObjectsOfType<PlayerPrefBinder>(true);
+        foreach (var item in savers)
+        {
+            item.Load();
+        }
     }
 
     float timer = 0;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class FloatEvent : UnityEvent<float>
@@ -24,12 +25,25 @@ public class PlayerPrefBinder : MonoBehaviour
 
     public void Load()
     {
+        Debug.Log("Called");
         onFloatEvent.Invoke(PlayerPrefs.GetFloat(prefName, 0.5f));
     }
 
     // Start is called before the first frame update
     void Awake()
     {
+        var slider = GetComponent<Slider>();
+
+        slider.onValueChanged.AddListener(this.Save);
+        var mixer = FindObjectOfType<MixerManager>();
+
+        if (transform.name.Contains("Master"))
+            slider.onValueChanged.AddListener(mixer.SetMasterVolume);
+        if (transform.name.Contains("Music"))
+            slider.onValueChanged.AddListener(mixer.SetMusicVolume);
+        if (transform.name.Contains("Effects"))
+            slider.onValueChanged.AddListener(mixer.SetEffectsVolume);
+
         Load();
     }
 

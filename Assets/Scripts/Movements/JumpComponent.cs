@@ -70,7 +70,7 @@ public class JumpComponent : MonoBehaviour
         // } else {
         //     jumpTimer -= Time.deltaTime;
         // }
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space)) {
+        if (isGrounded && Input.GetKeyDown(InputSaveManager.instance.GetKey("Jump"))) {
             Jump(Vector3.up * jumpForce);
         }
     }
