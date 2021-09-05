@@ -25,7 +25,6 @@ public class PlayerPrefBinder : MonoBehaviour
 
     public void Load()
     {
-        Debug.Log("Called");
         onFloatEvent.Invoke(PlayerPrefs.GetFloat(prefName, 0.5f));
     }
 

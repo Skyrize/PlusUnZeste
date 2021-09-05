@@ -26,16 +26,17 @@ public class PauseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(InputSaveManager.instance.GetKey("Pause"))) {
-            if (paused) {
-                paused = false;
-                onUnpause.Invoke();
-            } else {
-                paused = true;
-                onPause.Invoke();
+        //TODO : swith input
+        // if (Input.GetKeyDown(InputSaveManager.instance.GetKey("Pause"))) {
+        //     if (paused) {
+        //         paused = false;
+        //         onUnpause.Invoke();
+        //     } else {
+        //         paused = true;
+        //         onPause.Invoke();
 
-            }
-        }
+        //     }
+        // }
     }
 
     private void Start() {

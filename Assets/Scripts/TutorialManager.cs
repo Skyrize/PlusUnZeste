@@ -47,8 +47,9 @@ public class TutorialManager : MonoBehaviour
     }
 
     private void Update() {
-        if (tutorialTextDisplay.isActiveAndEnabled && Input.GetKeyDown(KeyCode.Space)) {
-            EndCurrentStep();
-        }
+        //TODO : swith input
+        // if (tutorialTextDisplay.isActiveAndEnabled && Input.GetKeyDown(KeyCode.Space)) {
+        //     EndCurrentStep();
+        // }
     }
 }
