@@ -1,9 +1,7 @@
-﻿using System.Net.Mime;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
@@ -23,28 +21,6 @@ public class PauseManager : MonoBehaviour
     {
         onUnpause.Invoke();
         paused = false;
-    }
-    public void Pause(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            Pause();
-    }
-
-    public void Unpause(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            Unpause();
-    }
-
-    public void TogglePause(InputAction.CallbackContext context)
-    {
-        if (context.performed) {
-            if (paused) {
-                Unpause();
-            } else {
-                Pause();
-            }
-        }
     }
 
     // Update is called once per frame
