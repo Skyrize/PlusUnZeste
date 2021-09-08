@@ -33,19 +33,18 @@ public class InputUI : MonoBehaviour
     }
 
     private void Update() {
-        //TODO : swith input
-        // if (isChanging && Input.anyKeyDown) {
-        //     KeyCode key = KeyCode.Z;
+        if (isChanging && Input.anyKeyDown) {
+            KeyCode key = KeyCode.Z;
 
-        //     while (key != KeyCode.None && !Input.GetKeyDown(key)) {
-        //         key -= 1;
-        //     }
-        //     if (key == KeyCode.None) {
-        //         CancelChange();
-        //     } else {
-        //         SetNewKey(key);
-        //     }
-        // }
+            while (key != KeyCode.None && !Input.GetKeyDown(key)) {
+                key -= 1;
+            }
+            if (key == KeyCode.None) {
+                CancelChange();
+            } else {
+                SetNewKey(key);
+            }
+        }
     }
 
     private void Start() {

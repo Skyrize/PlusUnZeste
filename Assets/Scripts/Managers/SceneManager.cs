@@ -34,11 +34,10 @@ public class SceneManager : MonoBehaviour
     }
 
     private void Update() {
-        //TODO : swith input
-        // for (int i = 0; i != 12; i++) {
-        //     if (Input.GetKeyDown(KeyCode.F1 + i)) {
-        //         LoadScene($"Level {i + 1}");
-        //     }
-        // }
+        for (int i = 0; i != 12; i++) {
+            if (Input.GetKeyDown(KeyCode.F1 + i)) {
+                LoadScene($"Level {i + 1}");
+            }
+        }
     }
 }

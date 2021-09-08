@@ -1,8 +1,6 @@
-using System.Net.Mime;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
 public class JumpComponent : MonoBehaviour
@@ -51,7 +49,6 @@ public class JumpComponent : MonoBehaviour
     //     }
     // }
 
-    bool jump = false;
     // Update is called once per frame
     void Update()
     {
@@ -73,16 +70,9 @@ public class JumpComponent : MonoBehaviour
         // } else {
         //     jumpTimer -= Time.deltaTime;
         // }
-        if (isGrounded && jump) {
+        if (isGrounded && Input.GetKeyDown(InputSaveManager.instance.GetKey("Jump"))) {
             Jump(Vector3.up * jumpForce);
         }
-        jump = false;
-    }
-
-    public void AskJump(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            jump = true;
     }
 
     public void Jump(Vector3 direction)

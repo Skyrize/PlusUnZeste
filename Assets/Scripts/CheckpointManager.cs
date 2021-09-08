@@ -24,19 +24,18 @@ public class CheckpointManager : MonoBehaviour
     }
 
     private void Update() {
-        //TODO : swith input
-        // if (Input.GetKeyDown(InputSaveManager.instance.GetKey("Respawn"))) {
-        //     GameManager.instance.Respawn();
-        // }
+        if (Input.GetKeyDown(InputSaveManager.instance.GetKey("Respawn"))) {
+            GameManager.instance.Respawn();
+        }
 
-        // if (Input.GetKey(KeyCode.C)) {
-        //     for (int i = 0; i != 10; i++) {
-        //         if (Input.GetKeyDown(KeyCode.Keypad0 + i) && transform.childCount > i) {
-        //             TriggerCheckpoint(transform.GetChild(i));
-        //             Respawn();
-        //         }
-        //     }
-        // }
+        if (Input.GetKey(KeyCode.C)) {
+            for (int i = 0; i != 10; i++) {
+                if (Input.GetKeyDown(KeyCode.Keypad0 + i) && transform.childCount > i) {
+                    TriggerCheckpoint(transform.GetChild(i));
+                    Respawn();
+                }
+            }
+        }
     }
 
     public void TriggerCheckpoint(Transform checkpoint)

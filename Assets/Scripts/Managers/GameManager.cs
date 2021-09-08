@@ -124,10 +124,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TODO : swith input
-        // if (cook && Input.GetKey(KeyCode.B))
-        //     if (Input.GetKeyDown(KeyCode.N))
-        //         cook.SetActive(!cook.activeInHierarchy);
+        if (cook && Input.GetKey(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.N))
+                cook.SetActive(!cook.activeInHierarchy);
         timer += Time.deltaTime;
         PrintTimer();
     }

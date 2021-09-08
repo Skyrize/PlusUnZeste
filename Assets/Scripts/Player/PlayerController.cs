@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,9 +27,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TODO : swith input
-        // if (Input.GetKeyDown(KeyCode.F12))
-        //     GetComponent<HealthComponent>().SetMaxHealth(1000000);
+        if (Input.GetKeyDown(KeyCode.F12))
+            GetComponent<HealthComponent>().SetMaxHealth(1000000);
         if (isBumped) {
             movement.direction = Vector3.zero;
             if (currentDisableTimer > 0) {
@@ -41,17 +39,11 @@ public class PlayerController : MonoBehaviour
                 isBumped = false;
             }
         } else {
-        //TODO : swith input
-            // movement.direction.x = Input.GetAxis("Horizontal");
-            // movement.direction.z = Input.GetAxis("Vertical");
-            // movement.direction.Normalize();
+            movement.direction.x = Input.GetAxis("Horizontal");
+            movement.direction.z = Input.GetAxis("Vertical");
+            movement.direction.Normalize();
             // movement.pivotInput = Input.GetAxis("Pivot");
         }
-    }
-
-    public void AskMove(InputAction.CallbackContext context)
-    {
-
     }
 
     public void UpdateVisibility(bool value)

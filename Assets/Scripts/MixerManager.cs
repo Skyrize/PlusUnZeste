@@ -19,16 +19,19 @@ public class MixerManager : MonoBehaviour
     
     public void SetMasterVolume(float value)
     {
+        Debug.Log($"Called 1 : {value}");
         SetVolume("MasterVolume", value);
     }
     
     public void SetEffectsVolume(float value)
     {
+        Debug.Log($"Called 2 : {value}");
         SetVolume("EffectsVolume", value);
     }
     
     public void SetMusicVolume(float value)
     {
+        Debug.Log($"Called 3 : {value}");
         SetVolume("MusicVolume", value);
     }
 }
