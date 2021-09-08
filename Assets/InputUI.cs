@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+#if UNITY_EDITOR
 using UnityEditor.SceneManagement;
+#endif
 
 public class InputUI : MonoBehaviour
 {

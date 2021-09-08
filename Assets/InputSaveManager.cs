@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputSaveManager : MonoBehaviour
 {
     public InputSaveObject inputSave;
+    public List<InputUI> inputUIS;
     // public Transform inputUIContainer;
     // public GameObject inputUIPrefab;
 
@@ -38,6 +39,14 @@ public class InputSaveManager : MonoBehaviour
         return inputSave.GetKey(inputName);
     }
 
+    public void GenerateUI()
+    {
+        foreach (var item in inputUIS)
+        {
+            item.Generate();
+        }
+    }
+
     public void SetEnglishPreset()
     {
         inputSave.ChangeKey("Jump", KeyCode.Space);
@@ -47,6 +56,7 @@ public class InputSaveManager : MonoBehaviour
         inputSave.ChangeKey("Right", KeyCode.D);
         inputSave.ChangeKey("Respawn", KeyCode.R);
         inputSave.ChangeKey("Pause", KeyCode.Escape);
+        GenerateUI();
     }
 
     public void SetFrenchPreset()
@@ -58,6 +68,7 @@ public class InputSaveManager : MonoBehaviour
         inputSave.ChangeKey("Right", KeyCode.D);
         inputSave.ChangeKey("Respawn", KeyCode.R);
         inputSave.ChangeKey("Pause", KeyCode.Escape);
+        GenerateUI();
     }
  
 }
