@@ -40,18 +40,19 @@ public class PlayerController : MonoBehaviour
             if (jump.IsGrounded) {
                 isBumped = false;
             }
-        } else {
-        //TODO : swith input
-            // movement.direction.x = Input.GetAxis("Horizontal");
-            // movement.direction.z = Input.GetAxis("Vertical");
-            // movement.direction.Normalize();
-            // movement.pivotInput = Input.GetAxis("Pivot");
         }
     }
 
     public void AskMove(InputAction.CallbackContext context)
     {
-
+        if (isBumped)
+            return;
+        Debug.Log(context);
+        var test = context.ReadValue<Vector2>();
+        Debug.Log(test);
+        movement.direction.x = test.x;
+        movement.direction.z = test.y;
+        movement.direction.Normalize();
     }
 
     public void UpdateVisibility(bool value)
