@@ -39,8 +39,15 @@ public class PlayerController : MonoBehaviour
                 isBumped = false;
             }
         } else {
-            movement.direction.x = Input.GetAxis("Horizontal");
-            movement.direction.z = Input.GetAxis("Vertical");
+            // movement.direction.x = Input.GetAxis("Horizontal");
+            // movement.direction.z = Input.GetAxis("Vertical");
+            // movement.direction.Normalize();
+            float forward = Input.GetKey(InputSaveManager.instance.GetKey("Forward")) ? 1 : 0;
+            float backward = Input.GetKey(InputSaveManager.instance.GetKey("Backward")) ? 1 : 0;
+            float left = Input.GetKey(InputSaveManager.instance.GetKey("Left")) ? 1 : 0;
+            float right = Input.GetKey(InputSaveManager.instance.GetKey("Right")) ? 1 : 0;
+            movement.direction.x = right - left;
+            movement.direction.z = forward - backward;
             movement.direction.Normalize();
             // movement.pivotInput = Input.GetAxis("Pivot");
         }
