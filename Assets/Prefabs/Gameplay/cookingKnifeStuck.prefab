@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cookingKnifeStuck
       objectReference: {fileID: 0}
+    - target: {fileID: 5372271089138388590, guid: dbf92a8b85d2639479e315023de929b8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 9133986382605771579, guid: dbf92a8b85d2639479e315023de929b8, type: 3}
       propertyPath: m_UseGravity
       value: 0
