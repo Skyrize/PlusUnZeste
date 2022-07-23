@@ -122,6 +122,6 @@ public class CameraController : MonoBehaviour
         xInput += Input.GetAxisRaw("Mouse X") * Time.deltaTime * speed;
         transform.rotation = Quaternion.Euler(0, xInput, 0);
         // CheckObstruction();
-        CheckObstructionShader();
+        // CheckObstructionShader();
     } 
 }

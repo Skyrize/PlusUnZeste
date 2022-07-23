@@ -7,7 +7,7 @@ public class SphereMovement : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float speed = 3;
-    [SerializeField] private float pivotSpeed = 1;
+    // [SerializeField] private float pivotSpeed = 1;
     [Header("References")]
     private Rigidbody rb = null;
     [SerializeField] private Transform pivot = null;

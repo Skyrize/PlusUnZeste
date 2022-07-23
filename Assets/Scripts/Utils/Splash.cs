@@ -7,14 +7,14 @@ public class Splash : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform audioSource = null;
 
-    private AudioManager audioManager = null;
+    private AudioComponent audioManager = null;
 
     private Transform swimmer = null;
     private float timer = 0;
     private float clipLenght = 0;
 
     private void Awake() {
-        audioManager = audioSource.GetComponent<AudioManager>();
+        audioManager = audioSource.GetComponent<AudioComponent>();
     }
 
     public void PlayDiveAt(Transform target)

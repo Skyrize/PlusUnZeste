@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-[RequireComponent(typeof(AudioManager))]
+[RequireComponent(typeof(AudioComponent))]
 public class MusicManager : MonoBehaviour
 {
     [Header("Settings")]
@@ -11,7 +11,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private float fadeInDuration = 0.4f;
     [SerializeField] private string levelMusic = "GameMusic1";
     private string current = "";
-    private AudioManager audioManager = null;
+    private AudioComponent audioManager = null;
     private AudioSource audioSource = null;
 
     public void PlayInstant(string name) {
@@ -41,7 +41,7 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
-        audioManager = GetComponent<AudioManager>();
+        audioManager = GetComponent<AudioComponent>();
         audioSource = GetComponent<AudioSource>();
         audioManager.Play(levelMusic);
     }
