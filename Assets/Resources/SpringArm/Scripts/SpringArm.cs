@@ -17,6 +17,7 @@ public class SpringArm : MonoBehaviour
     public float m_collisionCastSize = 0.3f;
     public float m_collisionSmoothTime = 0.05f;
     public LayerMask m_collisionLayerMask = ~0;
+    public float m_upRayOffset = 0.3f;
 
     [Space]
     [Header("Debugging \n--------------")]
@@ -40,7 +41,7 @@ public class SpringArm : MonoBehaviour
     void Initialize()
     {
         m_targetBasePos = m_target.localPosition;
-        m_direction = m_targetBasePos;
+        m_direction = Vector3.up * m_upRayOffset + m_targetBasePos;
         m_targetArmLength = m_direction.magnitude;
         m_direction.Normalize();
     }
@@ -61,7 +62,6 @@ public class SpringArm : MonoBehaviour
     private void Update()
     {
         Vector3 direction = transform.TransformDirection(m_direction);
-        Debug.DrawRay(transform.position, direction, Color.red, Time.deltaTime);
         collided = Physics.SphereCast(transform.position, m_collisionCastSize, direction, out m_hit, m_targetArmLength, m_collisionLayerMask);
         if (collided)
         {
@@ -83,15 +83,20 @@ public class SpringArm : MonoBehaviour
     {
         if(!m_visualDebugging)
             return;
+        Vector3 startPos = transform.position + Vector3.up * m_upRayOffset;
         if (collided)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.TransformPoint(m_targetPosition), m_collisionCastSize);
+            Vector3 targetWorldPos = transform.TransformPoint(m_targetPosition);
+            Gizmos.DrawWireSphere(targetWorldPos, m_collisionCastSize);
+            Gizmos.DrawLine(startPos, targetWorldPos);
         }
         else
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.TransformPoint(m_targetBasePos), m_collisionCastSize);
+            Vector3 targetBaseWorldPos = transform.TransformPoint(m_targetBasePos);
+            Gizmos.DrawWireSphere(targetBaseWorldPos, m_collisionCastSize);
+            Gizmos.DrawLine(startPos, targetBaseWorldPos);
         }
     }
 #endif

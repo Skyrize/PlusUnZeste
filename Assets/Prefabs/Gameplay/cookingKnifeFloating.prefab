@@ -74,4 +74,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a93f1e883e01324783b3f776f0fc83a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  properties: 01000000
+  Ejactable: 0
+  Floatable: 0

@@ -27,24 +27,13 @@ public class EjectOnTouch : MonoBehaviour
         GameProperty properties = other.gameObject.GetComponent<GameProperty>();
         Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
 
-        if (properties && rb && hitBoxes.Contains(contactPoint.thisCollider) == true && properties.HasProperty(GameProperty.Property.EJECTABLE)) {
+        if (rb && hitBoxes.Contains(contactPoint.thisCollider) == true /*TODO rework*/ && properties && properties.Ejactable) {
             Debug.Log("Eject");
             StartCoroutine(ToggleEject());
-            rb.AddForce(-contactPoint.normal * ejectionForce, ForceMode.Impulse);
+            Vector3 ejection = (rb.transform.position - contactPoint.point).normalized * ejectionForce;
+            rb.AddForce(ejection, ForceMode.Impulse);
         }
     }
-
-    // private void OnTriggerEnter(Collider other) {
-    //     GameProperty properties = other.gameObject.GetComponent<GameProperty>();
-    //     Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-
-    //     if (properties && rb && properties.HasProperty(GameProperty.Property.EJECTABLE)) {
-    //         Vector3 direction = other.gameObject.transform.position - transform.position;
-    //         direction.Normalize();
-    //         rb.AddForce(direction * ejectionForce, ForceMode.Impulse);
-    //     }
-        
-    // }
 
     private void Awake() {
         if (hitBoxes.Count == 0)

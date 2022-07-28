@@ -7,7 +7,9 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private TMPro.TMP_Text timerUI;
+    [SerializeField] private GameObject m_player;
+    [SerializeField] private UIFillBar m_playerHealthBar;
+    [SerializeField] private CheckpointManager m_checkpointManager;
     [Header("Events")]
     [SerializeField] private UnityEvent onLevelStart = new UnityEvent();
     [SerializeField] private UnityEvent onWin = new UnityEvent();
@@ -16,28 +18,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UnityEvent onRespawnCheckpoint = new UnityEvent();
     [SerializeField] private UnityEvent onRestart = new UnityEvent();
 
-    GameObject cook;
-
-    static private GameManager _instance = null;
-    static public GameManager instance {
-        get {
-            if (_instance == null)
-                Debug.LogException(new System.Exception("Asking for instance too early (awake)"));
-            return GameManager._instance;
-        }
-
-        set {
-            if (_instance) {
-                Debug.LogException(new System.Exception("More thand one GameManager in the Scene"));
-            } else {
-                _instance = value;
-            }
-        }
+    void InitializePlayerEvents()
+    {
+        HealthComponent playerHealthComp = m_player.GetComponentInChildren<HealthComponent>();
+        playerHealthComp.onDeathEvent.AddListener(Lose);
+        playerHealthComp.onHealthRatioChanged.AddListener(m_playerHealthBar.SetFill);
     }
-    private void Awake() {
-        instance = this;
-        cook = FindObjectOfType<CookerController>(true)?.gameObject;
-        // DontDestroyOnLoad(this.gameObject);
+
+    private void Awake()
+    {
+        InitializePlayerEvents();
+        m_checkpointManager.onRespawnKeyPressed.AddListener(Respawn);
     }
 
     public void DisableMouse()
@@ -95,16 +86,18 @@ public class GameManager : MonoBehaviour
         onRestart.Invoke();
     }
 
+    [SerializeField] private TMPro.TMP_Text timerUI; //TODO move in other class
     // Start is called before the first frame update
     void Start()
     {
         onLevelStart.Invoke();
-        timerUI.text = "00:00";
         var savers = FindObjectsOfType<PlayerPrefBinder>(true);
         foreach (var item in savers)
         {
             item.Load();
         }
+
+        timerUI.text = "00:00";
     }
 
     float timer = 0;
@@ -124,9 +117,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cook && Input.GetKey(KeyCode.B))
-            if (Input.GetKeyDown(KeyCode.N))
-                cook.SetActive(!cook.activeInHierarchy);
         timer += Time.deltaTime;
         PrintTimer();
     }

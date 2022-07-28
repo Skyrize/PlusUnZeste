@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class RandomParticlesPlayer : MonoBehaviour
 {
-    [SerializeField]
     ParticleSystem[] particles;
     [SerializeField]
     float waitTimer = 1f;
     [SerializeField]
     bool canMultiplay = false;
 
-    [SerializeField] bool isPlaying = false;
+    bool isPlaying = false;
 
     private void Awake() {
         particles = transform.GetComponentsInDirectChildren<ParticleSystem>();

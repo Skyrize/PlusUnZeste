@@ -12,7 +12,7 @@ public class JumpComponent : MonoBehaviour
     [SerializeField] private float sideOffset = .1f;
     [SerializeField] private float sideRadius = .3f;
     [SerializeField] private LayerMask groundMask;
-    [SerializeField] public UnityEvent onJump = new UnityEvent();
+    [HideInInspector] public UnityEvent onJump = new UnityEvent();
     [Header("References")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform pivot;

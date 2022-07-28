@@ -10,9 +10,11 @@ public class CheckpointManager : MonoBehaviour
     Rigidbody rb;
     public Transform CurrentCheckpoint => currentCheckpoint;
     public UnityEvent onTrigger = new UnityEvent();
+    [HideInInspector] public UnityEvent onRespawnKeyPressed = new UnityEvent();
     CameraController cam;
     Vector3 baseInertia;
 
+//TODO : rework
     private void Awake() {
         currentCheckpoint = transform.Find("Start Checkpoint");
         if (!currentCheckpoint) {
@@ -25,7 +27,7 @@ public class CheckpointManager : MonoBehaviour
 
     private void Update() {
         if (Input.GetKeyDown(InputSaveManager.instance.GetKey("Respawn"))) {
-            GameManager.instance.Respawn();
+            onRespawnKeyPressed.Invoke();
         }
 
         if (Input.GetKey(KeyCode.C)) {

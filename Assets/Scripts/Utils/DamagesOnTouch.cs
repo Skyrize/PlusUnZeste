@@ -12,7 +12,7 @@ public class DamagesOnTouch : MonoBehaviour
     [Header("References")]
     [SerializeField]
     private List<Collider> hitBoxes;
-    public UnityEvent onTouch = new UnityEvent();
+    public UnityEvent<GameObject, float> onTouch = new UnityEvent<GameObject, float>();
 
     IEnumerator Cooldown()
     {
@@ -21,19 +21,22 @@ public class DamagesOnTouch : MonoBehaviour
         isCooldown = true;
     }
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnCollisionEnter(Collision other)
+    {
         ContactPoint contactPoint = other.GetContact(0);
         HealthComponent otherHealth = other.gameObject.GetComponent<HealthComponent>();
 
         if (otherHealth != null && hitBoxes.Contains(contactPoint.thisCollider) && isCooldown == true) {
-            StartCoroutine(Cooldown());
+            if (cooldown != 0.0f)
+                StartCoroutine(Cooldown());
             otherHealth.ReduceHealth(damageAmount);
-            onTouch.Invoke();
+            onTouch.Invoke(other.gameObject, damageAmount);
         }
         
     }
 
-    private void Awake() {
+    private void Awake()
+    {
         if (hitBoxes.Count == 0)
             hitBoxes.AddRange(GetComponentsInChildren<Collider>());
     }

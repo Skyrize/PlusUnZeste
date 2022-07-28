@@ -66,7 +66,7 @@ public class Water : MonoBehaviour
         var properties = other.GetComponent<GameProperty>();
         Rigidbody otherBody = other.GetComponent<Rigidbody>();
         
-        if (properties && properties.HasProperty(GameProperty.Property.FLOAT) && otherBody != null && submergedEntities.Find(entity => entity.entityBody == otherBody) == null) {
+        if (properties && properties.Floatable && otherBody != null && submergedEntities.Find(entity => entity.entityBody == otherBody) == null) {
             submergedEntities.Add(new SubmergedEntity(otherBody, ripplePrefab));
             otherBody.drag = waterDrag;
             otherBody.angularDrag = waterAngularDrag;
@@ -95,7 +95,7 @@ public class Water : MonoBehaviour
         var properties = other.GetComponent<GameProperty>();
         Rigidbody otherBody = other.GetComponent<Rigidbody>();
         
-        if (properties && properties.HasProperty(GameProperty.Property.FLOAT) && otherBody != null) {
+        if (properties && properties.Floatable && otherBody != null) {
             SubmergedEntity item = submergedEntities.Find((entity) => entity.entityBody == otherBody);
 
             if (item != null) {

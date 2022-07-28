@@ -89375,10 +89375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41f78a6464f1ff4b835df4aad200769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: []
   waitTimer: 0
   canMultiplay: 0
-  isPlaying: 0
 --- !u!1 &6890970342351246771
 GameObject:
   m_ObjectHideFlags: 0
