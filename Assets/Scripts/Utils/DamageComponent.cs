@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class DamageComponent : MonoBehaviour
 {
     [Header("Damage on touch")]
-    [SerializeField] private float m_damageAmount = 1;
+    [SerializeField] private float m_damageOnTouch = 13;
     [SerializeField] private float m_cooldown = 0.75f;
     private bool m_isOnCooldown = false;
 
@@ -55,7 +55,6 @@ public class DamageComponent : MonoBehaviour
 
         if (otherHealth && !m_isOnCooldown) {
             StartCoroutine(DamageOnTouch(otherHealth));
-            Damage(otherHealth);
         }
     }
 
@@ -63,7 +62,7 @@ public class DamageComponent : MonoBehaviour
     {
         while (true)
         {
-            Damage(_target);
+            Damage(_target, m_damagePerTick);
 #if UNITY_EDITOR
             yield return new WaitForSeconds(1.0f / m_tickPerSecond);
 #else
@@ -74,7 +73,7 @@ public class DamageComponent : MonoBehaviour
 
     IEnumerator DamageOnTouch(HealthComponent _target)
     {
-        Damage(_target);
+        Damage(_target, m_damageOnTouch);
         m_isOnCooldown = true;
 #if UNITY_EDITOR
         yield return new WaitForSeconds(m_cooldown);
@@ -84,9 +83,9 @@ public class DamageComponent : MonoBehaviour
         m_isOnCooldown = false;
     }
 
-    void Damage(HealthComponent _target)
+    void Damage(HealthComponent _target, float _damageAmount)
     {
-        _target.ReduceHealth(m_damageAmount);
-        onDamage.Invoke(_target.gameObject, m_damageAmount);
+        _target.ReduceHealth(_damageAmount);
+        onDamage.Invoke(_target.gameObject, _damageAmount);
     }
 }

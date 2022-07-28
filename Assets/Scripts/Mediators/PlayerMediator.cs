@@ -14,6 +14,7 @@ public class PlayerMediator : MonoBehaviour
     [SerializeField] AnimationCurve m_shakeOnDamageCurve;
     [SerializeField] CameraShakeInstance m_baseCamShakeOnDamage;
     [SerializeField] float m_inertiaDecreaseOnWin = 6;
+    [SerializeField] float m_inertiaDecreaseOnDeath = 6;
     [Space]
     [Header("References")]
     [SerializeField] HealthComponent m_healthComp;
@@ -63,19 +64,21 @@ public class PlayerMediator : MonoBehaviour
         //Todo : reword when I add new input system
         // PlayerInput.DeactivateInput
         ToggleControllers(false);
+        m_rigidBodyAnimationComp.SlowDown(m_inertiaDecreaseOnDeath);
     }
 
-    void OnWin()
+    public void OnWin()
     {
         m_rigidBodyComp.useGravity = false;
-        m_rigidBodyAnimationComp.SlowDown(6);
+        m_rigidBodyAnimationComp.SlowDown(m_inertiaDecreaseOnWin);
         ToggleControllers(false);
     }
 
-    void OnRespawn()
+    public void OnRespawn()
     {
         ToggleControllers(true);
         m_rigidBodyComp.isKinematic = false;
+        m_rigidBodyAnimationComp.Release();
     }
 
     void OnJump()

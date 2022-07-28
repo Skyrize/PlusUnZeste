@@ -10,7 +10,6 @@ public class CheckpointManager : MonoBehaviour
     Rigidbody rb;
     public Transform CurrentCheckpoint => currentCheckpoint;
     public UnityEvent onTrigger = new UnityEvent();
-    [HideInInspector] public UnityEvent onRespawnKeyPressed = new UnityEvent();
     CameraController cam;
     Vector3 baseInertia;
 
@@ -26,11 +25,8 @@ public class CheckpointManager : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetKeyDown(InputSaveManager.instance.GetKey("Respawn"))) {
-            onRespawnKeyPressed.Invoke();
-        }
 
-        if (Input.GetKey(KeyCode.C)) {
+        if (Input.GetKey(KeyCode.C)) { //TODO : remove hack
             for (int i = 0; i != 10; i++) {
                 if (Input.GetKeyDown(KeyCode.Keypad0 + i) && transform.childCount > i) {
                     TriggerCheckpoint(transform.GetChild(i));
@@ -42,8 +38,7 @@ public class CheckpointManager : MonoBehaviour
 
     public void TriggerCheckpoint(Transform checkpoint)
     {
-        // Debug.Log($"new checkpoint {checkpoint.name}");
-            //TODO : save state of game by retrieving "saveComponents" which capture value of each dynamics objects and allow to reset them
+        //TODO : save state of game by retrieving "saveComponents" which capture value of each dynamics objects and allow to reset them
         playerHealthSave = player.GetComponent<HealthComponent>().Health;
         onTrigger.Invoke();
         currentCheckpoint = checkpoint;
@@ -54,6 +49,7 @@ public class CheckpointManager : MonoBehaviour
     public void Respawn()
     {
         cam.LookAt(player.position + currentCheckpoint.forward);
+        //TODO : make proper player snapshot save & load
         player.position = currentCheckpoint.position;
         player.transform.forward = currentCheckpoint.forward;
         player.transform.up = -currentCheckpoint.right;

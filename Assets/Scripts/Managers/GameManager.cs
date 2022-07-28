@@ -6,29 +6,53 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private GameObject m_player;
-    [SerializeField] private UIFillBar m_playerHealthBar;
+    [Header("Game Settings")]
+    [SerializeField] string m_nextLevel = "ERROR_UNSET_NEXT_LEVEL";
+    [SerializeField] string m_winAudioName = "Angels";
+    [Space]
+    [Header("Gameplay References")]
+    [SerializeField] private PlayerMediator m_playerMediator;
+    [SerializeField] private HealthComponent m_playerHealthComp;
+    [SerializeField] private SceneManager m_sceneManager;
+    [SerializeField] private AudioComponent m_audioComp;
+    [SerializeField] private OnTouchEvent m_winZone;
     [SerializeField] private CheckpointManager m_checkpointManager;
-    [Header("Events")]
-    [SerializeField] private UnityEvent onLevelStart = new UnityEvent();
-    [SerializeField] private UnityEvent onWin = new UnityEvent();
-    [SerializeField] private UnityEvent onLose = new UnityEvent();
-    [SerializeField] private UnityEvent onRespawn = new UnityEvent();
-    [SerializeField] private UnityEvent onRespawnCheckpoint = new UnityEvent();
-    [SerializeField] private UnityEvent onRestart = new UnityEvent();
+    [Space]
+    [Header("UI References")]
+    [SerializeField] private UIFillBar m_playerHealthBar;
+    [SerializeField] private UIFade m_winUIFade;
+    [SerializeField] private UIFade m_respawnUIFade;
 
-    void InitializePlayerEvents()
+    void InitializeUIEvents()
     {
-        HealthComponent playerHealthComp = m_player.GetComponentInChildren<HealthComponent>();
-        playerHealthComp.onDeathEvent.AddListener(Lose);
-        playerHealthComp.onHealthRatioChanged.AddListener(m_playerHealthBar.SetFill);
+        m_playerHealthComp.onHealthRatioChanged.AddListener(m_playerHealthBar.SetFill);
+    }
+
+    void InitializeWinEvents()
+    {
+        m_winZone.onTouch.AddListener((GameObject _obj) => {
+            m_audioComp.Play(m_winAudioName);
+            m_winUIFade.Play();
+            m_playerMediator.OnWin();
+        });
+        m_winUIFade.onFadeInEnd.AddListener(() => m_sceneManager.LoadScene(m_nextLevel));
+    }
+
+    void InitializeRespawnEvents()
+    {
+        m_playerHealthComp.onDeathEvent.AddListener(m_respawnUIFade.Play);
+        m_respawnUIFade.onFadeInEnd.AddListener(() => {
+            m_checkpointManager.Respawn();
+            m_playerMediator.OnRespawn();
+        });
     }
 
     private void Awake()
     {
-        InitializePlayerEvents();
-        m_checkpointManager.onRespawnKeyPressed.AddListener(Respawn);
+        InitializeUIEvents();
+        InitializeWinEvents();
+        InitializeRespawnEvents();
+        DisableMouse();
     }
 
     public void DisableMouse()
@@ -50,11 +74,11 @@ public class GameManager : MonoBehaviour
 
 	public void Quit () 
 	{
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
-		#else
+#else
 		Application.Quit();
-		#endif
+#endif
 	}
 
     public void UnfreezeTime()
@@ -62,35 +86,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void Win()
-    {
-        onWin.Invoke();
-    }
-    public void Lose()
-    {
-        onLose.Invoke();
-    }
-
-    public void Respawn()
-    {
-        onRespawn.Invoke();
-    }
-
-    public void RespawnCheckpoint()
-    {
-        onRespawnCheckpoint.Invoke();
-    }
-
-    public void Restart()
-    {
-        onRestart.Invoke();
-    }
-
     [SerializeField] private TMPro.TMP_Text timerUI; //TODO move in other class
     // Start is called before the first frame update
     void Start()
     {
-        onLevelStart.Invoke();
+        //TODO : move in save system
         var savers = FindObjectsOfType<PlayerPrefBinder>(true);
         foreach (var item in savers)
         {
@@ -119,5 +119,9 @@ public class GameManager : MonoBehaviour
     {
         timer += Time.deltaTime;
         PrintTimer();
+        
+        if (Input.GetKeyDown(InputSaveManager.instance.GetKey("Respawn"))) {
+            m_sceneManager.ReloadCurrentScene();
+        }
     }
 }

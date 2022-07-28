@@ -100,7 +100,7 @@ public class Level1Cinematic : MonoBehaviour
         playerBody.GetComponent<JumpComponent>().Jump(playerJump);
 
         yield return new WaitForSeconds(recoverTimer);
-        playerBody.GetComponent<RigidbodyAnimation>().SlowDown();
+        playerBody.GetComponent<RigidbodyAnimation>().SlowDown(100);
         psDrop.Play();
         yield return new WaitForSeconds(dropTimer);
 

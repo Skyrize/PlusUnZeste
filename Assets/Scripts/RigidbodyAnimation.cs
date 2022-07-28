@@ -10,6 +10,8 @@ public class RigidbodyAnimation : MonoBehaviour
     Rigidbody rb;
     float baseDrag = 0;
     float baseAngularDrag = 0;
+    Tween m_dragTweenAnim;
+    Tween m_angularDragTweenAnim;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -17,19 +19,18 @@ public class RigidbodyAnimation : MonoBehaviour
         baseAngularDrag = rb.angularDrag;
     }
 
-    public void SlowDown()
-    {
-        DOTween.To(() => rb.angularDrag, (x) => rb.angularDrag = x, endValue, duration);
-        DOTween.To(() => rb.drag, (x) => rb.drag = x, endValue, duration);
-    }
     public void SlowDown(float value)
     {
-        DOTween.To(() => rb.angularDrag, (x) => rb.angularDrag = x, value, duration);
-        DOTween.To(() => rb.drag, (x) => rb.drag = x, value, duration);
+        m_angularDragTweenAnim?.Kill();
+        m_angularDragTweenAnim = DOTween.To(() => baseAngularDrag, (x) => rb.angularDrag = x, value, duration);
+        m_dragTweenAnim?.Kill();
+        m_dragTweenAnim = DOTween.To(() => baseDrag, (x) => rb.drag = x, value, duration);
     }
 
     public void Release()
     {
+        m_angularDragTweenAnim?.Kill();
+        m_dragTweenAnim?.Kill();
         rb.angularDrag = baseAngularDrag;
         rb.drag = baseDrag;
     }

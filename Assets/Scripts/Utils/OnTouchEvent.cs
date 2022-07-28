@@ -16,7 +16,7 @@ public class OnTouchEvent : MonoBehaviour
     private List<string> tags = null;
 
     [Header("Events")]
-    [SerializeField] private CollisionEvent onTouch = new CollisionEvent();
+    [SerializeField] public CollisionEvent onTouch = new CollisionEvent();
 
     private void OnCollisionEnter(Collision other) {
         if (useTag) {

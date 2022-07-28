@@ -54,7 +54,7 @@ public class InputSaveManager : MonoBehaviour
         inputSave.ChangeKey("Backward", KeyCode.S);
         inputSave.ChangeKey("Left", KeyCode.A);
         inputSave.ChangeKey("Right", KeyCode.D);
-        inputSave.ChangeKey("Respawn", KeyCode.R);
+        inputSave.ChangeKey("Restart", KeyCode.R);
         inputSave.ChangeKey("Pause", KeyCode.Escape);
         GenerateUI();
     }
@@ -66,7 +66,7 @@ public class InputSaveManager : MonoBehaviour
         inputSave.ChangeKey("Backward", KeyCode.S);
         inputSave.ChangeKey("Left", KeyCode.Q);
         inputSave.ChangeKey("Right", KeyCode.D);
-        inputSave.ChangeKey("Respawn", KeyCode.R);
+        inputSave.ChangeKey("Restart", KeyCode.R);
         inputSave.ChangeKey("Pause", KeyCode.Escape);
         GenerateUI();
     }
