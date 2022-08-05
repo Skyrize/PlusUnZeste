@@ -12,7 +12,6 @@ public class BurnFeedbackComponent : FeedbackComponent
 
     override public void PlayFeedback(GameObject _target)
     {
-        transform.position = _target.transform.position;
         if (m_randomParticlesPlayer) //TODO : remove when set
             m_randomParticlesPlayer.PlayRandomAt(_target.transform.position + m_particlePlayOffset);
         if (m_audioComponent) //TODO : remove when set

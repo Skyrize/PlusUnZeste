@@ -5,38 +5,34 @@ using UnityEngine;
 public class EjectOnTouch : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private float ejectionForce = 3;
-    [SerializeField] private float ejectionTimer = .3f;
-    [Header("References")]
+    [SerializeField] private float m_ejectionForce = 3;
+    [SerializeField] private float m_ejectionTimer = .3f;
     [SerializeField]
-    private List<Collider> hitBoxes;
-    [SerializeField] bool canEject = true;
+    LayerMask m_hitBoxLayerMask;
+    [SerializeField] bool m_isOnCooldown = true;
 
-    private IEnumerator ToggleEject()
+    public IEnumerator Eject(Rigidbody _targetRb, Vector3 _direction)
     {
-        canEject = false;
-        yield return new WaitForSeconds(ejectionTimer);
-        canEject = true;
+        Vector3 ejection = _direction * m_ejectionForce;
+        _targetRb.AddForce(ejection, ForceMode.Impulse);
+        m_isOnCooldown = true;
+        yield return new WaitForSeconds(m_ejectionTimer);
+        m_isOnCooldown = false;
     }
 
-    private void OnCollisionEnter(Collision other) {
-        if (!canEject) {
+    private void OnCollisionEnter(Collision _other) {
+        if (m_isOnCooldown) {
             return;
         }
-        ContactPoint contactPoint = other.GetContact(0);
-        GameProperty properties = other.gameObject.GetComponent<GameProperty>();
-        Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+        ContactPoint contactPoint = _other.GetContact(0);
+        if ((m_hitBoxLayerMask.value & (1 << contactPoint.thisCollider.gameObject.layer)) > 0)
+        {
+            GameProperty properties = _other.gameObject.GetComponent<GameProperty>();
+            Rigidbody rb = _other.gameObject.GetComponent<Rigidbody>();
 
-        if (rb && hitBoxes.Contains(contactPoint.thisCollider) == true /*TODO rework*/ && properties && properties.Ejactable) {
-            Debug.Log("Eject");
-            StartCoroutine(ToggleEject());
-            Vector3 ejection = (rb.transform.position - contactPoint.point).normalized * ejectionForce;
-            rb.AddForce(ejection, ForceMode.Impulse);
+            if (rb && properties && properties.Ejactable) {
+                StartCoroutine(Eject(rb, (rb.transform.position - contactPoint.point).normalized));
+            }
         }
-    }
-
-    private void Awake() {
-        if (hitBoxes.Count == 0)
-            hitBoxes.AddRange(GetComponentsInChildren<Collider>());
     }
 }

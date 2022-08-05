@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3763087134960095345}
   - component: {fileID: 5296903335795238658}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: BladeHitbox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3951195251186623025}
   - component: {fileID: 7378244622566737009}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: BladeHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,9 +104,9 @@ GameObject:
   - component: {fileID: 5876872503470485435}
   - component: {fileID: 5066353620580889405}
   - component: {fileID: 9133986382605771579}
-  - component: {fileID: 2005441699175285055}
-  - component: {fileID: 2507706902559028957}
-  - component: {fileID: 6400702390766640918}
+  - component: {fileID: 4021835263055433967}
+  - component: {fileID: 4687775416484908519}
+  - component: {fileID: 3669992217648896160}
   m_Layer: 0
   m_Name: cookingKnifeHit
   m_TagString: Walkable
@@ -212,7 +212,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2005441699175285055
+--- !u!114 &4021835263055433967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,11 +226,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ejectionForce: 2
   ejectionTimer: 0.3
-  hitBoxes:
-  - {fileID: 7378244622566737009}
-  - {fileID: 5296903335795238658}
+  m_hitBoxLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   canEject: 1
---- !u!114 &2507706902559028957
+--- !u!114 &4687775416484908519
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,14 +242,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c80546dceafcd468e29be412a45553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_damageAmount: 13
+  m_damageOnTouch: 13
   m_cooldown: 0.75
+  m_hitBoxLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   m_damagePerTick: 1
   m_tickPerSecond: 5
   onDamage:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6400702390766640918
+--- !u!114 &3669992217648896160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

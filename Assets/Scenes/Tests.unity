@@ -4034,6 +4034,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pizzaCutter Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 591362516612624437, guid: 08cd7746a0eb24249baec39874b46160, type: 3}
+      propertyPath: m_damageOnTouch
+      value: 100000000
+      objectReference: {fileID: 0}
     - target: {fileID: 648332872168040710, guid: 08cd7746a0eb24249baec39874b46160, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -9226,10 +9230,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -151.96
       objectReference: {fileID: 0}
-    - target: {fileID: 1177239657026026864, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1177239658735230565, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.266
@@ -9650,6 +9650,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 884437416}
+    - target: {fileID: 7254372563841773879, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7254372563841773879, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7898145823240499082, guid: 7354ae47d7f26594b9107e0e8a3943bf, type: 3}
       propertyPath: m_RenderAlignment
       value: 2
@@ -10627,10 +10635,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: bag (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6080605044599757003, guid: cf02de24018c690468264b2cf8d68653, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f15d02f6e7cd6cc4db778ec97f6d0a78, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf02de24018c690468264b2cf8d68653, type: 3}
 --- !u!4 &1176425238 stripped

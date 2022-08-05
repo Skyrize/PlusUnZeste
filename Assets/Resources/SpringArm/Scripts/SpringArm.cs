@@ -53,10 +53,6 @@ public class SpringArm : MonoBehaviour
         Initialize();
     }
 
-    private void OnValidate()
-    {
-        Initialize();
-    }
     bool collided = false;
 
     private void Update()
@@ -81,7 +77,7 @@ public class SpringArm : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if(!m_visualDebugging)
+        if(!Application.isPlaying || !m_visualDebugging)
             return;
         Vector3 startPos = transform.position + Vector3.up * m_upRayOffset;
         if (collided)

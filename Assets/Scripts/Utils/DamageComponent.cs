@@ -8,6 +8,8 @@ public class DamageComponent : MonoBehaviour
     [Header("Damage on touch")]
     [SerializeField] private float m_damageOnTouch = 13;
     [SerializeField] private float m_cooldown = 0.75f;
+    [SerializeField]
+    LayerMask m_hitBoxLayerMask;
     private bool m_isOnCooldown = false;
 
     [Header("Damage over time")]
@@ -28,7 +30,7 @@ public class DamageComponent : MonoBehaviour
         m_cooldownTimer = new WaitForSeconds(m_cooldown);
     }
 #endif
-    
+
     private void OnTriggerEnter(Collider other) {
         HealthComponent otherHealth = other.GetComponent<HealthComponent>();
 
@@ -51,10 +53,13 @@ public class DamageComponent : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         ContactPoint contactPoint = other.GetContact(0);
-        HealthComponent otherHealth = other.gameObject.GetComponent<HealthComponent>();
+        if ((m_hitBoxLayerMask.value & (1 << contactPoint.thisCollider.gameObject.layer)) > 0)
+        {
+            HealthComponent otherHealth = other.gameObject.GetComponent<HealthComponent>();
 
-        if (otherHealth && !m_isOnCooldown) {
-            StartCoroutine(DamageOnTouch(otherHealth));
+            if (otherHealth && !m_isOnCooldown) {
+                StartCoroutine(DamageOnTouch(otherHealth));
+            }
         }
     }
 

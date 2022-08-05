@@ -9,7 +9,7 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] float playerHealthSave = 0;
     Rigidbody rb;
     public Transform CurrentCheckpoint => currentCheckpoint;
-    public UnityEvent onTrigger = new UnityEvent();
+    [HideInInspector] public UnityEvent onTrigger = new UnityEvent();
     CameraController cam;
     Vector3 baseInertia;
 
@@ -40,6 +40,7 @@ public class CheckpointManager : MonoBehaviour
     {
         //TODO : save state of game by retrieving "saveComponents" which capture value of each dynamics objects and allow to reset them
         playerHealthSave = player.GetComponent<HealthComponent>().Health;
+        FeedbackManager.Instance.PlayFeedbackOfType(FeedbackType.CHECKPOINT, checkpoint.gameObject);
         onTrigger.Invoke();
         currentCheckpoint = checkpoint;
         cook.GetComponent<CookerController>().SaveState();

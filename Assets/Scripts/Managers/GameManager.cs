@@ -52,24 +52,6 @@ public class GameManager : MonoBehaviour
         InitializeUIEvents();
         InitializeWinEvents();
         InitializeRespawnEvents();
-        DisableMouse();
-    }
-
-    public void DisableMouse()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    public void FreezeTime()
-    {
-        Time.timeScale = 0;
-    }
-
-    public void EnableMouse()
-    {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
     }
 
 	public void Quit () 
@@ -80,11 +62,6 @@ public class GameManager : MonoBehaviour
 		Application.Quit();
 #endif
 	}
-
-    public void UnfreezeTime()
-    {
-        Time.timeScale = 1;
-    }
 
     [SerializeField] private TMPro.TMP_Text timerUI; //TODO move in other class
     // Start is called before the first frame update

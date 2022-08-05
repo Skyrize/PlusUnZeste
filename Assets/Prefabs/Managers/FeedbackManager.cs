@@ -6,7 +6,8 @@ public enum FeedbackType
 {
     BURN,
     SLASH,
-    BOING
+    BOING,
+    CHECKPOINT
 }
 
 public abstract class FeedbackComponent : MonoBehaviour

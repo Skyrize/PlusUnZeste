@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8860048728056108480}
   - component: {fileID: 2734467849889320836}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: BladeHitbox1 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403266331941525276}
   - component: {fileID: 7503071419090093659}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: BladeHitbox1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7813253050638474169}
   - component: {fileID: 6960464060573576518}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: BladeHitbox1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8440813752735512052}
   - component: {fileID: 1434836614563195329}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: BladeHitbox1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4538676098640306212}
   - component: {fileID: 6259161209990786508}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: BladeHitbox1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 449356292484058521}
   - component: {fileID: 2615932038858231054}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: BladeHitbox1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7969552988608618981}
   - component: {fileID: 5830767845077185143}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: BladeHitbox1 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5567748658745454315}
   - component: {fileID: 4469001061980459164}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: BladeHitbox1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

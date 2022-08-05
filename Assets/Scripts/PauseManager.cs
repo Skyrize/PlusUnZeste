@@ -5,22 +5,34 @@ using UnityEngine.Events;
 
 public class PauseManager : MonoBehaviour
 {
-    public UnityEvent onPause = new UnityEvent();
-    public UnityEvent onUnpause = new UnityEvent(); 
+    [Header("UI References")]
+    [SerializeField] GameObject m_optionsUI;
+    [SerializeField] GameObject m_pauseBackgroundUI;
+    [HideInInspector] public UnityEvent onPause = new UnityEvent();
+    [HideInInspector] public UnityEvent onUnpause = new UnityEvent(); 
 
-    public bool paused = false;
-
+    bool paused = false;
 
     public void Pause()
     {
-        onPause.Invoke();
         paused = true;
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+        m_optionsUI.SetActive(true);
+        m_pauseBackgroundUI.SetActive(true);
+        onPause.Invoke();
     }
 
     public void Unpause()
     {
-        onUnpause.Invoke();
         paused = false;
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        m_optionsUI.SetActive(false);
+        m_pauseBackgroundUI.SetActive(false);
+        onUnpause.Invoke();
     }
 
     // Update is called once per frame
@@ -28,12 +40,9 @@ public class PauseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(InputSaveManager.instance.GetKey("Pause"))) {
             if (paused) {
-                paused = false;
-                onUnpause.Invoke();
+                Unpause();
             } else {
-                paused = true;
-                onPause.Invoke();
-
+                Pause();
             }
         }
     }
